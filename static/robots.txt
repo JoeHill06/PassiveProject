@@ -4,7 +4,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://gradecalc.online/sitemap.xml
+Sitemap: https://www.gradecalc.online/sitemap.xml
 
 # Explicitly disallow the tools index page (noindexed)
 Disallow: /tools/
