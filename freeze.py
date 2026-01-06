@@ -19,5 +19,10 @@ if __name__ == '__main__':
     # Generate static files
     freezer.freeze()
 
+    # Copy CNAME file to root of docs folder for GitHub Pages custom domain
+    if os.path.exists('static/CNAME'):
+        shutil.copy('static/CNAME', 'docs/CNAME')
+        print("✅ CNAME file copied to docs/")
+
     print("✅ Static site generated successfully in 'docs' folder!")
     print(f"📁 Generated {len(list(freezer.all_urls()))} pages")
