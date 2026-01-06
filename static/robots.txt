@@ -7,4 +7,4 @@ Allow: /
 Sitemap: https://gradecalc.online/sitemap.xml
 
 # Explicitly disallow the tools index page (noindexed)
-Disallow: /tools$
+Disallow: /tools/
