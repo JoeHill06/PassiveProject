@@ -1,0 +1,376 @@
+{% extends "base.html" %}
+
+{% block title %}UK Degree Classification Calculator - Will I Get a First or 2:1?{% endblock %}
+
+{% block meta_description %}Find out if you'll get a First, 2:1, 2:2, or Third. Enter your module marks and year weightings (40/60, 33/67, etc.) for instant results.{% endblock %}
+
+{% block meta_keywords %}degree classification calculator, UK degree calculator, first class honours calculator, 2:1 calculator{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "UK Degree Classification Calculator",
+  "description": "Calculate your UK degree classification (First, 2:1, 2:2, Third)",
+  "applicationCategory": "EducationalApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>UK Degree Classification Calculator</h1>
+<p>Find out what degree classification you'll get (First, 2:1, 2:2, or Third) by entering your Year 2 and Year 3 module marks below. This free calculator works with all UK university weighting schemes including 40/60, 33/67, and final-year-only.</p>
+
+<div class="alert alert-info" style="margin: 2rem 0;">
+    <h3>UK Degree Classifications at a Glance</h3>
+    <ul style="margin: 0;">
+        <li><strong>First Class (1st):</strong> 70% or above</li>
+        <li><strong>Upper Second (2:1):</strong> 60-69%</li>
+        <li><strong>Lower Second (2:2):</strong> 50-59%</li>
+        <li><strong>Third Class:</strong> 40-49%</li>
+    </ul>
+    <p style="margin-top: 1rem; margin-bottom: 0;">Enter your marks below to see which classification you're on track for.</p>
+</div>
+
+<div class="calculator-section">
+    <h2>Enter Your Modules</h2>
+
+    <div class="form-group">
+        <label for="year2Weight">Year 2 Weighting (%)</label>
+        <select id="year2Weight">
+            <option value="0">0% (Year 2 doesn't count)</option>
+            <option value="20">20%</option>
+            <option value="25">25%</option>
+            <option value="30">30%</option>
+            <option value="33.33">33.33%</option>
+            <option value="40" selected>40%</option>
+        </select>
+        <small>How much Year 2 counts towards your final grade</small>
+    </div>
+
+    <div class="form-group">
+        <label for="year3Weight">Year 3 Weighting (%)</label>
+        <select id="year3Weight">
+            <option value="50">50%</option>
+            <option value="60" selected>60%</option>
+            <option value="66.67">66.67%</option>
+            <option value="70">70%</option>
+            <option value="75">75%</option>
+            <option value="80">80%</option>
+            <option value="100">100%</option>
+        </select>
+        <small>How much Year 3 counts towards your final grade</small>
+    </div>
+
+    <h3>Year 2 Modules</h3>
+    <div id="year2Modules" class="dynamic-inputs">
+        <div class="input-row">
+            <input type="text" placeholder="Module name (optional)" class="module-name">
+            <input type="number" placeholder="Mark (%)" min="0" max="100" step="0.1" class="module-mark" required>
+            <input type="number" placeholder="Credits" min="0" step="1" class="module-credits" required>
+            <button type="button" class="btn-remove" onclick="removeModule(this)">Remove</button>
+        </div>
+    </div>
+    <button type="button" class="btn btn-add" onclick="addModule('year2Modules')">+ Add Year 2 Module</button>
+
+    <h3>Year 3 Modules</h3>
+    <div id="year3Modules" class="dynamic-inputs">
+        <div class="input-row">
+            <input type="text" placeholder="Module name (optional)" class="module-name">
+            <input type="number" placeholder="Mark (%)" min="0" max="100" step="0.1" class="module-mark" required>
+            <input type="number" placeholder="Credits" min="0" step="1" class="module-credits" required>
+            <button type="button" class="btn-remove" onclick="removeModule(this)">Remove</button>
+        </div>
+    </div>
+    <button type="button" class="btn btn-add" onclick="addModule('year3Modules')">+ Add Year 3 Module</button>
+
+    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+        <button type="button" class="btn btn-primary btn-block" onclick="calculateDegree()">Calculate Classification</button>
+        <button type="button" class="btn btn-secondary btn-block" onclick="resetCalculator()">Reset</button>
+    </div>
+
+    <div id="results" class="results">
+        <h2>Your Results</h2>
+        <div id="resultsContent"></div>
+    </div>
+</div>
+
+<section class="content-section">
+    <h2>How UK Degree Classifications Work</h2>
+    <p>UK universities award undergraduate degrees based on your overall average percentage across all modules, with different years weighted differently. Most universities use the following classification boundaries:</p>
+
+    <ul>
+        <li><strong>First Class Honours (First or 1st):</strong> 70% or above</li>
+        <li><strong>Upper Second Class Honours (2:1):</strong> 60-69%</li>
+        <li><strong>Lower Second Class Honours (2:2):</strong> 50-59%</li>
+        <li><strong>Third Class Honours (Third or 3rd):</strong> 40-49%</li>
+        <li><strong>Fail:</strong> Below 40%</li>
+    </ul>
+
+    <h2>Common Weighting Schemes</h2>
+    <p>Different universities use different weighting schemes. The most common are:</p>
+
+    <ul>
+        <li><strong>40/60:</strong> Year 2 counts 40%, Year 3 counts 60%</li>
+        <li><strong>33/67:</strong> Year 2 counts 33.33%, Year 3 counts 66.67%</li>
+        <li><strong>25/75:</strong> Year 2 counts 25%, Year 3 counts 75%</li>
+        <li><strong>0/100:</strong> Only Year 3 counts (Year 2 must be passed but doesn't affect classification)</li>
+    </ul>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+        <div class="faq-item">
+            <h3>How do I calculate my degree classification?</h3>
+            <p>Your degree classification is calculated by taking a weighted average of all your module marks. Each module is weighted by its credit value, and then your year averages are weighted according to your university's scheme (e.g., 40% Year 2, 60% Year 3). Use the calculator above for instant results.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What marks do I need to get a First?</h3>
+            <p>To achieve a First Class degree, you typically need an overall average of 70% or above. Use our <a href="{{ url_for('module_grade_calculator') }}">module grade calculator</a> to find out what you need on your next exam to reach 70%.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is a 2:1 degree?</h3>
+            <p>A 2:1 (Upper Second Class Honours) means your overall average is between 60-69%. It's the most common degree classification and meets the minimum requirement for most graduate jobs and postgraduate courses.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does Year 1 count towards my degree?</h3>
+            <p>At most UK universities, Year 1 (Level 4) doesn't count towards your final degree classification. You typically need to pass Year 1 to progress, but only Years 2 and 3 (Levels 5 and 6) count towards your final grade.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I get a 2:1 with some low marks?</h3>
+            <p>Yes, it's possible to achieve a 2:1 (60-69% average) even if you have some modules with lower marks, as long as your weighted average across all modules falls within the 60-69% range. See our guide on <a href="{{ url_for('guide_degree_classifications') }}">how UK degree classifications work</a> for detailed examples.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I still get a First if I failed a module?</h3>
+            <p>It depends on your university's rules and how you compensated the failure. If you retook and passed, you can usually still achieve a First, though the retake mark may be capped. Check your university's specific regulations.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is this calculator accurate?</h3>
+            <p>This calculator uses standard UK degree classification boundaries and weighting schemes. However, always check with your university as some institutions may use slightly different rules or rounding methods.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+function addModule(containerId) {
+    const container = document.getElementById(containerId);
+    const newRow = document.createElement('div');
+    newRow.className = 'input-row';
+    newRow.innerHTML = `
+        <input type="text" placeholder="Module name (optional)" class="module-name">
+        <input type="number" placeholder="Mark (%)" min="0" max="100" step="0.1" class="module-mark" required>
+        <input type="number" placeholder="Credits" min="0" step="1" class="module-credits" required>
+        <button type="button" class="btn-remove" onclick="removeModule(this)">Remove</button>
+    `;
+    container.appendChild(newRow);
+}
+
+function removeModule(button) {
+    const row = button.parentElement;
+    const container = row.parentElement;
+    if (container.children.length > 1) {
+        row.remove();
+    } else {
+        alert('You must have at least one module in each year.');
+    }
+}
+
+function calculateDegree() {
+    const year2Weight = parseFloat(document.getElementById('year2Weight').value) / 100;
+    const year3Weight = parseFloat(document.getElementById('year3Weight').value) / 100;
+
+    // Get Year 2 modules
+    const year2Rows = document.querySelectorAll('#year2Modules .input-row');
+    let year2Total = 0;
+    let year2Credits = 0;
+    const year2Modules = [];
+
+    year2Rows.forEach(row => {
+        const name = row.querySelector('.module-name').value || 'Unnamed Module';
+        const mark = parseFloat(row.querySelector('.module-mark').value);
+        const credits = parseFloat(row.querySelector('.module-credits').value);
+
+        if (!isNaN(mark) && !isNaN(credits) && credits > 0) {
+            year2Total += mark * credits;
+            year2Credits += credits;
+            year2Modules.push({ name, mark, credits });
+        }
+    });
+
+    // Get Year 3 modules
+    const year3Rows = document.querySelectorAll('#year3Modules .input-row');
+    let year3Total = 0;
+    let year3Credits = 0;
+    const year3Modules = [];
+
+    year3Rows.forEach(row => {
+        const name = row.querySelector('.module-name').value || 'Unnamed Module';
+        const mark = parseFloat(row.querySelector('.module-mark').value);
+        const credits = parseFloat(row.querySelector('.module-credits').value);
+
+        if (!isNaN(mark) && !isNaN(credits) && credits > 0) {
+            year3Total += mark * credits;
+            year3Credits += credits;
+            year3Modules.push({ name, mark, credits });
+        }
+    });
+
+    // Validate
+    if (year2Credits === 0 && year3Credits === 0) {
+        alert('Please enter at least one module with valid mark and credits.');
+        return;
+    }
+
+    // Calculate averages
+    const year2Average = year2Credits > 0 ? year2Total / year2Credits : 0;
+    const year3Average = year3Credits > 0 ? year3Total / year3Credits : 0;
+
+    // Calculate final average
+    let finalAverage;
+    if (year2Credits > 0 && year3Credits > 0) {
+        finalAverage = (year2Average * year2Weight) + (year3Average * year3Weight);
+    } else if (year2Credits > 0) {
+        finalAverage = year2Average;
+    } else {
+        finalAverage = year3Average;
+    }
+
+    // Determine classification
+    let classification, classificationClass;
+    if (finalAverage >= 70) {
+        classification = 'First Class Honours (1st)';
+        classificationClass = 'classification-first';
+    } else if (finalAverage >= 60) {
+        classification = 'Upper Second Class Honours (2:1)';
+        classificationClass = 'classification-21';
+    } else if (finalAverage >= 50) {
+        classification = 'Lower Second Class Honours (2:2)';
+        classificationClass = 'classification-22';
+    } else if (finalAverage >= 40) {
+        classification = 'Third Class Honours (3rd)';
+        classificationClass = 'classification-third';
+    } else {
+        classification = 'Fail';
+        classificationClass = 'classification-third';
+    }
+
+    // Display results
+    let html = `
+        <div class="result-item ${classificationClass}">
+            <h3>Final Classification</h3>
+            <div class="result-value">${classification}</div>
+        </div>
+
+        <div class="result-item">
+            <h3>Final Average</h3>
+            <div class="result-value">${finalAverage.toFixed(2)}%</div>
+        </div>
+    `;
+
+    if (year2Credits > 0) {
+        html += `
+            <div class="result-item">
+                <h3>Year 2 Average</h3>
+                <div class="result-value">${year2Average.toFixed(2)}%</div>
+                <p>Total Credits: ${year2Credits} | Weighting: ${(year2Weight * 100).toFixed(1)}%</p>
+            </div>
+        `;
+    }
+
+    if (year3Credits > 0) {
+        html += `
+            <div class="result-item">
+                <h3>Year 3 Average</h3>
+                <div class="result-value">${year3Average.toFixed(2)}%</div>
+                <p>Total Credits: ${year3Credits} | Weighting: ${(year3Weight * 100).toFixed(1)}%</p>
+            </div>
+        `;
+    }
+
+    // Add breakdown table
+    html += '<div class="result-item"><h3>Module Breakdown</h3><table>';
+    html += '<thead><tr><th>Module</th><th>Mark</th><th>Credits</th><th>Weighted</th></tr></thead><tbody>';
+
+    if (year2Modules.length > 0) {
+        html += '<tr><td colspan="4"><strong>Year 2</strong></td></tr>';
+        year2Modules.forEach(module => {
+            const weighted = (module.mark * module.credits / year2Credits).toFixed(2);
+            html += `<tr><td>${module.name}</td><td>${module.mark.toFixed(1)}%</td><td>${module.credits}</td><td>${weighted}%</td></tr>`;
+        });
+    }
+
+    if (year3Modules.length > 0) {
+        html += '<tr><td colspan="4"><strong>Year 3</strong></td></tr>';
+        year3Modules.forEach(module => {
+            const weighted = (module.mark * module.credits / year3Credits).toFixed(2);
+            html += `<tr><td>${module.name}</td><td>${module.mark.toFixed(1)}%</td><td>${module.credits}</td><td>${weighted}%</td></tr>`;
+        });
+    }
+
+    html += '</tbody></table></div>';
+
+    // Add what's needed for next classification
+    if (finalAverage < 70) {
+        const nextBoundary = finalAverage >= 60 ? 70 : finalAverage >= 50 ? 60 : finalAverage >= 40 ? 50 : 40;
+        const needed = nextBoundary - finalAverage;
+        const nextClass = nextBoundary === 70 ? 'First' : nextBoundary === 60 ? '2:1' : nextBoundary === 50 ? '2:2' : 'Third';
+        html += `
+            <div class="result-item alert-info">
+                <h3>To Achieve a ${nextClass}</h3>
+                <p>You need an average of ${nextBoundary}% or above. You are currently ${needed.toFixed(2)}% away from this threshold.</p>
+            </div>
+        `;
+    }
+
+    document.getElementById('resultsContent').innerHTML = html;
+    document.getElementById('results').classList.add('show');
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetCalculator() {
+    // Reset year weights
+    document.getElementById('year2Weight').value = '40';
+    document.getElementById('year3Weight').value = '60';
+
+    // Clear Year 2 modules
+    const year2Container = document.getElementById('year2Modules');
+    year2Container.innerHTML = `
+        <div class="input-row">
+            <input type="text" placeholder="Module name (optional)" class="module-name">
+            <input type="number" placeholder="Mark (%)" min="0" max="100" step="0.1" class="module-mark" required>
+            <input type="number" placeholder="Credits" min="0" step="1" class="module-credits" required>
+            <button type="button" class="btn-remove" onclick="removeModule(this)">Remove</button>
+        </div>
+    `;
+
+    // Clear Year 3 modules
+    const year3Container = document.getElementById('year3Modules');
+    year3Container.innerHTML = `
+        <div class="input-row">
+            <input type="text" placeholder="Module name (optional)" class="module-name">
+            <input type="number" placeholder="Mark (%)" min="0" max="100" step="0.1" class="module-mark" required>
+            <input type="number" placeholder="Credits" min="0" step="1" class="module-credits" required>
+            <button type="button" class="btn-remove" onclick="removeModule(this)">Remove</button>
+        </div>
+    `;
+
+    // Hide results
+    document.getElementById('results').classList.remove('show');
+}
+</script>
+{% endblock %}

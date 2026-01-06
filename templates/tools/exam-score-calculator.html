@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+
+{% block title %}Exam Score Calculator - Calculate Your Exam Percentage & Grade{% endblock %}
+
+{% block meta_description %}Calculate your exam score as a percentage. Enter total marks, marks achieved, and pass threshold to see if you passed and what grade you got. Instant results.{% endblock %}
+
+{% block meta_keywords %}exam score calculator, test score calculator, exam percentage calculator, pass fail calculator{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Exam Score Calculator",
+  "description": "Calculate exam score percentage and grade",
+  "applicationCategory": "EducationalApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>Exam Percentage Calculator</h1>
+<p>Enter your exam marks below to find out: (1) Your score as a percentage, (2) Whether you passed, and (3) What grade you got. Works for any exam with multiple choice, written answers, or mixed questions.</p>
+
+<div class="alert alert-info" style="margin: 2rem 0;">
+    <h3>How to Calculate Exam Score</h3>
+    <p><strong>Formula:</strong> (Marks Achieved ÷ Total Marks) × 100 = Percentage</p>
+    <p><strong>Example:</strong> Got 42 out of 50? → (42 ÷ 50) × 100 = <strong>84%</strong></p>
+    <p style="margin-bottom: 0;">Use the calculator below for instant results.</p>
+</div>
+
+<div class="calculator-section">
+    <h2>Enter Exam Details</h2>
+
+    <div class="form-group">
+        <label for="totalQuestions">Total Number of Questions</label>
+        <input type="number" id="totalQuestions" min="1" step="1" placeholder="e.g., 50" required>
+        <small>How many questions were on the exam?</small>
+    </div>
+
+    <div class="form-group">
+        <label for="marksPerQuestion">Marks Per Question</label>
+        <input type="number" id="marksPerQuestion" min="0.1" step="0.1" value="1" placeholder="e.g., 1" required>
+        <small>How many marks is each question worth?</small>
+    </div>
+
+    <div class="form-group">
+        <label for="marksAchieved">Marks Achieved</label>
+        <input type="number" id="marksAchieved" min="0" step="0.1" placeholder="e.g., 42" required>
+        <small>How many marks did you get?</small>
+    </div>
+
+    <div class="form-group">
+        <label for="passThreshold">Pass Threshold (%)</label>
+        <input type="number" id="passThreshold" min="0" max="100" step="1" value="40" placeholder="e.g., 40" required>
+        <small>What percentage is required to pass? (Usually 40% in UK universities)</small>
+    </div>
+
+    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+        <button type="button" class="btn btn-primary btn-block" onclick="calculateExamScore()">Calculate Score</button>
+        <button type="button" class="btn btn-secondary btn-block" onclick="resetExamCalculator()">Reset</button>
+    </div>
+
+    <div id="results" class="results">
+        <h2>Your Results</h2>
+        <div id="resultsContent"></div>
+    </div>
+</div>
+
+<section class="content-section">
+    <h2>Understanding Exam Scores</h2>
+
+    <h3>Common Pass Thresholds</h3>
+    <p>Different educational systems use different pass thresholds:</p>
+    <ul>
+        <li><strong>UK Universities:</strong> Typically 40% to pass</li>
+        <li><strong>US Colleges:</strong> Usually 60-70% to pass (D or C grade)</li>
+        <li><strong>International Baccalaureate:</strong> Usually 50% to pass</li>
+        <li><strong>Professional Exams:</strong> Varies widely, often 60-70%</li>
+    </ul>
+
+    <h3>Grade Boundaries</h3>
+    <p>Common UK university grade boundaries:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Grade</th>
+                <th>Percentage Range</th>
+                <th>Classification</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>First</td><td>70-100%</td><td>Excellent</td></tr>
+            <tr><td>2:1</td><td>60-69%</td><td>Good</td></tr>
+            <tr><td>2:2</td><td>50-59%</td><td>Average</td></tr>
+            <tr><td>Third</td><td>40-49%</td><td>Pass</td></tr>
+            <tr><td>Fail</td><td>0-39%</td><td>Below pass threshold</td></tr>
+        </tbody>
+    </table>
+
+    <h2>How to Use This Calculator</h2>
+    <ol>
+        <li><strong>Total Questions:</strong> Enter the total number of questions on the exam</li>
+        <li><strong>Marks Per Question:</strong> Enter how many marks each question is worth (usually 1 mark)</li>
+        <li><strong>Marks Achieved:</strong> Enter the total marks you received</li>
+        <li><strong>Pass Threshold:</strong> Enter the percentage required to pass (check your exam instructions)</li>
+    </ol>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+        <div class="faq-item">
+            <h3>How is my exam percentage calculated?</h3>
+            <p>Your exam percentage is calculated by dividing your achieved marks by the total possible marks, then multiplying by 100. For example, if you got 42 out of 50 marks: (42 ÷ 50) × 100 = 84%.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What if questions have different mark values?</h3>
+            <p>If different questions are worth different marks, you should use the total marks achieved and total marks possible. For example, if Question 1 is worth 10 marks and Question 2 is worth 5 marks, the total is 15 marks.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is a good exam score?</h3>
+            <p>In UK universities, 70% or above is considered excellent (First class). 60-69% is good (2:1), 50-59% is average (2:2), and 40-49% is a pass (Third). Below 40% is typically a fail.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do I know my pass threshold?</h3>
+            <p>Your pass threshold should be stated in your course handbook, exam instructions, or module guide. In UK universities, it's typically 40%. For professional exams, it's often higher (60-70%).</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I calculate multiple exam scores?</h3>
+            <p>Yes! Simply calculate each exam separately, then average the percentages if needed. Make sure to weight them correctly if different exams count for different amounts.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+function calculateExamScore() {
+    const totalQuestions = parseFloat(document.getElementById('totalQuestions').value);
+    const marksPerQuestion = parseFloat(document.getElementById('marksPerQuestion').value);
+    const marksAchieved = parseFloat(document.getElementById('marksAchieved').value);
+    const passThreshold = parseFloat(document.getElementById('passThreshold').value);
+
+    // Validate inputs
+    if (isNaN(totalQuestions) || isNaN(marksPerQuestion) || isNaN(marksAchieved) || isNaN(passThreshold)) {
+        alert('Please fill in all fields with valid numbers.');
+        return;
+    }
+
+    if (totalQuestions <= 0 || marksPerQuestion <= 0) {
+        alert('Total questions and marks per question must be greater than 0.');
+        return;
+    }
+
+    if (marksAchieved < 0) {
+        alert('Marks achieved cannot be negative.');
+        return;
+    }
+
+    // Calculate total possible marks
+    const totalMarks = totalQuestions * marksPerQuestion;
+
+    // Calculate percentage
+    const percentage = (marksAchieved / totalMarks) * 100;
+
+    // Determine pass/fail
+    const passed = percentage >= passThreshold;
+
+    // Determine grade (UK system)
+    let grade, gradeClass;
+    if (percentage >= 70) {
+        grade = 'First Class';
+        gradeClass = 'classification-first';
+    } else if (percentage >= 60) {
+        grade = 'Upper Second (2:1)';
+        gradeClass = 'classification-21';
+    } else if (percentage >= 50) {
+        grade = 'Lower Second (2:2)';
+        gradeClass = 'classification-22';
+    } else if (percentage >= 40) {
+        grade = 'Third Class';
+        gradeClass = 'classification-third';
+    } else {
+        grade = 'Fail';
+        gradeClass = 'classification-third';
+    }
+
+    // Display results
+    let html = `
+        <div class="result-item ${passed ? 'classification-first' : 'classification-third'}">
+            <h3>Pass/Fail Status</h3>
+            <div class="result-value">${passed ? 'PASS ✓' : 'FAIL ✗'}</div>
+            <p>Pass threshold: ${passThreshold}%</p>
+        </div>
+
+        <div class="result-item ${gradeClass}">
+            <h3>Your Score</h3>
+            <div class="result-value">${percentage.toFixed(2)}%</div>
+            <p>${marksAchieved} out of ${totalMarks} marks</p>
+        </div>
+
+        <div class="result-item">
+            <h3>Grade (UK System)</h3>
+            <div class="result-value">${grade}</div>
+        </div>
+    `;
+
+    // Add breakdown
+    html += `
+        <div class="result-item">
+            <h3>Breakdown</h3>
+            <table>
+                <tbody>
+                    <tr><td>Total Questions</td><td>${totalQuestions}</td></tr>
+                    <tr><td>Marks Per Question</td><td>${marksPerQuestion}</td></tr>
+                    <tr><td>Total Possible Marks</td><td>${totalMarks}</td></tr>
+                    <tr><td>Marks Achieved</td><td>${marksAchieved}</td></tr>
+                    <tr><td>Marks Missed</td><td>${(totalMarks - marksAchieved).toFixed(2)}</td></tr>
+                    <tr><td>Questions Equivalent</td><td>${(marksAchieved / marksPerQuestion).toFixed(1)} / ${totalQuestions}</td></tr>
+                </tbody>
+            </table>
+        </div>
+    `;
+
+    // Add what's needed for next grade
+    if (percentage < 70) {
+        const nextBoundary = percentage >= 60 ? 70 : percentage >= 50 ? 60 : percentage >= 40 ? 50 : 40;
+        const nextGrade = nextBoundary === 70 ? 'First' : nextBoundary === 60 ? '2:1' : nextBoundary === 50 ? '2:2' : 'Third';
+        const marksNeeded = (nextBoundary / 100 * totalMarks) - marksAchieved;
+        const percentageNeeded = nextBoundary - percentage;
+
+        if (marksNeeded > 0) {
+            html += `
+                <div class="result-item alert-info">
+                    <h3>To Achieve ${nextGrade}</h3>
+                    <p>You needed ${marksNeeded.toFixed(2)} more marks (${percentageNeeded.toFixed(2)}% more) to reach ${nextBoundary}%.</p>
+                </div>
+            `;
+        }
+    }
+
+    // Add pass threshold info
+    if (!passed) {
+        const marksToPass = (passThreshold / 100 * totalMarks) - marksAchieved;
+        html += `
+            <div class="result-item alert-warning">
+                <h3>To Pass</h3>
+                <p>You needed ${marksToPass.toFixed(2)} more marks to reach the pass threshold of ${passThreshold}%.</p>
+            </div>
+        `;
+    }
+
+    document.getElementById('resultsContent').innerHTML = html;
+    document.getElementById('results').classList.add('show');
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetExamCalculator() {
+    document.getElementById('totalQuestions').value = '';
+    document.getElementById('marksPerQuestion').value = '1';
+    document.getElementById('marksAchieved').value = '';
+    document.getElementById('passThreshold').value = '40';
+    document.getElementById('results').classList.remove('show');
+}
+</script>
+{% endblock %}

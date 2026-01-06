@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Privacy Policy - GradeCalc{% endblock %}
+
+{% block content %}
+<h1>Privacy Policy</h1>
+<p><strong>Last Updated: January 2026</strong></p>
+
+<section class="content-section">
+    <h2>Introduction</h2>
+    <p>GradeCalc ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our website and calculators.</p>
+
+    <h2>Information We Collect</h2>
+
+    <h3>Information You Provide</h3>
+    <p>When you use our calculators, you may enter:</p>
+    <ul>
+        <li>Module marks and grades</li>
+        <li>Credit values and weightings</li>
+        <li>Exam dates and study schedules</li>
+        <li>Other academic information</li>
+    </ul>
+    <p><strong>Important:</strong> We do NOT store any of the information you enter into our calculators. All calculations are performed in your browser, and your data remains on your device only.</p>
+
+    <h3>Automatically Collected Information</h3>
+    <p>We may automatically collect certain information about your visit, including:</p>
+    <ul>
+        <li>IP address</li>
+        <li>Browser type and version</li>
+        <li>Device type</li>
+        <li>Pages visited</li>
+        <li>Time and date of visit</li>
+        <li>Referring website</li>
+    </ul>
+
+    <h2>How We Use Your Information</h2>
+    <p>We use automatically collected information to:</p>
+    <ul>
+        <li>Improve our website and calculators</li>
+        <li>Understand how visitors use our tools</li>
+        <li>Detect and prevent technical issues</li>
+        <li>Generate anonymous usage statistics</li>
+    </ul>
+
+    <h2>Cookies</h2>
+    <p>We use cookies to:</p>
+    <ul>
+        <li>Remember your preferences</li>
+        <li>Analyze website traffic (via Google Analytics)</li>
+        <li>Improve user experience</li>
+    </ul>
+    <p>You can disable cookies in your browser settings, but some features of the website may not function properly.</p>
+
+    <h2>Third-Party Services</h2>
+
+    <h3>Google Analytics</h3>
+    <p>We use Google Analytics to understand how visitors use our website. Google Analytics collects information anonymously and reports website trends without identifying individual visitors. Learn more about <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+
+    <h3>Google AdSense</h3>
+    <p>We use Google AdSense to display advertisements. Google may use cookies to serve ads based on your prior visits to our website or other websites. You can opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google's Ads Settings</a>.</p>
+
+    <h2>Data Security</h2>
+    <p>We implement appropriate security measures to protect your information. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+    <h2>Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+        <li>Access the personal information we hold about you</li>
+        <li>Request correction of inaccurate information</li>
+        <li>Request deletion of your information</li>
+        <li>Opt out of cookies and tracking</li>
+    </ul>
+
+    <h2>Children's Privacy</h2>
+    <p>Our website is not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page with an updated "Last Updated" date.</p>
+
+    <h2>Contact Us</h2>
+    <p>If you have questions about this Privacy Policy, please visit our <a href="{{ url_for('contact') }}">contact page</a>.</p>
+</section>
+{% endblock %}

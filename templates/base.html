@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta_description %}Free assessment and exam calculators, grade planners, and learning tools. Calculate your degree classification, GPA, exam scores, and plan your revision effectively.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}grade calculator, GPA calculator, degree calculator, exam calculator, revision planner{% endblock %}">
+    <title>{% block title %}GradeCalc - Free Assessment & Exam Calculators{% endblock %}</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{% block og_title %}GradeCalc - Free Assessment & Exam Calculators{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Free assessment and exam calculators, grade planners, and learning tools.{% endblock %}">
+    <meta property="og:type" content="website">
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="{{ url_for('index') }}" class="logo">GradeCalc</a>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('tools') }}">Tools</a></li>
+                    <li><a href="{{ url_for('guides') }}">Guides</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div>
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="{{ url_for('degree_calculator') }}">UK Degree Calculator (First, 2:1, 2:2)</a></li>
+                    <li><a href="{{ url_for('gpa_calculator') }}">GPA Calculator (4.0 & 5.0 Scale)</a></li>
+                    <li><a href="{{ url_for('exam_score_calculator') }}">Exam Percentage Calculator</a></li>
+                    <li><a href="{{ url_for('module_grade_calculator') }}">What Do I Need on My Final Exam?</a></li>
+                    <li><a href="{{ url_for('revision_timetable') }}">Revision Timetable Maker</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Guides</h4>
+                <ul>
+                    <li><a href="{{ url_for('guide_degree_classifications') }}">How Degree Classifications Work</a></li>
+                    <li><a href="{{ url_for('guide_get_first') }}">How to Get a First</a></li>
+                    <li><a href="{{ url_for('guide_exam_grading') }}">Exam Grading Explained</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>About</h4>
+                <ul>
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="{{ url_for('privacy') }}">Privacy Policy</a></li>
+                    <li><a href="{{ url_for('terms') }}">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 GradeCalc. All rights reserved. This tool is for educational purposes only and does not represent official academic advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+
+    <!-- Google Analytics Placeholder -->
+    <!-- Replace with your GA4 tracking code -->
+    <script>
+        // Google Analytics will go here
+        // window.dataLayer = window.dataLayer || [];
+        // function gtag(){dataLayer.push(arguments);}
+        // gtag('js', new Date());
+        // gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+</html>

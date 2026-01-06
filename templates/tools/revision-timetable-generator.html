@@ -1,0 +1,393 @@
+{% extends "base.html" %}
+
+{% block title %}Free Revision Timetable - Create Your Exam Study Schedule{% endblock %}
+
+{% block meta_description %}Create a free personalized revision timetable. Enter your exam dates and study hours to generate a daily study schedule with priority weighting for difficult subjects.{% endblock %}
+
+{% block meta_keywords %}revision timetable, study planner, exam timetable generator, revision schedule{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Revision Timetable Generator",
+  "description": "Create a personalized revision timetable",
+  "applicationCategory": "EducationalApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>Create a Revision Timetable</h1>
+<p>Create a personalized revision timetable by entering your exam dates and how many hours you can study each day. The timetable automatically allocates more time to high-priority subjects and spreads study across all subjects to prevent cramming.</p>
+
+<div class="alert alert-info" style="margin: 2rem 0;">
+    <h3>What You'll Get</h3>
+    <p>This generator creates a day-by-day study schedule showing:</p>
+    <ul style="margin: 0.5rem 0;">
+        <li>Which subjects to study each day</li>
+        <li>How many hours to spend on each subject</li>
+        <li>Weekly overview of your study plan</li>
+        <li>Automatic allocation based on exam dates and priority</li>
+    </ul>
+</div>
+
+<div class="calculator-section">
+    <h2>Study Settings</h2>
+
+    <div class="form-group">
+        <label for="startDate">Start Date (Today or Later)</label>
+        <input type="date" id="startDate" required>
+        <small>When do you want to start revising?</small>
+    </div>
+
+    <div class="form-group">
+        <label for="hoursPerDay">Hours Available Per Day</label>
+        <input type="number" id="hoursPerDay" min="0.5" max="24" step="0.5" value="4" placeholder="e.g., 4" required>
+        <small>How many hours can you study each day?</small>
+    </div>
+
+    <h2>Add Your Subjects/Exams</h2>
+    <div id="subjects" class="dynamic-inputs">
+        <div class="input-row">
+            <input type="text" placeholder="Subject name" class="subject-name" required>
+            <input type="date" placeholder="Exam date" class="subject-date" required>
+            <select class="subject-priority" required>
+                <option value="3">High Priority</option>
+                <option value="2" selected>Medium Priority</option>
+                <option value="1">Low Priority</option>
+            </select>
+            <button type="button" class="btn-remove" onclick="removeSubject(this)">Remove</button>
+        </div>
+    </div>
+    <button type="button" class="btn btn-add" onclick="addSubject()">+ Add Subject</button>
+
+    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+        <button type="button" class="btn btn-primary btn-block" onclick="generateTimetable()">Generate Timetable</button>
+        <button type="button" class="btn btn-secondary btn-block" onclick="resetTimetableCalculator()">Reset</button>
+    </div>
+
+    <div id="results" class="results">
+        <h2>Your Revision Timetable</h2>
+        <div id="resultsContent"></div>
+    </div>
+</div>
+
+<section class="content-section">
+    <h2>How to Use the Revision Timetable Generator</h2>
+
+    <h3>Step-by-Step Guide</h3>
+    <ol>
+        <li><strong>Set Your Start Date:</strong> Choose when you want to begin revising</li>
+        <li><strong>Set Daily Study Hours:</strong> Enter how many hours you can realistically study each day</li>
+        <li><strong>Add Your Subjects:</strong> For each exam, enter the subject name and exam date</li>
+        <li><strong>Set Priorities:</strong> Mark subjects as high, medium, or low priority based on difficulty or importance</li>
+        <li><strong>Generate:</strong> Click "Generate Timetable" to create your personalized study plan</li>
+    </ol>
+
+    <h3>Priority Weighting</h3>
+    <p>The timetable generator uses priority weighting to allocate more study time to important subjects:</p>
+    <ul>
+        <li><strong>High Priority:</strong> Gets 50% more study time (ideal for difficult subjects or subjects worth more credits)</li>
+        <li><strong>Medium Priority:</strong> Gets standard study time allocation</li>
+        <li><strong>Low Priority:</strong> Gets 50% less study time (ideal for subjects you're already confident in)</li>
+    </ul>
+
+    <h2>Effective Revision Tips</h2>
+    <ul>
+        <li><strong>Start Early:</strong> Begin revising at least 2-3 weeks before your first exam</li>
+        <li><strong>Be Realistic:</strong> Don't overestimate how many hours you can study per day</li>
+        <li><strong>Take Breaks:</strong> Use the Pomodoro Technique (25 minutes study, 5 minutes break)</li>
+        <li><strong>Vary Your Study:</strong> Mix different subjects to keep your mind fresh</li>
+        <li><strong>Review Regularly:</strong> Revisit topics multiple times using spaced repetition</li>
+        <li><strong>Stay Healthy:</strong> Get enough sleep, eat well, and exercise regularly</li>
+    </ul>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+        <div class="faq-item">
+            <h3>How many hours should I study per day?</h3>
+            <p>This depends on your schedule and stamina. Most people can effectively study 4-6 hours per day with breaks. Quality is more important than quantity - focused study for 4 hours is better than distracted study for 8 hours.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Should I study one subject at a time or mix them?</h3>
+            <p>Research suggests mixing subjects (interleaving) can improve long-term retention. However, for complex topics, you might want to dedicate full days to single subjects. The timetable generator balances both approaches.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How far in advance should I start revising?</h3>
+            <p>Ideally, start 2-4 weeks before your first exam. This gives you enough time to cover all material without cramming. For difficult subjects, you might want to start even earlier.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What if I have multiple exams on the same day?</h3>
+            <p>If you have multiple exams on the same day, add them as separate subjects with the same exam date. The generator will allocate study time for both.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I adjust the timetable after generating it?</h3>
+            <p>Yes! The generated timetable is a guide. Feel free to adjust it based on your progress and understanding. If you master a topic quickly, you can allocate more time to challenging areas.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Set today's date as default
+document.getElementById('startDate').valueAsDate = new Date();
+
+function addSubject() {
+    const container = document.getElementById('subjects');
+    const newRow = document.createElement('div');
+    newRow.className = 'input-row';
+    newRow.innerHTML = `
+        <input type="text" placeholder="Subject name" class="subject-name" required>
+        <input type="date" placeholder="Exam date" class="subject-date" required>
+        <select class="subject-priority" required>
+            <option value="3">High Priority</option>
+            <option value="2" selected>Medium Priority</option>
+            <option value="1">Low Priority</option>
+        </select>
+        <button type="button" class="btn-remove" onclick="removeSubject(this)">Remove</button>
+    `;
+    container.appendChild(newRow);
+}
+
+function removeSubject(button) {
+    const row = button.parentElement;
+    const container = row.parentElement;
+    if (container.children.length > 1) {
+        row.remove();
+    } else {
+        alert('You must have at least one subject.');
+    }
+}
+
+function generateTimetable() {
+    const startDate = new Date(document.getElementById('startDate').value);
+    const hoursPerDay = parseFloat(document.getElementById('hoursPerDay').value);
+
+    if (!document.getElementById('startDate').value) {
+        alert('Please select a start date.');
+        return;
+    }
+
+    if (isNaN(hoursPerDay) || hoursPerDay <= 0) {
+        alert('Please enter valid hours per day.');
+        return;
+    }
+
+    // Get subjects
+    const subjectRows = document.querySelectorAll('#subjects .input-row');
+    const subjects = [];
+
+    subjectRows.forEach(row => {
+        const name = row.querySelector('.subject-name').value;
+        const dateStr = row.querySelector('.subject-date').value;
+        const priority = parseFloat(row.querySelector('.subject-priority').value);
+
+        if (name && dateStr) {
+            const examDate = new Date(dateStr);
+            const daysUntilExam = Math.ceil((examDate - startDate) / (1000 * 60 * 60 * 24));
+
+            subjects.push({
+                name,
+                examDate,
+                priority,
+                daysUntilExam,
+                priorityWeight: priority / 2  // Normalize priority (3->1.5, 2->1.0, 1->0.5)
+            });
+        }
+    });
+
+    if (subjects.length === 0) {
+        alert('Please add at least one subject with a valid name and exam date.');
+        return;
+    }
+
+    // Sort subjects by exam date
+    subjects.sort((a, b) => a.examDate - b.examDate);
+
+    // Validate dates
+    const hasInvalidDate = subjects.some(s => s.daysUntilExam < 0);
+    if (hasInvalidDate) {
+        alert('Warning: Some exam dates are before your start date. Please check your dates.');
+        return;
+    }
+
+    // Calculate total priority weight
+    const totalPriorityWeight = subjects.reduce((sum, s) => sum + s.priorityWeight, 0);
+
+    // Allocate study hours to each subject
+    subjects.forEach(subject => {
+        const availableDays = Math.max(1, subject.daysUntilExam);
+        const totalHoursAvailable = availableDays * hoursPerDay;
+
+        // Allocate hours based on priority weight
+        const allocatedHours = (subject.priorityWeight / totalPriorityWeight) * totalHoursAvailable * subjects.length;
+        subject.allocatedHours = allocatedHours;
+        subject.hoursPerDay = allocatedHours / availableDays;
+    });
+
+    // Generate daily schedule
+    const schedule = [];
+    const lastExamDate = subjects[subjects.length - 1].examDate;
+    const totalDays = Math.ceil((lastExamDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
+
+    for (let day = 0; day < totalDays; day++) {
+        const currentDate = new Date(startDate);
+        currentDate.setDate(currentDate.getDate() + day);
+
+        const daySchedule = {
+            date: currentDate,
+            subjects: []
+        };
+
+        // Determine which subjects to study this day
+        subjects.forEach(subject => {
+            const daysUntilExam = Math.ceil((subject.examDate - currentDate) / (1000 * 60 * 60 * 24));
+
+            // Study subjects that have exams coming up (within their study window)
+            if (daysUntilExam >= 0 && daysUntilExam <= subject.daysUntilExam) {
+                daySchedule.subjects.push({
+                    name: subject.name,
+                    hours: subject.hoursPerDay,
+                    daysUntilExam: daysUntilExam,
+                    isExamDay: daysUntilExam === 0
+                });
+            }
+        });
+
+        // Normalize hours for the day
+        const totalHoursForDay = daySchedule.subjects.reduce((sum, s) => sum + s.hours, 0);
+        if (totalHoursForDay > hoursPerDay) {
+            const scaleFactor = hoursPerDay / totalHoursForDay;
+            daySchedule.subjects.forEach(s => s.hours *= scaleFactor);
+        }
+
+        if (daySchedule.subjects.length > 0) {
+            schedule.push(daySchedule);
+        }
+    }
+
+    // Display results
+    displayTimetable(subjects, schedule, hoursPerDay);
+}
+
+function displayTimetable(subjects, schedule, hoursPerDay) {
+    let html = '<div class="result-item"><h3>Subject Overview</h3><table>';
+    html += '<thead><tr><th>Subject</th><th>Exam Date</th><th>Days Until</th><th>Priority</th><th>Total Hours</th></tr></thead><tbody>';
+
+    subjects.forEach(subject => {
+        const priorityLabel = subject.priority === 3 ? 'High' : subject.priority === 2 ? 'Medium' : 'Low';
+        html += `<tr>
+            <td>${subject.name}</td>
+            <td>${subject.examDate.toLocaleDateString('en-GB')}</td>
+            <td>${subject.daysUntilExam} days</td>
+            <td>${priorityLabel}</td>
+            <td>${subject.allocatedHours.toFixed(1)} hours</td>
+        </tr>`;
+    });
+
+    html += '</tbody></table></div>';
+
+    // Daily schedule
+    html += '<div class="result-item"><h3>Daily Study Schedule</h3>';
+
+    // Group by week
+    let currentWeek = [];
+    let weekNumber = 1;
+
+    schedule.forEach((day, index) => {
+        currentWeek.push(day);
+
+        if (currentWeek.length === 7 || index === schedule.length - 1) {
+            html += `<h4>Week ${weekNumber}</h4><table>`;
+            html += '<thead><tr><th>Date</th><th>Day</th><th>Subjects to Study</th><th>Hours</th></tr></thead><tbody>';
+
+            currentWeek.forEach(weekDay => {
+                const dayName = weekDay.date.toLocaleDateString('en-GB', { weekday: 'short' });
+                const dateStr = weekDay.date.toLocaleDateString('en-GB');
+
+                let subjectsStr = '';
+                let totalHours = 0;
+
+                weekDay.subjects.forEach(subject => {
+                    if (subject.isExamDay) {
+                        subjectsStr += `<strong>${subject.name} (EXAM DAY)</strong><br>`;
+                    } else {
+                        subjectsStr += `${subject.name} (${subject.hours.toFixed(1)}h)<br>`;
+                        totalHours += subject.hours;
+                    }
+                });
+
+                const hasExam = weekDay.subjects.some(s => s.isExamDay);
+                const rowClass = hasExam ? 'style="background-color: #fef3c7;"' : '';
+
+                html += `<tr ${rowClass}>
+                    <td>${dateStr}</td>
+                    <td>${dayName}</td>
+                    <td>${subjectsStr || 'Rest day'}</td>
+                    <td>${hasExam ? '-' : totalHours.toFixed(1) + 'h'}</td>
+                </tr>`;
+            });
+
+            html += '</tbody></table>';
+            currentWeek = [];
+            weekNumber++;
+        }
+    });
+
+    html += '</div>';
+
+    // Study tips
+    html += `
+        <div class="result-item alert-info">
+            <h3>Study Tips</h3>
+            <ul>
+                <li>Take a 5-10 minute break every hour</li>
+                <li>Review previous topics regularly (spaced repetition)</li>
+                <li>Active recall is more effective than passive reading</li>
+                <li>Get a good night's sleep before exam days</li>
+                <li>Stay hydrated and maintain a healthy diet</li>
+            </ul>
+        </div>
+    `;
+
+    document.getElementById('resultsContent').innerHTML = html;
+    document.getElementById('results').classList.add('show');
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetTimetableCalculator() {
+    document.getElementById('startDate').valueAsDate = new Date();
+    document.getElementById('hoursPerDay').value = '4';
+
+    const container = document.getElementById('subjects');
+    container.innerHTML = `
+        <div class="input-row">
+            <input type="text" placeholder="Subject name" class="subject-name" required>
+            <input type="date" placeholder="Exam date" class="subject-date" required>
+            <select class="subject-priority" required>
+                <option value="3">High Priority</option>
+                <option value="2" selected>Medium Priority</option>
+                <option value="1">Low Priority</option>
+            </select>
+            <button type="button" class="btn-remove" onclick="removeSubject(this)">Remove</button>
+        </div>
+    `;
+
+    document.getElementById('results').classList.remove('show');
+}
+</script>
+{% endblock %}

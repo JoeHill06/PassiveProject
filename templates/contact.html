@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - GradeCalc{% endblock %}
+
+{% block content %}
+<h1>Contact Us</h1>
+
+<section class="content-section">
+    <h2>Get In Touch</h2>
+    <p>We'd love to hear from you! Whether you have feedback, suggestions, or questions, please feel free to reach out.</p>
+
+    <div class="alert alert-info">
+        <h3>Email Us</h3>
+        <p>For general inquiries, feedback, or support:</p>
+        <p><strong>Email:</strong> <a href="mailto:hello@gradecalc.com">hello@gradecalc.com</a></p>
+    </div>
+
+    <h2>Feedback & Suggestions</h2>
+    <p>We're always looking to improve GradeCalc. If you have ideas for new features, tools, or improvements, we'd love to hear them!</p>
+
+    <h2>Report an Issue</h2>
+    <p>Found a bug or technical issue? Let us know and we'll work to fix it as soon as possible. Please include:</p>
+    <ul>
+        <li>Description of the issue</li>
+        <li>Which calculator or page you were using</li>
+        <li>Your browser and device type</li>
+        <li>Steps to reproduce the problem (if applicable)</li>
+    </ul>
+
+    <h2>Partnership Inquiries</h2>
+    <p>For partnership, advertising, or business inquiries, please contact us via email.</p>
+
+    <h2>Response Time</h2>
+    <p>We aim to respond to all inquiries within 2-3 business days. During busy periods, it may take slightly longer.</p>
+
+    <h2>Frequently Asked Questions</h2>
+    <p>Before contacting us, you might find the answer to your question in our calculator-specific FAQ sections:</p>
+    <ul>
+        <li><a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator FAQ</a></li>
+        <li><a href="{{ url_for('gpa_calculator') }}">GPA Calculator FAQ</a></li>
+        <li><a href="{{ url_for('exam_score_calculator') }}">Exam Score Calculator FAQ</a></li>
+        <li><a href="{{ url_for('revision_timetable') }}">Revision Timetable Generator FAQ</a></li>
+        <li><a href="{{ url_for('module_grade_calculator') }}">Module Grade Calculator FAQ</a></li>
+    </ul>
+
+    <h2>Social Media</h2>
+    <p>Follow us for updates and tips:</p>
+    <ul>
+        <li>Twitter: <a href="https://twitter.com/gradecalc" target="_blank" rel="noopener">@gradecalc</a></li>
+        <li>Facebook: <a href="https://facebook.com/gradecalc" target="_blank" rel="noopener">GradeCalc</a></li>
+    </ul>
+
+    <div class="alert alert-warning">
+        <h3>Important Note</h3>
+        <p>GradeCalc is for educational purposes only and does not provide official academic advice. For specific questions about your grades or academic standing, please contact your educational institution directly.</p>
+    </div>
+</section>
+{% endblock %}

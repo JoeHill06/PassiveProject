@@ -1,0 +1,304 @@
+{% extends "base.html" %}
+
+{% block title %}Exam Grading Explained - Understanding Marks and Boundaries{% endblock %}
+
+{% block meta_description %}Understand how exam grading works, including mark schemes, grade boundaries, scaling, and how to interpret your exam results.{% endblock %}
+
+{% block content %}
+<h1>Exam Grading Explained</h1>
+<p>Understanding how exams are graded helps you prepare effectively and interpret your results. This guide explains mark schemes, grade boundaries, and common grading practices.</p>
+
+<section class="content-section">
+    <h2>How Exams Are Marked</h2>
+
+    <h3>Mark Schemes</h3>
+    <p>Examiners use detailed mark schemes that specify:</p>
+    <ul>
+        <li>How many marks each question is worth</li>
+        <li>What answers or concepts earn marks</li>
+        <li>How partial credit is awarded</li>
+        <li>Criteria for different quality levels</li>
+    </ul>
+
+    <h3>Types of Marking</h3>
+
+    <h4>Points-Based Marking</h4>
+    <p>Common in sciences and mathematics:</p>
+    <ul>
+        <li>Each correct answer or step earns specific marks</li>
+        <li>Partial credit for showing working</li>
+        <li>Clear right and wrong answers</li>
+    </ul>
+
+    <h4>Criteria-Based Marking</h4>
+    <p>Common in essays and humanities:</p>
+    <ul>
+        <li>Quality of argument and analysis</li>
+        <li>Use of evidence and sources</li>
+        <li>Clarity of writing and structure</li>
+        <li>Critical thinking demonstrated</li>
+    </ul>
+
+    <h4>Rubric-Based Marking</h4>
+    <p>Combines both approaches:</p>
+    <ul>
+        <li>Specific criteria with mark ranges</li>
+        <li>Descriptors for different performance levels</li>
+        <li>Used for projects, presentations, and complex assessments</li>
+    </ul>
+
+    <h2>Grade Boundaries</h2>
+
+    <h3>UK University Grade Boundaries</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Classification</th>
+                <th>Percentage</th>
+                <th>Typical Descriptor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>First Class</td>
+                <td>70-100%</td>
+                <td>Excellent - comprehensive understanding with original insights</td>
+            </tr>
+            <tr>
+                <td>Upper Second (2:1)</td>
+                <td>60-69%</td>
+                <td>Good - solid understanding with some critical analysis</td>
+            </tr>
+            <tr>
+                <td>Lower Second (2:2)</td>
+                <td>50-59%</td>
+                <td>Satisfactory - adequate understanding of key concepts</td>
+            </tr>
+            <tr>
+                <td>Third Class</td>
+                <td>40-49%</td>
+                <td>Pass - basic understanding with significant gaps</td>
+            </tr>
+            <tr>
+                <td>Fail</td>
+                <td>0-39%</td>
+                <td>Insufficient understanding of core material</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Why Are UK Boundaries Lower?</h3>
+    <p>You might wonder why 70% is "excellent" in UK universities when in other systems it might be just a C. Here's why:</p>
+    <ul>
+        <li><strong>Expectation levels:</strong> Exams are designed so 70%+ represents truly exceptional work</li>
+        <li><strong>Question difficulty:</strong> Questions go beyond basic recall to test deep understanding</li>
+        <li><strong>Room for excellence:</strong> The top 30% is reserved for outstanding, original work</li>
+        <li><strong>Historical system:</strong> The UK system has used these boundaries for centuries</li>
+    </ul>
+
+    <h2>Scaling and Moderation</h2>
+
+    <h3>What is Scaling?</h3>
+    <p>Sometimes exam marks are scaled (adjusted) to account for:</p>
+    <ul>
+        <li>Unusually difficult or easy exams</li>
+        <li>Variations between different exam papers</li>
+        <li>Maintaining consistency across years</li>
+    </ul>
+
+    <h3>How Scaling Works</h3>
+    <p>If an exam is particularly difficult and most students score lower than expected:</p>
+    <ul>
+        <li>Marks may be scaled up proportionally</li>
+        <li>Grade boundaries may be lowered</li>
+        <li>This ensures fairness across different exam sittings</li>
+    </ul>
+
+    <div class="alert alert-info">
+        <h3>Important Note</h3>
+        <p>Not all universities scale marks. Some maintain fixed boundaries. Always check your institution's policy.</p>
+    </div>
+
+    <h3>Moderation</h3>
+    <p>To ensure consistency:</p>
+    <ul>
+        <li>Sample of papers reviewed by second marker</li>
+        <li>External examiners check standards</li>
+        <li>Borderline cases (e.g., 68-69%) reviewed carefully</li>
+        <li>Statistical analysis to spot anomalies</li>
+    </ul>
+
+    <h2>Understanding Your Exam Results</h2>
+
+    <h3>Raw Marks vs. Scaled Marks</h3>
+    <ul>
+        <li><strong>Raw mark:</strong> Your actual score on the paper</li>
+        <li><strong>Scaled mark:</strong> Adjusted mark after moderation/scaling</li>
+        <li><strong>Published mark:</strong> What appears on your transcript (usually scaled)</li>
+    </ul>
+
+    <h3>Percentages and Classifications</h3>
+    <p>Example interpretations:</p>
+    <ul>
+        <li><strong>75%:</strong> First class - excellent work, clear understanding and originality</li>
+        <li><strong>65%:</strong> 2:1 - good work, solid understanding with some analysis</li>
+        <li><strong>55%:</strong> 2:2 - satisfactory, basic understanding achieved</li>
+        <li><strong>45%:</strong> Third - pass level, minimum requirements met</li>
+        <li><strong>35%:</strong> Fail - insufficient understanding demonstrated</li>
+    </ul>
+
+    <h2>Common Grading Practices</h2>
+
+    <h3>Multiple Choice Exams</h3>
+    <ul>
+        <li>Usually scored automatically</li>
+        <li>Each question worth equal marks or weighted</li>
+        <li>May penalize incorrect answers or allow skipping</li>
+        <li>Raw score converted to percentage</li>
+    </ul>
+
+    <h3>Essay-Based Exams</h3>
+    <ul>
+        <li>Marked against criteria (argument, evidence, writing)</li>
+        <li>Different questions may be worth different marks</li>
+        <li>Quality over quantity (longer ≠ better)</li>
+        <li>Following question requirements crucial</li>
+    </ul>
+
+    <h3>Problem-Solving Exams</h3>
+    <ul>
+        <li>Marks for method and correct answer</li>
+        <li>Showing working essential for partial credit</li>
+        <li>Clear presentation improves marks</li>
+        <li>Units and significant figures often marked</li>
+    </ul>
+
+    <h2>What Different Marks Mean</h2>
+
+    <h3>First Class (70%+)</h3>
+    <p>To achieve this, you need to demonstrate:</p>
+    <ul>
+        <li>Comprehensive understanding of all key concepts</li>
+        <li>Ability to apply knowledge to new situations</li>
+        <li>Critical analysis and evaluation</li>
+        <li>Original insights or perspectives</li>
+        <li>Clear, well-structured answers</li>
+        <li>Excellent technical accuracy</li>
+    </ul>
+
+    <h3>Upper Second (60-69%)</h3>
+    <p>Demonstrates:</p>
+    <ul>
+        <li>Good understanding of most concepts</li>
+        <li>Ability to apply knowledge effectively</li>
+        <li>Some critical analysis</li>
+        <li>Generally accurate with minor errors</li>
+        <li>Clear communication</li>
+    </ul>
+
+    <h3>Lower Second (50-59%)</h3>
+    <p>Shows:</p>
+    <ul>
+        <li>Adequate understanding of core material</li>
+        <li>Basic application of concepts</li>
+        <li>Mostly descriptive rather than analytical</li>
+        <li>Some gaps or inaccuracies</li>
+        <li>Meets basic requirements</li>
+    </ul>
+
+    <h3>Third Class (40-49%)</h3>
+    <p>Indicates:</p>
+    <ul>
+        <li>Basic understanding with significant gaps</li>
+        <li>Limited application ability</li>
+        <li>Largely descriptive answers</li>
+        <li>Multiple inaccuracies or misunderstandings</li>
+        <li>Just meets pass threshold</li>
+    </ul>
+
+    <h2>Improving Your Exam Performance</h2>
+
+    <h3>Before the Exam</h3>
+    <ul>
+        <li>Study past papers and mark schemes</li>
+        <li>Understand what different grade answers look like</li>
+        <li>Practice under timed conditions</li>
+        <li>Identify common mistakes to avoid</li>
+        <li>Know the exam format and structure</li>
+    </ul>
+
+    <h3>During the Exam</h3>
+    <ul>
+        <li>Read questions carefully - answer what's asked</li>
+        <li>Allocate time based on mark values</li>
+        <li>Show all working for partial credit</li>
+        <li>Check your answers if time permits</li>
+        <li>Write clearly and legibly</li>
+    </ul>
+
+    <h3>Understanding Feedback</h3>
+    <p>When you get results back:</p>
+    <ul>
+        <li>Review marked papers carefully</li>
+        <li>Understand why marks were lost</li>
+        <li>Compare with mark scheme</li>
+        <li>Learn from mistakes for future exams</li>
+        <li>Ask for clarification if unclear</li>
+    </ul>
+
+    <h2>Special Cases</h2>
+
+    <h3>Resit Exams</h3>
+    <ul>
+        <li>Often capped at 40% (pass mark) even if you score higher</li>
+        <li>Check your university's specific resit policy</li>
+        <li>Usually available only for failed modules</li>
+    </ul>
+
+    <h3>Mitigating Circumstances</h3>
+    <ul>
+        <li>If illness or personal issues affected performance</li>
+        <li>Must be submitted with evidence before/after exam</li>
+        <li>May allow uncapped resit or grade adjustment</li>
+    </ul>
+
+    <h3>Academic Misconduct</h3>
+    <ul>
+        <li>Plagiarism or cheating can result in zero marks</li>
+        <li>May affect entire module or even degree</li>
+        <li>Always cite sources and follow exam rules</li>
+    </ul>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+        <div class="faq-item">
+            <h3>Why did I get a lower mark than I expected?</h3>
+            <p>Common reasons include: not answering the question asked, insufficient depth of analysis, factual errors, poor structure, or not meeting assessment criteria. Review feedback and mark schemes to understand.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I challenge my exam grade?</h3>
+            <p>Most universities have appeal processes, but they typically only consider procedural errors, not disagreements with academic judgment. Check your institution's appeals policy.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How much does one exam affect my degree?</h3>
+            <p>It depends on the module's credit value and year weighting. Use our <a href="{{ url_for('degree_calculator') }}">Degree Classification Calculator</a> to see the exact impact.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What's the average exam score?</h3>
+            <p>This varies by subject, but in many UK university courses, the average is around 55-60% (2:2 to 2:1 boundary).</p>
+        </div>
+    </div>
+
+    <h2>Calculate Your Exam Results</h2>
+    <p>Use our free tools to calculate and understand your exam performance:</p>
+    <ul>
+        <li><a href="{{ url_for('exam_score_calculator') }}">Exam Score Calculator</a> - Calculate your percentage and pass/fail status</li>
+        <li><a href="{{ url_for('module_grade_calculator') }}">Module Grade Calculator</a> - See how exams affect your module grade</li>
+        <li><a href="{{ url_for('degree_calculator') }}">Degree Classification Calculator</a> - Track your overall degree classification</li>
+    </ul>
+</section>
+{% endblock %}

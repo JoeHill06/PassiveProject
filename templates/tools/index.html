@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Free Assessment & Exam Tools - GradeCalc{% endblock %}
+
+{% block meta_description %}Browse our collection of free assessment and exam calculators. Calculate grades, GPA, exam scores, and plan your revision effectively.{% endblock %}
+
+{% block extra_head %}
+<meta name="robots" content="noindex, follow">
+{% endblock %}
+
+{% block content %}
+<h1>Assessment & Exam Tools</h1>
+<p>Choose from our collection of free calculators and planning tools. No sign-up required.</p>
+
+<div class="card-grid">
+    <div class="card">
+        <h3>UK Degree Classification Calculator</h3>
+        <p>Calculate your final degree classification (First, 2:1, 2:2, Third) based on your module marks and credit weightings. Supports all common UK university grading schemes including year weightings and honours rules.</p>
+        <a href="{{ url_for('degree_calculator') }}">Use Calculator →</a>
+    </div>
+
+    <div class="card">
+        <h3>GPA Calculator</h3>
+        <p>Calculate your Grade Point Average using either the 4.0 or 5.0 scale. Enter your grades and credit values to get your cumulative GPA. Perfect for university applications and academic planning.</p>
+        <a href="{{ url_for('gpa_calculator') }}">Use Calculator →</a>
+    </div>
+
+    <div class="card">
+        <h3>Exam Score Calculator</h3>
+        <p>Calculate your exam score as a percentage and determine whether you've passed. Enter the total questions, marks per question, and your achieved marks to get instant results with grade boundaries.</p>
+        <a href="{{ url_for('exam_score_calculator') }}">Use Calculator →</a>
+    </div>
+
+    <div class="card">
+        <h3>Revision Timetable Generator</h3>
+        <p>Create a personalized study plan based on your exam dates, subjects, and available study hours. Optimize your revision schedule with priority weighting for different modules.</p>
+        <a href="{{ url_for('revision_timetable') }}">Use Calculator →</a>
+    </div>
+
+    <div class="card">
+        <h3>Module Grade Calculator</h3>
+        <p>Calculate your current module grade based on coursework and exam weightings. Find out exactly what exam mark you need to achieve your target grade.</p>
+        <a href="{{ url_for('module_grade_calculator') }}">Use Calculator →</a>
+    </div>
+</div>
+
+<section class="content-section">
+    <h2>How to Use These Tools</h2>
+    <p>All our calculators are designed to be simple and intuitive:</p>
+    <ol>
+        <li>Select the calculator you need from the list above</li>
+        <li>Enter your marks, grades, or other required information</li>
+        <li>Click calculate to get instant results</li>
+        <li>View detailed breakdowns and explanations</li>
+    </ol>
+    <p>No sign-up or registration required. All calculations are performed in your browser for instant results.</p>
+</section>
+{% endblock %}

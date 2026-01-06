@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Academic Guides - GradeCalc{% endblock %}
+
+{% block meta_description %}Free academic guides about degree classifications, exam grading, and study strategies. Learn how grading works and how to achieve your academic goals.{% endblock %}
+
+{% block content %}
+<h1>Academic Guides</h1>
+<p>Learn about degree classifications, exam grading systems, and effective study strategies.</p>
+
+<div class="card-grid">
+    <div class="card">
+        <h3>How Degree Classifications Work in the UK</h3>
+        <p>A comprehensive guide to understanding the UK degree classification system, from First Class Honours to Third Class, including how final grades are calculated.</p>
+        <a href="{{ url_for('guide_degree_classifications') }}">Read Guide →</a>
+    </div>
+
+    <div class="card">
+        <h3>How to Get a First Class Degree</h3>
+        <p>Practical strategies and proven techniques for achieving a First Class Honours degree, including study habits, time management, and exam preparation.</p>
+        <a href="{{ url_for('guide_get_first') }}">Read Guide →</a>
+    </div>
+
+    <div class="card">
+        <h3>Exam Grading Explained</h3>
+        <p>Understand how exam grading works, including mark schemes, grade boundaries, and how to interpret your exam results.</p>
+        <a href="{{ url_for('guide_exam_grading') }}">Read Guide →</a>
+    </div>
+</div>
+
+<section class="content-section">
+    <h2>Why Read Our Guides?</h2>
+    <ul>
+        <li><strong>Clear Explanations:</strong> Complex grading systems explained in simple terms</li>
+        <li><strong>Practical Advice:</strong> Actionable strategies you can implement immediately</li>
+        <li><strong>Evidence-Based:</strong> Tips and techniques based on research and best practices</li>
+        <li><strong>Free Access:</strong> All guides are completely free to read</li>
+    </ul>
+
+    <h2>Related Tools</h2>
+    <p>Put what you learn into practice with our free calculators:</p>
+    <ul>
+        <li><a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator</a></li>
+        <li><a href="{{ url_for('gpa_calculator') }}">GPA Calculator</a></li>
+        <li><a href="{{ url_for('exam_score_calculator') }}">Exam Score Calculator</a></li>
+        <li><a href="{{ url_for('module_grade_calculator') }}">Module Grade Calculator</a></li>
+        <li><a href="{{ url_for('revision_timetable') }}">Revision Timetable Generator</a></li>
+    </ul>
+</section>
+{% endblock %}

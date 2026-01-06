@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Grade Calculators - UK Degree, GPA, Exam Scores | GradeCalc{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Grade Calculators</h1>
+    <p>Free online calculators for students and learners. Calculate your UK degree classification, GPA, exam scores, or find out what you need on your final exam.</p>
+</div>
+
+<section>
+    <h2>Popular Tools</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>UK Degree Classification Calculator</h3>
+            <p>Calculate your final degree classification based on module marks and credit weightings. Supports all UK university grading schemes.</p>
+            <a href="{{ url_for('degree_calculator') }}">Use Calculator →</a>
+        </div>
+
+        <div class="card">
+            <h3>GPA Calculator</h3>
+            <p>Calculate your Grade Point Average using the 4.0 or 5.0 scale. Perfect for international applications and academic planning.</p>
+            <a href="{{ url_for('gpa_calculator') }}">Use Calculator →</a>
+        </div>
+
+        <div class="card">
+            <h3>Exam Score Calculator</h3>
+            <p>Calculate your exam score and determine if you've passed. Enter your marks and get instant results with grade boundaries.</p>
+            <a href="{{ url_for('exam_score_calculator') }}">Use Calculator →</a>
+        </div>
+
+        <div class="card">
+            <h3>Revision Timetable Generator</h3>
+            <p>Create a personalized study plan based on your exam dates and available study time. Optimize your revision schedule.</p>
+            <a href="{{ url_for('revision_timetable') }}">Use Calculator →</a>
+        </div>
+
+        <div class="card">
+            <h3>Module Grade Calculator</h3>
+            <p>Calculate your current module grade and find out what you need to achieve your target. Track your progress throughout the term.</p>
+            <a href="{{ url_for('module_grade_calculator') }}">Use Calculator →</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

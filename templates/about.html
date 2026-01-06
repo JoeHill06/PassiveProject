@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}About GradeCalc - Free Assessment Tools{% endblock %}
+
+{% block content %}
+<h1>About GradeCalc</h1>
+
+<section class="content-section">
+    <h2>Our Mission</h2>
+    <p>GradeCalc provides free, easy-to-use assessment and exam calculators for learners at all levels. Whether you're a university student, online learner, or professional exam candidate, our tools help you track your progress and plan your study effectively.</p>
+
+    <h2>Why We Built This</h2>
+    <p>Calculating grades and planning revision shouldn't be complicated. We created GradeCalc to provide simple, accurate, and accessible tools that anyone can use without signing up or paying fees.</p>
+
+    <h2>What Makes Us Different</h2>
+    <ul>
+        <li><strong>100% Free:</strong> All our calculators are completely free to use, with no hidden fees or premium tiers</li>
+        <li><strong>No Sign-Up Required:</strong> Start calculating immediately without creating an account</li>
+        <li><strong>Privacy-Focused:</strong> We don't collect or store your personal data or calculation results</li>
+        <li><strong>Mobile-Friendly:</strong> All tools work perfectly on any device</li>
+        <li><strong>Accurate & Reliable:</strong> Our calculators use official grading schemes and formulas</li>
+    </ul>
+
+    <h2>Our Tools</h2>
+    <p>We currently offer five main calculators:</p>
+    <ul>
+        <li><strong>UK Degree Classification Calculator:</strong> Calculate your degree classification (First, 2:1, 2:2, Third)</li>
+        <li><strong>GPA Calculator:</strong> Calculate your Grade Point Average on 4.0 or 5.0 scales</li>
+        <li><strong>Exam Score Calculator:</strong> Calculate exam percentages and pass/fail status</li>
+        <li><strong>Revision Timetable Generator:</strong> Create personalized study plans</li>
+        <li><strong>Module Grade Calculator:</strong> Calculate current grades and required exam marks</li>
+    </ul>
+
+    <h2>Who We Serve</h2>
+    <p>GradeCalc is designed for:</p>
+    <ul>
+        <li>University students (undergraduate and postgraduate)</li>
+        <li>College students</li>
+        <li>Online course learners</li>
+        <li>Professional exam candidates</li>
+        <li>Adult learners and career switchers</li>
+        <li>Anyone tracking their academic progress</li>
+    </ul>
+
+    <h2>Important Disclaimer</h2>
+    <p>GradeCalc is for educational purposes only and does not represent official academic advice. Always check with your institution for their specific grading policies and requirements. Grade boundaries and calculation methods may vary between universities and courses.</p>
+
+    <h2>Contact Us</h2>
+    <p>Have feedback or suggestions? We'd love to hear from you! Visit our <a href="{{ url_for('contact') }}">contact page</a> to get in touch.</p>
+</section>
+{% endblock %}
