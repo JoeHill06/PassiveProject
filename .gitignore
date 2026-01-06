@@ -55,3 +55,6 @@ htmlcov/
 # Production
 *.min.js
 *.min.css
+
+# Generated static site (built by GitHub Actions)
+docs/
