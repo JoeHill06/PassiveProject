@@ -9,7 +9,7 @@ def index():
     return render_template('index.html')
 
 # Tools
-@app.route('/tools')
+@app.route('/tools/')
 def tools():
     return render_template('tools/index.html')
 
@@ -34,7 +34,7 @@ def module_grade_calculator():
     return render_template('tools/module-grade-calculator.html')
 
 # Guides
-@app.route('/guides')
+@app.route('/guides/')
 def guides():
     return render_template('guides/index.html')
 
