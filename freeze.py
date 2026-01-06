@@ -5,7 +5,8 @@ import shutil
 
 # Configure the frozen app
 app.config['FREEZER_DESTINATION'] = 'docs'
-app.config['FREEZER_RELATIVE_URLS'] = True
+app.config['FREEZER_RELATIVE_URLS'] = False
+app.config['FREEZER_BASE_URL'] = 'https://joehill06.github.io/PassiveProject/'
 app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
 
 freezer = Freezer(app)
