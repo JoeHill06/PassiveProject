@@ -24,5 +24,10 @@ if __name__ == '__main__':
         shutil.copy('static/CNAME', 'docs/CNAME')
         print("✅ CNAME file copied to docs/")
 
+    # Copy ads.txt file to root of docs folder for AdSense verification
+    if os.path.exists('static/ads.txt'):
+        shutil.copy('static/ads.txt', 'docs/ads.txt')
+        print("✅ ads.txt file copied to docs/")
+
     print("✅ Static site generated successfully in 'docs' folder!")
     print(f"📁 Generated {len(list(freezer.all_urls()))} pages")
