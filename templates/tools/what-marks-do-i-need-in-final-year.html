@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+
+{% block title %}What Marks Do I Need in My Final Year? | UK Degree Calculator{% endblock %}
+
+{% block meta_description %}Calculate what marks you need in your final year to get a First, 2:1, 2:2 or Third. Enter your Year 2 average and year weighting for instant results.{% endblock %}
+
+{% block meta_keywords %}what marks do i need in my final year, final year marks calculator, degree classification calculator, year 3 marks needed{% endblock %}
+
+{% block og_title %}What Marks Do I Need in My Final Year? | UK Degree Calculator{% endblock %}
+{% block og_description %}Calculate what marks you need in your final year to hit your target degree classification.{% endblock %}
+
+{% block extra_head %}
+<link rel="canonical" href="https://gradecalc.online/tools/what-marks-do-i-need-in-final-year.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Final Year Marks Calculator",
+  "description": "Calculate what final year average you need for your target degree classification",
+  "applicationCategory": "EducationalApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>What Marks Do I Need in My Final Year?</h1>
+<p>Enter your Year 2 (or prior years) average and your university's year weighting to find out the exact final-year average you need for a First, 2:1, 2:2, or Third. This calculator accounts for different weighting schemes used across UK universities.</p>
+
+<div class="alert alert-info" style="margin: 2rem 0;">
+    <h3>Common Year Weightings</h3>
+    <ul style="margin: 0;">
+        <li><strong>40/60:</strong> Year 2 counts 40%, Final Year counts 60%</li>
+        <li><strong>33/67:</strong> Year 2 counts 33%, Final Year counts 67%</li>
+        <li><strong>0/100:</strong> Only Final Year counts</li>
+    </ul>
+    <p style="margin-top: 1rem; margin-bottom: 0;">Most universities weight the final year more heavily, so strong performance in Year 3 can significantly raise your classification.</p>
+</div>
+
+<div class="calculator-section">
+    <h2>Enter Your Details</h2>
+
+    <div class="form-group">
+        <label for="year2Average">Year 2 Average (%)</label>
+        <input type="number" id="year2Average" placeholder="e.g. 62" min="0" max="100" step="0.1">
+        <small>Your weighted average for Year 2 (or all prior years combined)</small>
+    </div>
+
+    <div class="form-group">
+        <label for="year2Weight">Year 2 Weighting (%)</label>
+        <select id="year2Weight">
+            <option value="0">0% (only final year counts)</option>
+            <option value="20">20%</option>
+            <option value="25">25%</option>
+            <option value="30">30%</option>
+            <option value="33.33">33.33%</option>
+            <option value="40" selected>40%</option>
+            <option value="50">50%</option>
+        </select>
+        <small>How much Year 2 counts towards your final grade</small>
+    </div>
+
+    <div class="form-group">
+        <label for="year3Weight">Final Year Weighting (%)</label>
+        <select id="year3Weight">
+            <option value="50">50%</option>
+            <option value="60" selected>60%</option>
+            <option value="66.67">66.67%</option>
+            <option value="70">70%</option>
+            <option value="75">75%</option>
+            <option value="80">80%</option>
+            <option value="100">100%</option>
+        </select>
+        <small>How much your final year counts towards your final grade</small>
+    </div>
+
+    <div class="form-group">
+        <label for="targetClass">Target Classification</label>
+        <select id="targetClass">
+            <option value="70">First (70%+)</option>
+            <option value="60" selected>2:1 (60%+)</option>
+            <option value="50">2:2 (50%+)</option>
+            <option value="40">Third (40%+)</option>
+        </select>
+    </div>
+
+    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+        <button type="button" class="btn btn-primary btn-block" onclick="calculate()">Calculate Final Year Target</button>
+        <button type="button" class="btn btn-secondary btn-block" onclick="resetCalc()">Reset</button>
+    </div>
+
+    <div id="results" class="results">
+        <h2>Your Results</h2>
+        <div id="resultsContent"></div>
+    </div>
+</div>
+
+<section class="content-section">
+    <h2>How Final Year Weighting Works</h2>
+    <p>At most UK universities, your degree classification is calculated as a weighted average of Year 2 and Year 3 (final year). The formula is:</p>
+    <p><strong>Overall Average = (Year 2 Average &times; Year 2 Weight) + (Final Year Average &times; Final Year Weight)</strong></p>
+    <p>Because the final year typically carries more weight (60-67% at most universities), improving your final-year marks has a bigger impact on your overall classification than the same improvement in Year 2.</p>
+
+    <h2>Example: 40/60 Weighting</h2>
+    <p>If your Year 2 average is 58% and your university uses a 40/60 weighting:</p>
+    <ul>
+        <li>Year 2 contributes: 58% &times; 0.40 = 23.2%</li>
+        <li>To get a 2:1 (60% overall), final year needs to contribute: 60% &minus; 23.2% = 36.8%</li>
+        <li>Required final year average: 36.8% &divide; 0.60 = <strong>61.3%</strong></li>
+    </ul>
+
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <h3>How much does the final year count?</h3>
+            <p>This varies by university. Common weightings include 60% (with Year 2 at 40%), 66.67% (with Year 2 at 33.33%), or even 100% at some institutions. Check your university's programme specification for the exact split.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does Year 1 affect my degree classification?</h3>
+            <p>At most UK universities, Year 1 marks do not count towards your final degree classification. You need to pass Year 1 to progress, but only Year 2 and Year 3 marks typically contribute to the calculation.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can I improve from a 2:2 to a 2:1 in my final year?</h3>
+            <p>This depends on your Year 2 average and the year weighting. If Year 3 carries 60% or more of the weight, significant improvement is possible. Use the calculator above with your actual figures to see what's achievable.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What if my university uses three-year weighting?</h3>
+            <p>Some universities weight all three years (e.g. 10/30/60 or 20/30/50). In that case, combine your Year 1 and Year 2 contributions and enter the resulting weighted average as the "Year 2 Average", adjusting the weightings accordingly.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How does the dissertation affect my final year?</h3>
+            <p>Your dissertation is typically one module within your final year, often worth 30-40 credits out of 120. Its mark contributes to your final-year credit-weighted average alongside your other Year 3 modules.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is it harder to get a First in some subjects?</h3>
+            <p>Average marks and grade distributions do vary between subjects and universities. Some departments mark more generously than others, but the 70% threshold for a First applies universally across UK institutions.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What are my options if I can't reach my target?</h3>
+            <p>If the calculator shows you need an unrealistically high final-year average, consider: aiming for the next classification down, checking if your university has borderline policies, or speaking with your academic adviser about your options.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Should I prioritise high-credit modules?</h3>
+            <p>Yes. Within your final year, modules worth more credits have a bigger impact on your year average. Focusing effort on high-credit modules (such as your dissertation) can be an effective strategy for raising your overall mark.</p>
+        </div>
+    </div>
+
+    <h2>Related Tools</h2>
+    <ul>
+        <li><a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator</a> &mdash; enter all your module marks for a full breakdown</li>
+        <li><a href="{{ url_for('what_need_first') }}">What Do I Need to Get a First?</a> &mdash; credit-based First calculator</li>
+        <li><a href="{{ url_for('what_need_21') }}">What Do I Need for a 2:1?</a> &mdash; credit-based 2:1 calculator</li>
+        <li><a href="{{ url_for('coursework_calculator') }}">Coursework Grade Calculator</a> &mdash; calculate your coursework total</li>
+        <li><a href="{{ url_for('guide_degree_classifications') }}">How Degree Classifications Work</a> &mdash; full guide to the UK system</li>
+    </ul>
+
+    <div class="alert alert-warning" style="margin-top: 2rem;">
+        <p style="margin: 0;"><strong>Disclaimer:</strong> This calculator provides estimates based on standard UK degree classification boundaries and common weighting schemes. Your university may use different rules. Always check your institution's official regulations.</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function calculate() {
+    const y2Avg = parseFloat(document.getElementById('year2Average').value);
+    const y2W = parseFloat(document.getElementById('year2Weight').value) / 100;
+    const y3W = parseFloat(document.getElementById('year3Weight').value) / 100;
+    const target = parseFloat(document.getElementById('targetClass').value);
+
+    if (isNaN(y2Avg)) {
+        alert('Please enter your Year 2 average.');
+        return;
+    }
+
+    let needed;
+    if (y3W === 0) {
+        alert('Final year weighting cannot be 0%.');
+        return;
+    }
+    needed = (target - y2Avg * y2W) / y3W;
+
+    const targetLabels = { '70': 'First', '60': '2:1', '50': '2:2', '40': 'Third' };
+    const targetLabel = targetLabels[String(target)] || target + '%';
+
+    let html = '';
+
+    if (needed > 100) {
+        html += `
+            <div class="result-item classification-third">
+                <h3>Required Final Year Average</h3>
+                <div class="result-value">${needed.toFixed(1)}%</div>
+                <p>A ${targetLabel} is <strong>not achievable</strong> with your current Year 2 average and this weighting scheme, as you would need more than 100% in your final year.</p>
+            </div>
+        `;
+    } else if (needed <= 0) {
+        html += `
+            <div class="result-item classification-first">
+                <h3>Required Final Year Average</h3>
+                <div class="result-value">Already secured!</div>
+                <p>Your Year 2 average alone is sufficient to guarantee a ${targetLabel}, regardless of your final year marks.</p>
+            </div>
+        `;
+    } else {
+        let classClass = needed >= 80 ? 'classification-third' : needed >= 70 ? 'classification-22' : needed >= 60 ? 'classification-21' : 'classification-first';
+        html += `
+            <div class="result-item ${classClass}">
+                <h3>Required Final Year Average</h3>
+                <div class="result-value">${needed.toFixed(1)}%</div>
+                <p>You need a final year average of <strong>${needed.toFixed(1)}%</strong> to achieve a ${targetLabel}.</p>
+            </div>
+        `;
+    }
+
+    html += `
+        <div class="result-item">
+            <h3>Your Year 2 Contribution</h3>
+            <div class="result-value">${(y2Avg * y2W).toFixed(1)}%</div>
+            <p>Year 2 average: ${y2Avg.toFixed(1)}% &times; ${(y2W * 100).toFixed(1)}% weighting = ${(y2Avg * y2W).toFixed(1)}% contribution to your overall grade.</p>
+        </div>
+    `;
+
+    // All classifications table
+    html += `
+        <div class="result-item">
+            <h3>Final Year Average Needed for Each Classification</h3>
+            <table>
+                <thead><tr><th>Classification</th><th>Overall Needed</th><th>Final Year Needed</th><th>Achievable?</th></tr></thead>
+                <tbody>
+    `;
+    [{name:'First', val:70}, {name:'2:1', val:60}, {name:'2:2', val:50}, {name:'Third', val:40}].forEach(function(c) {
+        const req = (c.val - y2Avg * y2W) / y3W;
+        const achievable = req <= 100 && req >= 0;
+        const label = req <= 0 ? 'Already secured' : req > 100 ? 'Not possible' : req.toFixed(1) + '%';
+        html += `<tr><td>${c.name}</td><td>${c.val}%</td><td>${label}</td><td>${achievable ? 'Yes' : (req <= 0 ? 'Yes' : 'No')}</td></tr>`;
+    });
+    html += '</tbody></table></div>';
+
+    document.getElementById('resultsContent').innerHTML = html;
+    document.getElementById('results').classList.add('show');
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetCalc() {
+    document.getElementById('year2Average').value = '';
+    document.getElementById('year2Weight').value = '40';
+    document.getElementById('year3Weight').value = '60';
+    document.getElementById('targetClass').value = '60';
+    document.getElementById('results').classList.remove('show');
+}
+</script>
+{% endblock %}

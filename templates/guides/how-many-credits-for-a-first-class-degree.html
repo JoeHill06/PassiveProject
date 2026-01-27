@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}How Many Credits Do You Need for a First Class Degree?{% endblock %}
+
+{% block meta_description %}Learn how credits relate to getting a First Class degree. Understand UK credit systems, how credits are weighted, and what you actually need for a First.{% endblock %}
+
+{% block meta_keywords %}how many credits for a first class degree, credits for a first, UK degree credits, credits needed first class{% endblock %}
+
+{% block og_title %}How Many Credits Do You Need for a First Class Degree?{% endblock %}
+{% block og_description %}Learn how credits relate to getting a First Class degree in the UK university system.{% endblock %}
+
+{% block extra_head %}
+<link rel="canonical" href="https://gradecalc.online/guides/how-many-credits-for-a-first-class-degree.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Many Credits Do You Need for a First Class Degree?",
+  "description": "Understanding how credits relate to achieving a First Class degree in the UK",
+  "author": {
+    "@type": "Organization",
+    "name": "GradeCalc"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>How Many Credits Do You Need for a First Class Degree?</h1>
+<p>A First Class degree is not about accumulating a specific number of credits &mdash; it is about your average mark across those credits. This guide explains how the UK credit system works and how credits relate to achieving a First.</p>
+
+<section class="content-section">
+    <h2>The Short Answer</h2>
+    <p>You need to <strong>pass all required credits</strong> for your programme (typically 360 credits over three years) <strong>and</strong> achieve an overall credit-weighted average of <strong>70% or above</strong> across the years that count towards your classification.</p>
+    <p>It is not about getting 70% in a certain number of credits. It is about your weighted average across all credits being 70% or higher.</p>
+
+    <h2>How UK Credits Work</h2>
+    <table>
+        <thead><tr><th>Level</th><th>Year</th><th>Credits Per Year</th><th>Cumulative Total</th></tr></thead>
+        <tbody>
+            <tr><td>Level 4</td><td>Year 1</td><td>120</td><td>120</td></tr>
+            <tr><td>Level 5</td><td>Year 2</td><td>120</td><td>240</td></tr>
+            <tr><td>Level 6</td><td>Year 3</td><td>120</td><td>360</td></tr>
+        </tbody>
+    </table>
+    <p>A standard UK undergraduate degree requires 360 credits. Each year consists of 120 credits, split across modules of varying sizes (typically 10, 15, 20, 30, or 40 credits each).</p>
+
+    <h3>Scottish Degrees</h3>
+    <p>Scottish Honours degrees are four years (480 credits total, 120 per year). The classification calculation typically focuses on years 3 and 4 (Levels 9 and 10 in the Scottish system).</p>
+
+    <h2>Credits and Classification: The Key Point</h2>
+    <p>Your degree classification is based on a <strong>credit-weighted average</strong>, not on the number of credits at a particular mark. Here is how it works:</p>
+    <ol>
+        <li>Each module mark is multiplied by its credit value.</li>
+        <li>These are summed and divided by the total credits to give a year average.</li>
+        <li>Year averages are then weighted (e.g. 40% Year 2, 60% Year 3).</li>
+    </ol>
+
+    <h3>Example</h3>
+    <p>Two students both take 120 credits in Year 3:</p>
+    <table>
+        <thead><tr><th></th><th>Student A</th><th>Student B</th></tr></thead>
+        <tbody>
+            <tr><td>Module 1 (40 credits)</td><td>75%</td><td>82%</td></tr>
+            <tr><td>Module 2 (30 credits)</td><td>72%</td><td>65%</td></tr>
+            <tr><td>Module 3 (30 credits)</td><td>68%</td><td>60%</td></tr>
+            <tr><td>Module 4 (20 credits)</td><td>70%</td><td>72%</td></tr>
+            <tr><td><strong>Year Average</strong></td><td><strong>71.5%</strong></td><td><strong>71.2%</strong></td></tr>
+        </tbody>
+    </table>
+    <p>Both students achieve a First-class year average, but through different mark profiles. Student A is consistent; Student B is high in the largest module. The credit weighting means the 40-credit module has the most influence.</p>
+
+    <h2>Do All Credits Count?</h2>
+    <p>At most UK universities:</p>
+    <ul>
+        <li><strong>Year 1 credits (Level 4):</strong> You must pass them, but they usually do not count towards your classification.</li>
+        <li><strong>Year 2 credits (Level 5):</strong> Typically count 25-40% towards your classification.</li>
+        <li><strong>Year 3 credits (Level 6):</strong> Typically count 60-75% towards your classification.</li>
+    </ul>
+    <p>This means the 120 credits you take in your final year usually have the biggest impact on whether you get a First.</p>
+
+    <h2>How Many Credits at 70%+ Do I Need?</h2>
+    <p>This is a common question, but there is no fixed answer. You do not need all credits at 70%. You need your <em>average</em> to be 70%. Some marks can be below 70% if others are above &mdash; they balance out.</p>
+    <p>However, some universities use a "profile" rule for borderline cases. For example, if your average is 68-69%, you might be awarded a First if more than 50% of your final-year credits are at 70%+. This varies by university.</p>
+
+    <div class="alert alert-info">
+        <p style="margin: 0;">Use our <a href="{{ url_for('what_need_first') }}">What Do I Need to Get a First?</a> calculator to find out the exact average you need on your remaining credits.</p>
+    </div>
+
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <h3>Do I need 70% in every module to get a First?</h3>
+            <p>No. You need an overall credit-weighted average of 70% or above. You can score below 70% in some modules as long as your higher marks in other modules bring the average up to 70% or more.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does a high-credit module matter more?</h3>
+            <p>Yes. A 40-credit module has twice the influence of a 20-credit module on your year average. Performing well in high-credit modules (like dissertations) is an effective strategy for raising your overall average.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What is the minimum number of credits for a degree?</h3>
+            <p>A standard UK undergraduate honours degree requires 360 credits (120 per year for three years). You must pass all required credits to graduate. Some universities allow compensation for minor failures.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can I get a First with a low Year 2 mark?</h3>
+            <p>Possibly, depending on the year weighting. If Year 3 counts for 60-67%, strong final-year performance can overcome a weaker Year 2. Use our <a href="{{ url_for('final_year_marks') }}">Final Year Marks Calculator</a> to check what you'd need.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How do ECTS credits compare to UK credits?</h3>
+            <p>UK credits use a different scale from European Credit Transfer System (ECTS) credits. Generally, 1 ECTS credit = 2 UK credits. A UK year of 120 credits equals 60 ECTS credits. A full UK degree (360 credits) equals 180 ECTS credits.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What happens if I fail some credits?</h3>
+            <p>Failed modules usually need to be retaken. Retake marks are typically capped at the pass threshold (40%). Capped marks are used in your overall average, making it harder to reach 70%. Some universities allow compensation for marginal failures (e.g. 35-39%) if your overall profile is strong.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does the dissertation count for more credits?</h3>
+            <p>Dissertations are typically 30-40 credits (sometimes 60), making them one of the largest single modules. Because of credit weighting, your dissertation mark significantly influences your final-year average. Scoring well on your dissertation is one of the most impactful things you can do.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What about placement years?</h3>
+            <p>Sandwich year placements usually carry 120 credits but are typically assessed as pass/fail and do not count towards your classification. You graduate with "with industrial experience" or similar notation. The placement year does not affect your percentage average.</p>
+        </div>
+    </div>
+
+    <h2>Related Tools & Guides</h2>
+    <ul>
+        <li><a href="{{ url_for('what_need_first') }}">What Do I Need to Get a First?</a> &mdash; calculate exactly what average you need</li>
+        <li><a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator</a> &mdash; enter your module marks</li>
+        <li><a href="{{ url_for('final_year_marks') }}">What Marks Do I Need in My Final Year?</a> &mdash; final year targets</li>
+        <li><a href="{{ url_for('guide_grades_calculated') }}">How Are Degree Grades Calculated?</a> &mdash; calculation method explained</li>
+        <li><a href="{{ url_for('guide_classification_work') }}">How Does Degree Classification Work?</a> &mdash; the full system explained</li>
+        <li><a href="{{ url_for('guide_get_first') }}">How to Get a First</a> &mdash; strategies for top marks</li>
+    </ul>
+
+    <div class="alert alert-warning" style="margin-top: 2rem;">
+        <p style="margin: 0;"><strong>Disclaimer:</strong> Credit structures and classification rules vary between universities. This guide describes the typical UK system. Always check your university's programme specification and academic regulations for the rules that apply to you.</p>
+    </div>
+</section>
+{% endblock %}

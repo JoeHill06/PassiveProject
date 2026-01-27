@@ -1,0 +1,291 @@
+{% extends "base.html" %}
+
+{% block title %}What Do I Need to Get a First? | UK Degree Calculator{% endblock %}
+
+{% block meta_description %}Calculate exactly what marks you need on your remaining modules to get a First Class degree. Enter your current average and credits to find out instantly.{% endblock %}
+
+{% block meta_keywords %}what do i need to get a first, first class degree calculator, marks needed for a first, degree classification calculator{% endblock %}
+
+{% block og_title %}What Do I Need to Get a First? | UK Degree Calculator{% endblock %}
+{% block og_description %}Calculate exactly what marks you need on your remaining modules to get a First Class degree.{% endblock %}
+
+{% block extra_head %}
+<link rel="canonical" href="https://gradecalc.online/tools/what-do-i-need-for-a-first.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "What Do I Need to Get a First? Calculator",
+  "description": "Calculate what marks you need on remaining modules to achieve a First Class degree",
+  "applicationCategory": "EducationalApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>What Do I Need to Get a First?</h1>
+<p>Use this calculator to find out exactly what average you need on your remaining modules to achieve a First Class Honours degree (70%+). Enter your current average, credits completed, and credits remaining to get your answer instantly.</p>
+
+<div class="alert alert-info" style="margin: 2rem 0;">
+    <h3>First Class Degree Requirements</h3>
+    <p style="margin-bottom: 0.5rem;">A First Class Honours degree requires an overall weighted average of <strong>70% or above</strong>. The calculation depends on how your university weights each year.</p>
+    <p style="margin-bottom: 0;">Enter your details below to find out what you need.</p>
+</div>
+
+<div class="calculator-section">
+    <h2>Enter Your Details</h2>
+
+    <div class="form-group">
+        <label for="currentAverage">Current Weighted Average (%)</label>
+        <input type="number" id="currentAverage" placeholder="e.g. 65" min="0" max="100" step="0.1">
+        <small>Your current overall average across completed modules (weighted by credits)</small>
+    </div>
+
+    <div class="form-group">
+        <label for="creditsCompleted">Credits Completed</label>
+        <input type="number" id="creditsCompleted" placeholder="e.g. 180" min="0" step="1">
+        <small>Total credits you have completed so far (counting only years that contribute to your degree)</small>
+    </div>
+
+    <div class="form-group">
+        <label for="creditsRemaining">Credits Remaining</label>
+        <input type="number" id="creditsRemaining" placeholder="e.g. 120" min="0" step="1">
+        <small>Total credits still to complete</small>
+    </div>
+
+    <div class="form-group">
+        <label for="targetClass">Target Classification</label>
+        <select id="targetClass">
+            <option value="70" selected>First (70%+)</option>
+            <option value="60">2:1 (60%+)</option>
+            <option value="50">2:2 (50%+)</option>
+            <option value="40">Third (40%+)</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="weightingMode">Year Weighting</label>
+        <select id="weightingMode">
+            <option value="equal">Equal weighting (all credits count the same)</option>
+            <option value="custom">Custom weighting (e.g. Year 2: 40%, Year 3: 60%)</option>
+        </select>
+        <small>Choose how your university weights different years</small>
+    </div>
+
+    <div id="customWeighting" style="display: none;">
+        <div class="form-group">
+            <label for="completedWeight">Weighting of Completed Credits (%)</label>
+            <input type="number" id="completedWeight" placeholder="e.g. 40" min="0" max="100" step="0.1">
+            <small>How much your completed work counts towards the final grade</small>
+        </div>
+        <div class="form-group">
+            <label for="remainingWeight">Weighting of Remaining Credits (%)</label>
+            <input type="number" id="remainingWeight" placeholder="e.g. 60" min="0" max="100" step="0.1">
+            <small>How much your remaining work counts towards the final grade</small>
+        </div>
+    </div>
+
+    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+        <button type="button" class="btn btn-primary btn-block" onclick="calculate()">Calculate What I Need</button>
+        <button type="button" class="btn btn-secondary btn-block" onclick="resetCalc()">Reset</button>
+    </div>
+
+    <div id="results" class="results">
+        <h2>Your Results</h2>
+        <div id="resultsContent"></div>
+    </div>
+</div>
+
+<section class="content-section">
+    <h2>How This Calculator Works</h2>
+    <p>This calculator uses a credit-weighted average formula. Your overall degree average is calculated as:</p>
+    <p><strong>Overall Average = (Completed Average &times; Completed Weight) + (Remaining Average &times; Remaining Weight)</strong></p>
+    <p>If you use equal weighting, all credits count the same regardless of year. If you use custom weighting, your completed and remaining credits are weighted separately (e.g. 40/60 for Year 2/Year 3).</p>
+    <p>The calculator rearranges this formula to find the minimum average you need on your remaining modules to reach your target classification.</p>
+
+    <h2>Example Scenarios</h2>
+    <table>
+        <thead>
+            <tr><th>Current Average</th><th>Credits Done</th><th>Credits Left</th><th>Weighting</th><th>Needed for a First</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>65%</td><td>120</td><td>120</td><td>Equal</td><td>75.0%</td></tr>
+            <tr><td>62%</td><td>120</td><td>120</td><td>40/60</td><td>75.3%</td></tr>
+            <tr><td>68%</td><td>240</td><td>120</td><td>Equal</td><td>74.0%</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <h3>What average do I need to get a First?</h3>
+            <p>You need an overall weighted average of 70% or above across all modules that count towards your degree. The exact marks you need on remaining modules depend on your current average, how many credits you have left, and your university's weighting scheme.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does Year 1 count towards a First?</h3>
+            <p>At most UK universities, Year 1 does not count towards your final degree classification. Typically only Year 2 and Year 3 marks contribute, though you must pass Year 1 to progress. Check your university's specific regulations.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What if the required average is over 100%?</h3>
+            <p>If the calculator shows you need more than 100% on your remaining modules, it is mathematically impossible to reach your target with the credits you have left. You may want to consider a lower target classification or check whether your university offers any alternative routes.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How does year weighting affect what I need?</h3>
+            <p>If your final year is weighted more heavily (e.g. 60% or 67%), your remaining marks matter more. This can work in your favour if you perform well in your final year, as it gives those marks more influence on your overall average.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is 69% rounded up to a First?</h3>
+            <p>Most UK universities do not round up to the next classification boundary. A weighted average of 69.9% would typically be classified as a 2:1, not a First. Some universities have discretionary zones (e.g. 68-69%) where other factors may be considered, but this varies.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can I still get a First if I have some low marks?</h3>
+            <p>Yes, it is possible as long as your overall weighted average reaches 70%. Strong performance in higher-credit or later-year modules can compensate for weaker results earlier on. Use the calculator above to check your specific situation.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What credits should I enter?</h3>
+            <p>Only include credits from years that count towards your degree classification. At most UK universities, this means Year 2 and Year 3 credits (typically 120 credits per year, 240 total). Do not include Year 1 credits unless your university counts them.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How accurate is this calculator?</h3>
+            <p>This calculator uses standard UK degree classification boundaries (70% for a First). However, individual universities may have different rules, including borderline policies, module caps on retakes, or alternative calculation methods. Always confirm with your university.</p>
+        </div>
+    </div>
+
+    <h2>Related Tools</h2>
+    <ul>
+        <li><a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator</a> &mdash; calculate your full classification from module marks</li>
+        <li><a href="{{ url_for('what_need_21') }}">What Do I Need for a 2:1?</a> &mdash; calculate marks needed for an Upper Second</li>
+        <li><a href="{{ url_for('final_year_marks') }}">What Marks Do I Need in My Final Year?</a> &mdash; final year target calculator</li>
+        <li><a href="{{ url_for('module_grade_calculator') }}">Module Grade Calculator</a> &mdash; calculate individual module grades</li>
+        <li><a href="{{ url_for('guide_degree_classifications') }}">How Degree Classifications Work</a> &mdash; understand the UK grading system</li>
+    </ul>
+
+    <div class="alert alert-warning" style="margin-top: 2rem;">
+        <p style="margin: 0;"><strong>Disclaimer:</strong> This calculator provides estimates based on standard UK degree classification boundaries. Your university may use different rules, borderline criteria, or rounding methods. Always check your institution's official regulations.</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('weightingMode').addEventListener('change', function() {
+    document.getElementById('customWeighting').style.display = this.value === 'custom' ? 'block' : 'none';
+});
+
+function calculate() {
+    const currentAvg = parseFloat(document.getElementById('currentAverage').value);
+    const creditsDone = parseFloat(document.getElementById('creditsCompleted').value);
+    const creditsLeft = parseFloat(document.getElementById('creditsRemaining').value);
+    const target = parseFloat(document.getElementById('targetClass').value);
+    const mode = document.getElementById('weightingMode').value;
+
+    if (isNaN(currentAvg) || isNaN(creditsDone) || isNaN(creditsLeft)) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+    if (creditsDone <= 0 || creditsLeft <= 0) {
+        alert('Credits must be greater than zero.');
+        return;
+    }
+
+    let needed;
+    if (mode === 'equal') {
+        const totalCredits = creditsDone + creditsLeft;
+        needed = (target * totalCredits - currentAvg * creditsDone) / creditsLeft;
+    } else {
+        const compW = parseFloat(document.getElementById('completedWeight').value) / 100;
+        const remW = parseFloat(document.getElementById('remainingWeight').value) / 100;
+        if (isNaN(compW) || isNaN(remW) || compW + remW === 0) {
+            alert('Please enter valid weightings.');
+            return;
+        }
+        needed = (target - currentAvg * compW) / remW;
+    }
+
+    const targetLabels = { '70': 'First (70%+)', '60': '2:1 (60%+)', '50': '2:2 (50%+)', '40': 'Third (40%+)' };
+    const targetLabel = targetLabels[String(target)] || target + '%';
+
+    let html = '';
+
+    if (needed > 100) {
+        html += `
+            <div class="result-item classification-third">
+                <h3>Required Average on Remaining Modules</h3>
+                <div class="result-value">${needed.toFixed(1)}%</div>
+                <p>Unfortunately, achieving a ${targetLabel} is <strong>not possible</strong> with your current average and remaining credits, as you would need more than 100%.</p>
+            </div>
+        `;
+    } else if (needed <= 0) {
+        html += `
+            <div class="result-item classification-first">
+                <h3>Required Average on Remaining Modules</h3>
+                <div class="result-value">Already achieved!</div>
+                <p>Based on your current average, you have already secured a ${targetLabel} even if you score 0% on all remaining modules. Well done.</p>
+            </div>
+        `;
+    } else {
+        let classClass = needed >= 70 ? 'classification-22' : needed >= 50 ? '' : 'classification-first';
+        if (needed >= 80) classClass = 'classification-third';
+        html += `
+            <div class="result-item ${classClass}">
+                <h3>Required Average on Remaining Modules</h3>
+                <div class="result-value">${needed.toFixed(1)}%</div>
+                <p>You need an average of <strong>${needed.toFixed(1)}%</strong> across your remaining ${creditsLeft} credits to achieve a ${targetLabel}.</p>
+            </div>
+        `;
+    }
+
+    html += `
+        <div class="result-item">
+            <h3>Your Current Position</h3>
+            <div class="result-value">${currentAvg.toFixed(1)}%</div>
+            <p>Current average across ${creditsDone} completed credits.</p>
+        </div>
+    `;
+
+    // Scenario table
+    html += `
+        <div class="result-item">
+            <h3>What If Scenarios</h3>
+            <table>
+                <thead><tr><th>If you average...</th><th>Your final grade would be...</th><th>Classification</th></tr></thead>
+                <tbody>
+    `;
+    const scenarios = [40, 50, 55, 60, 65, 70, 75, 80, 85];
+    scenarios.forEach(function(s) {
+        let final;
+        if (mode === 'equal') {
+            final = (currentAvg * creditsDone + s * creditsLeft) / (creditsDone + creditsLeft);
+        } else {
+            const cw = parseFloat(document.getElementById('completedWeight').value) / 100;
+            const rw = parseFloat(document.getElementById('remainingWeight').value) / 100;
+            final = currentAvg * cw + s * rw;
+        }
+        let cls = final >= 70 ? 'First' : final >= 60 ? '2:1' : final >= 50 ? '2:2' : final >= 40 ? 'Third' : 'Fail';
+        html += `<tr><td>${s}%</td><td>${final.toFixed(1)}%</td><td>${cls}</td></tr>`;
+    });
+    html += '</tbody></table></div>';
+
+    document.getElementById('resultsContent').innerHTML = html;
+    document.getElementById('results').classList.add('show');
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetCalc() {
+    document.getElementById('currentAverage').value = '';
+    document.getElementById('creditsCompleted').value = '';
+    document.getElementById('creditsRemaining').value = '';
+    document.getElementById('targetClass').value = '70';
+    document.getElementById('weightingMode').value = 'equal';
+    document.getElementById('customWeighting').style.display = 'none';
+    document.getElementById('completedWeight').value = '';
+    document.getElementById('remainingWeight').value = '';
+    document.getElementById('results').classList.remove('show');
+}
+</script>
+{% endblock %}

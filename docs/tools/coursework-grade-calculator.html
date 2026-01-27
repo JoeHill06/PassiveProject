@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your overall coursework grade from multiple assignments. Enter each component's weight and mark to get your weighted total instantly.">
+    <meta name="keywords" content="coursework grade calculator, weighted coursework calculator, assignment grade calculator, weighted marks calculator">
+    <title>Coursework Grade Calculator | Weighted Marks</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Coursework Grade Calculator | Weighted Marks">
+    <meta property="og:description" content="Calculate your overall coursework grade from multiple weighted assignments instantly.">
+    <meta property="og:type" content="website">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734"
+         crossorigin="anonymous"></script>
+
+    
+<link rel="canonical" href="https://gradecalc.online/tools/coursework-grade-calculator.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Coursework Grade Calculator",
+  "description": "Calculate your overall coursework grade from multiple weighted assignments",
+  "applicationCategory": "EducationalApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  }
+}
+</script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo">GradeCalc</a>
+            <nav>
+                <ul>
+                    <li><a href="/tools/">Tools</a></li>
+                    <li><a href="/guides/">Guides</a></li>
+                    <li><a href="/about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+<h1>Coursework Grade Calculator</h1>
+<p>Calculate your overall coursework mark from multiple assignments, each with different weightings. Add as many components as you need and the calculator will give you the weighted total.</p>
+
+<div class="calculator-section">
+    <h2>Enter Your Coursework Components</h2>
+
+    <div id="components" class="dynamic-inputs">
+        <div class="input-row">
+            <input type="text" placeholder="Component name (e.g. Essay 1)" class="comp-name">
+            <input type="number" placeholder="Weight (%)" min="0" max="100" step="0.1" class="comp-weight">
+            <input type="number" placeholder="Mark (%)" min="0" max="100" step="0.1" class="comp-mark">
+            <button type="button" class="btn-remove" onclick="removeRow(this)">Remove</button>
+        </div>
+        <div class="input-row">
+            <input type="text" placeholder="Component name (e.g. Report)" class="comp-name">
+            <input type="number" placeholder="Weight (%)" min="0" max="100" step="0.1" class="comp-weight">
+            <input type="number" placeholder="Mark (%)" min="0" max="100" step="0.1" class="comp-mark">
+            <button type="button" class="btn-remove" onclick="removeRow(this)">Remove</button>
+        </div>
+    </div>
+
+    <div id="weightWarning" class="alert alert-warning" style="display: none; margin: 1rem 0;">
+        <p style="margin: 0;" id="weightWarningText"></p>
+    </div>
+
+    <button type="button" class="btn btn-add" onclick="addRow()">+ Add Component</button>
+
+    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+        <button type="button" class="btn btn-primary btn-block" onclick="calculate()">Calculate Coursework Grade</button>
+        <button type="button" class="btn btn-secondary btn-block" onclick="resetCalc()">Reset</button>
+    </div>
+
+    <div id="results" class="results">
+        <h2>Your Results</h2>
+        <div id="resultsContent"></div>
+    </div>
+</div>
+
+<section class="content-section">
+    <h2>How Weighted Coursework Grades Work</h2>
+    <p>When a module has multiple coursework components (e.g. essays, reports, presentations), each is typically assigned a percentage weighting that reflects its importance. Your overall coursework mark is the sum of each component's mark multiplied by its weight:</p>
+    <p><strong>Overall = (Mark<sub>1</sub> &times; Weight<sub>1</sub>) + (Mark<sub>2</sub> &times; Weight<sub>2</sub>) + ... </strong></p>
+    <p>For this formula to work correctly, the weights should add up to 100%. The calculator will warn you if they don't.</p>
+
+    <h2>Example</h2>
+    <table>
+        <thead><tr><th>Component</th><th>Weight</th><th>Mark</th><th>Contribution</th></tr></thead>
+        <tbody>
+            <tr><td>Essay</td><td>30%</td><td>65%</td><td>19.5%</td></tr>
+            <tr><td>Report</td><td>40%</td><td>72%</td><td>28.8%</td></tr>
+            <tr><td>Presentation</td><td>30%</td><td>58%</td><td>17.4%</td></tr>
+            <tr><td colspan="3"><strong>Total</strong></td><td><strong>65.7%</strong></td></tr>
+        </tbody>
+    </table>
+
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <h3>What if my weights don't add up to 100%?</h3>
+            <p>If your weights total more or less than 100%, the calculator will flag this. Weights should always sum to 100% for the result to be accurate. If you only have some marks back and want a partial calculation, the calculator will normalise the weights for you.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can I use this for exam + coursework combined?</h3>
+            <p>Yes. You can add your exam as another component. For example, if coursework is 40% and the exam is 60%, add them as two separate components. For a dedicated exam tool, try our <a href="/tools/exam-weighting-calculator.html">Exam Weighting Calculator</a>.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What if I don't have all my marks yet?</h3>
+            <p>You can enter only the components you have marks for. The calculator will compute the weighted total based on the weights you've entered. Just note that the result will only represent the portion of coursework you've completed.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How do I find my component weightings?</h3>
+            <p>Component weightings are listed in your module handbook, module guide, or on your university's virtual learning environment (VLE). They are usually set at the start of the academic year.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does this work for percentage and letter grades?</h3>
+            <p>This calculator uses percentage marks. If your marks are letter grades, convert them to percentages first (e.g. A = ~75%, B = ~65% at most UK universities). The exact conversion depends on your university's grade scale.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How does coursework relate to my degree classification?</h3>
+            <p>Your coursework total feeds into your overall module mark (usually combined with an exam component). Module marks then contribute to your year average, which determines your <a href="/tools/degree-classification-calculator.html">degree classification</a>.</p>
+        </div>
+    </div>
+
+    <h2>Related Tools</h2>
+    <ul>
+        <li><a href="/tools/exam-weighting-calculator.html">Exam Weighting Calculator</a> &mdash; see how your exam affects your overall grade</li>
+        <li><a href="/tools/what-exam-score-do-i-need-to-pass.html">What Exam Score Do I Need to Pass?</a> &mdash; find the minimum exam mark to pass</li>
+        <li><a href="/tools/module-grade-calculator.html">Module Grade Calculator</a> &mdash; full module grade breakdown</li>
+        <li><a href="/tools/degree-classification-calculator.html">UK Degree Classification Calculator</a> &mdash; calculate your degree class</li>
+    </ul>
+
+    <div class="alert alert-warning" style="margin-top: 2rem;">
+        <p style="margin: 0;"><strong>Disclaimer:</strong> Ensure your weightings match those in your module handbook. This calculator provides an estimate and does not account for special regulations such as mark capping or penalty deductions.</p>
+    </div>
+</section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div>
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/tools/degree-classification-calculator.html">UK Degree Calculator (First, 2:1, 2:2)</a></li>
+                    <li><a href="/tools/what-do-i-need-for-a-first.html">What Do I Need for a First?</a></li>
+                    <li><a href="/tools/what-do-i-need-for-a-2-1.html">What Do I Need for a 2:1?</a></li>
+                    <li><a href="/tools/what-marks-do-i-need-in-final-year.html">Final Year Marks Calculator</a></li>
+                    <li><a href="/tools/coursework-grade-calculator.html">Coursework Grade Calculator</a></li>
+                    <li><a href="/tools/exam-weighting-calculator.html">Exam Weighting Calculator</a></li>
+                    <li><a href="/tools/module-grade-calculator.html">Module Grade Calculator</a></li>
+                    <li><a href="/tools/gpa-calculator.html">GPA Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Guides</h4>
+                <ul>
+                    <li><a href="/guides/how-degree-classifications-work-uk.html">How Degree Classifications Work</a></li>
+                    <li><a href="/guides/how-are-degree-grades-calculated.html">How Are Degree Grades Calculated?</a></li>
+                    <li><a href="/guides/how-does-degree-classification-work-uk.html">UK Degree Classification System</a></li>
+                    <li><a href="/guides/how-many-credits-for-a-first-class-degree.html">Credits for a First Class Degree</a></li>
+                    <li><a href="/guides/how-to-get-a-first.html">How to Get a First</a></li>
+                    <li><a href="/guides/exam-grading-explained.html">Exam Grading Explained</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>About</h4>
+                <ul>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 GradeCalc. All rights reserved. This tool is for educational purposes only and does not represent official academic advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+<script>
+function addRow() {
+    const container = document.getElementById('components');
+    const row = document.createElement('div');
+    row.className = 'input-row';
+    row.innerHTML = `
+        <input type="text" placeholder="Component name" class="comp-name">
+        <input type="number" placeholder="Weight (%)" min="0" max="100" step="0.1" class="comp-weight">
+        <input type="number" placeholder="Mark (%)" min="0" max="100" step="0.1" class="comp-mark">
+        <button type="button" class="btn-remove" onclick="removeRow(this)">Remove</button>
+    `;
+    container.appendChild(row);
+}
+
+function removeRow(btn) {
+    const container = document.getElementById('components');
+    if (container.children.length > 1) {
+        btn.parentElement.remove();
+    } else {
+        alert('You must have at least one component.');
+    }
+}
+
+function calculate() {
+    const rows = document.querySelectorAll('#components .input-row');
+    let totalWeight = 0;
+    let weightedTotal = 0;
+    const components = [];
+
+    rows.forEach(function(row) {
+        const name = row.querySelector('.comp-name').value || 'Unnamed';
+        const weight = parseFloat(row.querySelector('.comp-weight').value);
+        const mark = parseFloat(row.querySelector('.comp-mark').value);
+
+        if (!isNaN(weight) && !isNaN(mark)) {
+            totalWeight += weight;
+            const contribution = mark * (weight / 100);
+            weightedTotal += contribution;
+            components.push({ name: name, weight: weight, mark: mark, contribution: contribution });
+        }
+    });
+
+    if (components.length === 0) {
+        alert('Please enter at least one component with weight and mark.');
+        return;
+    }
+
+    // Weight validation
+    const warningEl = document.getElementById('weightWarning');
+    const warningText = document.getElementById('weightWarningText');
+    if (Math.abs(totalWeight - 100) > 0.5) {
+        warningText.textContent = 'Your weights total ' + totalWeight.toFixed(1) + '%, not 100%. The result below is based on the weights you entered. Check your module handbook to confirm the correct weightings.';
+        warningEl.style.display = 'block';
+    } else {
+        warningEl.style.display = 'none';
+    }
+
+    let html = `
+        <div class="result-item">
+            <h3>Overall Coursework Grade</h3>
+            <div class="result-value">${weightedTotal.toFixed(1)}%</div>
+            <p>Based on ${components.length} component(s) with a total weighting of ${totalWeight.toFixed(1)}%.</p>
+        </div>
+    `;
+
+    html += `
+        <div class="result-item">
+            <h3>Component Breakdown</h3>
+            <table>
+                <thead><tr><th>Component</th><th>Weight</th><th>Mark</th><th>Contribution</th></tr></thead>
+                <tbody>
+    `;
+    components.forEach(function(c) {
+        html += `<tr><td>${c.name}</td><td>${c.weight.toFixed(1)}%</td><td>${c.mark.toFixed(1)}%</td><td>${c.contribution.toFixed(1)}%</td></tr>`;
+    });
+    html += `<tr><td colspan="3"><strong>Total</strong></td><td><strong>${weightedTotal.toFixed(1)}%</strong></td></tr>`;
+    html += '</tbody></table></div>';
+
+    document.getElementById('resultsContent').innerHTML = html;
+    document.getElementById('results').classList.add('show');
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetCalc() {
+    const container = document.getElementById('components');
+    container.innerHTML = `
+        <div class="input-row">
+            <input type="text" placeholder="Component name (e.g. Essay 1)" class="comp-name">
+            <input type="number" placeholder="Weight (%)" min="0" max="100" step="0.1" class="comp-weight">
+            <input type="number" placeholder="Mark (%)" min="0" max="100" step="0.1" class="comp-mark">
+            <button type="button" class="btn-remove" onclick="removeRow(this)">Remove</button>
+        </div>
+        <div class="input-row">
+            <input type="text" placeholder="Component name (e.g. Report)" class="comp-name">
+            <input type="number" placeholder="Weight (%)" min="0" max="100" step="0.1" class="comp-weight">
+            <input type="number" placeholder="Mark (%)" min="0" max="100" step="0.1" class="comp-mark">
+            <button type="button" class="btn-remove" onclick="removeRow(this)">Remove</button>
+        </div>
+    `;
+    document.getElementById('weightWarning').style.display = 'none';
+    document.getElementById('results').classList.remove('show');
+}
+</script>
+
+
+    <!-- Google Analytics Placeholder -->
+    <!-- Replace with your GA4 tracking code -->
+    <script>
+        // Google Analytics will go here
+        // window.dataLayer = window.dataLayer || [];
+        // function gtag(){dataLayer.push(arguments);}
+        // gtag('js', new Date());
+        // gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+</html>

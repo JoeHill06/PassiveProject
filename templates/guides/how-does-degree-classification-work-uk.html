@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block title %}How Does Degree Classification Work in the UK?{% endblock %}
+
+{% block meta_description %}Understand the UK degree classification system: First, 2:1, 2:2, Third. Learn what each class means, how boundaries work, and how universities calculate your result.{% endblock %}
+
+{% block meta_keywords %}how does degree classification work uk, UK degree classification system, first class degree, 2:1 2:2 third degree{% endblock %}
+
+{% block og_title %}How Does Degree Classification Work in the UK?{% endblock %}
+{% block og_description %}Understand the UK degree classification system: First, 2:1, 2:2, and Third explained clearly.{% endblock %}
+
+{% block extra_head %}
+<link rel="canonical" href="https://gradecalc.online/guides/how-does-degree-classification-work-uk.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Does Degree Classification Work in the UK?",
+  "description": "A clear guide to the UK degree classification system",
+  "author": {
+    "@type": "Organization",
+    "name": "GradeCalc"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>How Does Degree Classification Work in the UK?</h1>
+<p>The UK degree classification system ranks undergraduate degrees into classes based on your overall weighted average. This guide explains each classification, how they are determined, and what they mean for your future.</p>
+
+<section class="content-section">
+    <h2>The Four Degree Classifications</h2>
+
+    <h3>First Class Honours (1st) &mdash; 70% and above</h3>
+    <p>A First is the highest undergraduate classification. It indicates outstanding academic performance. In 2022/23, approximately 32% of UK graduates received a First. A First is typically required for competitive academic careers and is valued by top employers.</p>
+
+    <h3>Upper Second Class Honours (2:1) &mdash; 60% to 69%</h3>
+    <p>A 2:1 is the most common classification, awarded to around 40% of UK graduates. It is considered a "good degree" and is the minimum requirement for most graduate schemes, professional training contracts, and postgraduate programmes.</p>
+
+    <h3>Lower Second Class Honours (2:2) &mdash; 50% to 59%</h3>
+    <p>A 2:2 is a respectable result but may limit some career options where a 2:1 is specified as a minimum. Some graduate schemes and postgraduate courses accept 2:2 holders, particularly with relevant work experience. Around 17% of graduates receive a 2:2.</p>
+
+    <h3>Third Class Honours (3rd) &mdash; 40% to 49%</h3>
+    <p>A Third is the lowest honours classification. While it means you have passed your degree, career options may be more limited. Work experience and professional qualifications can help compensate. Around 5% of graduates receive a Third.</p>
+
+    <h3>Ordinary Degree / Fail</h3>
+    <p>Below 40%, you may receive an ordinary degree (without honours) or fail, depending on your university's regulations and how many credits you have passed.</p>
+
+    <h2>How Your Classification Is Calculated</h2>
+    <p>Your classification depends on three things:</p>
+    <ol>
+        <li><strong>Module marks:</strong> Each module you take receives a percentage mark.</li>
+        <li><strong>Credit weighting:</strong> Each module has a credit value (e.g. 15, 20, 30 credits). Higher-credit modules count more.</li>
+        <li><strong>Year weighting:</strong> Different academic years contribute different amounts. Year 1 usually does not count; Year 3 typically carries the most weight.</li>
+    </ol>
+    <p>The formula: <strong>Overall Average = (Year 2 Average &times; Year 2 Weight) + (Year 3 Average &times; Year 3 Weight)</strong></p>
+
+    <div class="alert alert-info">
+        <p style="margin: 0;">Calculate your own classification with our <a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator</a>.</p>
+    </div>
+
+    <h2>Common Weighting Schemes</h2>
+    <table>
+        <thead><tr><th>Scheme</th><th>Year 2</th><th>Year 3</th><th>Used By</th></tr></thead>
+        <tbody>
+            <tr><td>40/60</td><td>40%</td><td>60%</td><td>Many Russell Group universities</td></tr>
+            <tr><td>33/67</td><td>33%</td><td>67%</td><td>Several large universities</td></tr>
+            <tr><td>25/75</td><td>25%</td><td>75%</td><td>Some newer universities</td></tr>
+            <tr><td>0/100</td><td>0%</td><td>100%</td><td>A small number of institutions</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Borderline Cases</h2>
+    <p>If your average falls close to a classification boundary (typically within 1-2%), your university may apply additional rules. Common borderline policies include:</p>
+    <ul>
+        <li><strong>Profile rule:</strong> If a certain proportion of your credits (e.g. 50%) are in the higher classification, you may be upgraded.</li>
+        <li><strong>Final year rule:</strong> If your final-year average is in the higher classification, you may be upgraded.</li>
+        <li><strong>Viva voce:</strong> Some universities hold an oral examination for borderline candidates.</li>
+        <li><strong>No discretion:</strong> Some universities apply boundaries strictly with no rounding or borderline consideration.</li>
+    </ul>
+    <p>These rules vary significantly between institutions. Always check your university's academic regulations.</p>
+
+    <h2>What Your Classification Means</h2>
+    <table>
+        <thead><tr><th>Classification</th><th>Graduate Schemes</th><th>Postgrad Study</th><th>Career Impact</th></tr></thead>
+        <tbody>
+            <tr><td>First</td><td>All doors open</td><td>Strong applications</td><td>Highly competitive</td></tr>
+            <tr><td>2:1</td><td>Most schemes</td><td>Most programmes</td><td>Standard requirement</td></tr>
+            <tr><td>2:2</td><td>Some schemes</td><td>Some programmes</td><td>Experience helps compensate</td></tr>
+            <tr><td>Third</td><td>Limited</td><td>Rarely accepted</td><td>Alternative routes needed</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <h3>Does the UK degree classification system apply to all universities?</h3>
+            <p>Yes, all UK universities that award undergraduate honours degrees use this classification system. The boundaries (70/60/50/40) are standard across the sector, though individual calculation methods and borderline policies vary.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is the system changing?</h3>
+            <p>There have been discussions about replacing classifications with a more detailed Grade Point Average (GPA) system. Some universities have trialled GPA alongside classifications. However, as of 2026, the classification system remains the standard for UK undergraduate degrees.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Do employers really care about degree classification?</h3>
+            <p>Many employers specify a minimum classification (usually 2:1) as a filter for graduate roles, especially in competitive sectors like law, finance, and consulting. However, experience, skills, and other qualifications become more important as your career progresses.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can I improve my classification after graduating?</h3>
+            <p>No. Once you graduate, your classification is final. However, you can pursue further qualifications (e.g. a master's degree) to demonstrate additional academic achievement.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How is the classification system different from GPA?</h3>
+            <p>The UK classification system groups results into broad bands (First, 2:1, 2:2, Third), while a GPA provides a finer-grained numerical score (e.g. 3.7 out of 4.0). Some UK universities now provide both. Use our <a href="{{ url_for('gpa_calculator') }}">GPA Calculator</a> to convert.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What percentage of students get a First?</h3>
+            <p>The proportion has risen over time. In recent years, approximately 30-35% of UK graduates have been awarded a First. However, this varies significantly by subject and institution.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does subject choice affect classification difficulty?</h3>
+            <p>Marking conventions and grade distributions vary between subjects. Some subjects (e.g. STEM) may have lower average marks but the 70% First boundary still applies. What constitutes a "good" mark can differ by discipline.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What happens if I fail modules?</h3>
+            <p>If you fail a module, you usually get the chance to retake it. However, retake marks are often capped at 40% (the pass mark). This capped mark is then used in your overall classification calculation, which can make it harder to achieve a higher classification.</p>
+        </div>
+    </div>
+
+    <h2>Related Tools & Guides</h2>
+    <ul>
+        <li><a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator</a> &mdash; calculate your classification</li>
+        <li><a href="{{ url_for('what_need_first') }}">What Do I Need to Get a First?</a> &mdash; First target calculator</li>
+        <li><a href="{{ url_for('what_need_21') }}">What Do I Need for a 2:1?</a> &mdash; 2:1 target calculator</li>
+        <li><a href="{{ url_for('guide_grades_calculated') }}">How Are Degree Grades Calculated?</a> &mdash; calculation method explained</li>
+        <li><a href="{{ url_for('guide_credits_first') }}">How Many Credits for a First?</a> &mdash; credits and classification</li>
+        <li><a href="{{ url_for('guide_get_first') }}">How to Get a First</a> &mdash; strategies for top grades</li>
+    </ul>
+
+    <div class="alert alert-warning" style="margin-top: 2rem;">
+        <p style="margin: 0;"><strong>Disclaimer:</strong> This guide describes the general UK degree classification system. Individual universities may have different calculation methods, borderline policies, and regulations. Always check your own university's rules.</p>
+    </div>
+</section>
+{% endblock %}

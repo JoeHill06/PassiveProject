@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quickly find out how much your exam is worth and what score you need. Enter your coursework mark and exam weighting to see the impact on your final grade.">
+    <meta name="keywords" content="how much is my exam worth, exam worth calculator, exam percentage calculator, exam value calculator">
+    <title>How Much Is My Exam Worth? | Quick Calculator</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="How Much Is My Exam Worth? | Quick Calculator">
+    <meta property="og:description" content="Quickly find out how much your exam is worth and what it means for your final grade.">
+    <meta property="og:type" content="website">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734"
+         crossorigin="anonymous"></script>
+
+    
+<link rel="canonical" href="https://gradecalc.online/tools/how-much-is-my-exam-worth.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "How Much Is My Exam Worth Calculator",
+  "description": "Find out how much your exam is worth and its impact on your final grade",
+  "applicationCategory": "EducationalApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  }
+}
+</script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo">GradeCalc</a>
+            <nav>
+                <ul>
+                    <li><a href="/tools/">Tools</a></li>
+                    <li><a href="/guides/">Guides</a></li>
+                    <li><a href="/about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+<h1>How Much Is My Exam Worth?</h1>
+<p>Find out how much your exam counts towards your final module grade and see exactly how different exam results would affect your mark. Just enter three numbers and get your answer.</p>
+
+<div class="calculator-section">
+    <h2>Quick Calculator</h2>
+
+    <div class="form-group">
+        <label for="examWeight">Exam Weighting (%)</label>
+        <input type="number" id="examWeight" placeholder="e.g. 60" min="0" max="100" step="0.1">
+        <small>How much the exam counts (check your module handbook)</small>
+    </div>
+
+    <div class="form-group">
+        <label for="courseworkMark">Your Coursework Mark (%)</label>
+        <input type="number" id="courseworkMark" placeholder="e.g. 62" min="0" max="100" step="0.1">
+        <small>Your coursework result (leave blank if no coursework)</small>
+    </div>
+
+    <div class="form-group">
+        <label for="courseworkWeight">Coursework Weighting (%)</label>
+        <input type="number" id="courseworkWeight" placeholder="e.g. 40" min="0" max="100" step="0.1">
+        <small>How much coursework counts (should equal 100% minus exam weighting)</small>
+    </div>
+
+    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+        <button type="button" class="btn btn-primary btn-block" onclick="calculate()">Show Me</button>
+        <button type="button" class="btn btn-secondary btn-block" onclick="resetCalc()">Reset</button>
+    </div>
+
+    <div id="results" class="results">
+        <h2>Your Results</h2>
+        <div id="resultsContent"></div>
+    </div>
+</div>
+
+<section class="content-section">
+    <h2>Understanding Exam Weighting</h2>
+    <p>Your exam weighting tells you what fraction of your final module mark comes from the exam. If your exam is worth 60%, then 60% of your final mark depends on how well you do in the exam, and the other 40% comes from coursework.</p>
+
+    <h3>What does this mean in practice?</h3>
+    <ul>
+        <li>A <strong>60% exam weighting</strong> means each mark on the exam changes your final grade by 0.6%</li>
+        <li>A <strong>40% exam weighting</strong> means each mark on the exam changes your final grade by 0.4%</li>
+        <li>A <strong>100% exam weighting</strong> means the exam is your entire grade</li>
+    </ul>
+
+    <h2>Common Exam Weightings</h2>
+    <table>
+        <thead><tr><th>Module Type</th><th>Typical Exam Weight</th><th>Coursework Weight</th></tr></thead>
+        <tbody>
+            <tr><td>Lecture-based module</td><td>60-80%</td><td>20-40%</td></tr>
+            <tr><td>Lab/practical module</td><td>30-50%</td><td>50-70%</td></tr>
+            <tr><td>Coursework-only module</td><td>0%</td><td>100%</td></tr>
+            <tr><td>Exam-only module</td><td>100%</td><td>0%</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <h3>How do I find out how much my exam is worth?</h3>
+            <p>Check your module handbook, module guide, or your university's virtual learning environment (Moodle, Blackboard, Canvas). The assessment breakdown is usually listed in the module specification or the first lecture slides.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is a 60% exam weighting normal?</h3>
+            <p>Yes, 60% is one of the most common exam weightings at UK universities. Other common splits include 50/50, 70/30, and 80/20. Some modules are 100% exam or 100% coursework.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does a higher exam weighting mean the module is harder?</h3>
+            <p>Not necessarily. A higher exam weighting simply means more of your grade depends on the exam. Whether the module is harder depends on the content and marking criteria, not the assessment split.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can my coursework carry me if I do badly on the exam?</h3>
+            <p>It depends on the weighting. If coursework is worth 40% and you scored 80%, that contributes 32% to your final mark. You'd still need 8% from the exam (13.3% exam mark at 60% weighting) to pass at 40% overall. Strong coursework helps, but rarely eliminates the need to pass the exam.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What is the difference between this and the Exam Weighting Calculator?</h3>
+            <p>This page gives you a quick, simplified answer. Our <a href="/tools/exam-weighting-calculator.html">Exam Weighting Calculator</a> provides more detail including sensitivity analysis and grade boundary breakdowns.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Should I focus more on the exam or coursework?</h3>
+            <p>Strategically, focus effort proportional to the weighting. If the exam is 60% of your mark, allocate roughly 60% of your preparation time to exam revision. However, coursework marks are often easier to maximise since you have more time and resources available.</p>
+        </div>
+    </div>
+
+    <h2>Related Tools</h2>
+    <ul>
+        <li><a href="/tools/exam-weighting-calculator.html">Exam Weighting Calculator</a> &mdash; detailed exam impact analysis</li>
+        <li><a href="/tools/what-exam-score-do-i-need-to-pass.html">What Exam Score Do I Need to Pass?</a> &mdash; find the minimum to pass</li>
+        <li><a href="/tools/coursework-grade-calculator.html">Coursework Grade Calculator</a> &mdash; calculate weighted coursework totals</li>
+        <li><a href="/tools/exam-score-calculator.html">Exam Score Calculator</a> &mdash; convert raw marks to percentages</li>
+        <li><a href="/tools/module-grade-calculator.html">Module Grade Calculator</a> &mdash; full module grade breakdown</li>
+    </ul>
+
+    <div class="alert alert-warning" style="margin-top: 2rem;">
+        <p style="margin: 0;"><strong>Disclaimer:</strong> Assessment weightings vary by module and university. Always verify the correct weighting in your module handbook before relying on these calculations.</p>
+    </div>
+</section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div>
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/tools/degree-classification-calculator.html">UK Degree Calculator (First, 2:1, 2:2)</a></li>
+                    <li><a href="/tools/what-do-i-need-for-a-first.html">What Do I Need for a First?</a></li>
+                    <li><a href="/tools/what-do-i-need-for-a-2-1.html">What Do I Need for a 2:1?</a></li>
+                    <li><a href="/tools/what-marks-do-i-need-in-final-year.html">Final Year Marks Calculator</a></li>
+                    <li><a href="/tools/coursework-grade-calculator.html">Coursework Grade Calculator</a></li>
+                    <li><a href="/tools/exam-weighting-calculator.html">Exam Weighting Calculator</a></li>
+                    <li><a href="/tools/module-grade-calculator.html">Module Grade Calculator</a></li>
+                    <li><a href="/tools/gpa-calculator.html">GPA Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Guides</h4>
+                <ul>
+                    <li><a href="/guides/how-degree-classifications-work-uk.html">How Degree Classifications Work</a></li>
+                    <li><a href="/guides/how-are-degree-grades-calculated.html">How Are Degree Grades Calculated?</a></li>
+                    <li><a href="/guides/how-does-degree-classification-work-uk.html">UK Degree Classification System</a></li>
+                    <li><a href="/guides/how-many-credits-for-a-first-class-degree.html">Credits for a First Class Degree</a></li>
+                    <li><a href="/guides/how-to-get-a-first.html">How to Get a First</a></li>
+                    <li><a href="/guides/exam-grading-explained.html">Exam Grading Explained</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>About</h4>
+                <ul>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 GradeCalc. All rights reserved. This tool is for educational purposes only and does not represent official academic advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+<script>
+function calculate() {
+    const exWeight = parseFloat(document.getElementById('examWeight').value) / 100;
+    const cwMark = parseFloat(document.getElementById('courseworkMark').value) || 0;
+    const cwWeight = parseFloat(document.getElementById('courseworkWeight').value) / 100 || 0;
+
+    if (isNaN(exWeight) || exWeight === 0) {
+        alert('Please enter the exam weighting.');
+        return;
+    }
+
+    const cwContribution = cwMark * cwWeight;
+
+    let html = `
+        <div class="result-item">
+            <h3>Your Exam Is Worth</h3>
+            <div class="result-value">${(exWeight * 100).toFixed(0)}% of your final grade</div>
+            <p>Each percentage point on the exam changes your final module mark by <strong>${exWeight.toFixed(2)}%</strong>.</p>
+        </div>
+    `;
+
+    if (cwMark > 0) {
+        html += `
+            <div class="result-item">
+                <h3>Your Current Position</h3>
+                <div class="result-value">${cwContribution.toFixed(1)}% secured</div>
+                <p>From coursework alone, you already have ${cwContribution.toFixed(1)}% towards your final mark.</p>
+            </div>
+        `;
+
+        html += `
+            <div class="result-item">
+                <h3>Your Final Grade Based on Exam Score</h3>
+                <table>
+                    <thead><tr><th>Exam Score</th><th>Final Mark</th><th>Grade</th></tr></thead>
+                    <tbody>
+        `;
+        [0, 30, 40, 50, 60, 70, 80, 90, 100].forEach(function(e) {
+            const final = cwContribution + e * exWeight;
+            let cls = final >= 70 ? 'First' : final >= 60 ? '2:1' : final >= 50 ? '2:2' : final >= 40 ? 'Pass' : 'Fail';
+            html += `<tr><td>${e}%</td><td>${final.toFixed(1)}%</td><td>${cls}</td></tr>`;
+        });
+        html += '</tbody></table></div>';
+    }
+
+    document.getElementById('resultsContent').innerHTML = html;
+    document.getElementById('results').classList.add('show');
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetCalc() {
+    document.getElementById('examWeight').value = '';
+    document.getElementById('courseworkMark').value = '';
+    document.getElementById('courseworkWeight').value = '';
+    document.getElementById('results').classList.remove('show');
+}
+</script>
+
+
+    <!-- Google Analytics Placeholder -->
+    <!-- Replace with your GA4 tracking code -->
+    <script>
+        // Google Analytics will go here
+        // window.dataLayer = window.dataLayer || [];
+        // function gtag(){dataLayer.push(arguments);}
+        // gtag('js', new Date());
+        // gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+</html>

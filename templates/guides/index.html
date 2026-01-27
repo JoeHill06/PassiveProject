@@ -12,19 +12,37 @@
     <div class="card">
         <h3>How Degree Classifications Work in the UK</h3>
         <p>A comprehensive guide to understanding the UK degree classification system, from First Class Honours to Third Class, including how final grades are calculated.</p>
-        <a href="{{ url_for('guide_degree_classifications') }}">Read Guide →</a>
+        <a href="{{ url_for('guide_degree_classifications') }}">Read Guide &rarr;</a>
     </div>
 
     <div class="card">
         <h3>How to Get a First Class Degree</h3>
         <p>Practical strategies and proven techniques for achieving a First Class Honours degree, including study habits, time management, and exam preparation.</p>
-        <a href="{{ url_for('guide_get_first') }}">Read Guide →</a>
+        <a href="{{ url_for('guide_get_first') }}">Read Guide &rarr;</a>
     </div>
 
     <div class="card">
         <h3>Exam Grading Explained</h3>
         <p>Understand how exam grading works, including mark schemes, grade boundaries, and how to interpret your exam results.</p>
-        <a href="{{ url_for('guide_exam_grading') }}">Read Guide →</a>
+        <a href="{{ url_for('guide_exam_grading') }}">Read Guide &rarr;</a>
+    </div>
+
+    <div class="card">
+        <h3>How Are Degree Grades Calculated?</h3>
+        <p>A clear explanation of the credit-weighted average formula used to calculate UK degree grades, with worked examples and common weighting schemes.</p>
+        <a href="{{ url_for('guide_grades_calculated') }}">Read Guide &rarr;</a>
+    </div>
+
+    <div class="card">
+        <h3>How Does Degree Classification Work in the UK?</h3>
+        <p>Understand the UK degree classification system: First, 2:1, 2:2, and Third. Learn what each class means, borderline policies, and career implications.</p>
+        <a href="{{ url_for('guide_classification_work') }}">Read Guide &rarr;</a>
+    </div>
+
+    <div class="card">
+        <h3>How Many Credits for a First Class Degree?</h3>
+        <p>Learn how the UK credit system works, how credits relate to your degree classification, and what you actually need to achieve a First.</p>
+        <a href="{{ url_for('guide_credits_first') }}">Read Guide &rarr;</a>
     </div>
 </div>
 
@@ -41,6 +59,9 @@
     <p>Put what you learn into practice with our free calculators:</p>
     <ul>
         <li><a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator</a></li>
+        <li><a href="{{ url_for('what_need_first') }}">What Do I Need to Get a First?</a></li>
+        <li><a href="{{ url_for('what_need_21') }}">What Do I Need for a 2:1?</a></li>
+        <li><a href="{{ url_for('final_year_marks') }}">What Marks Do I Need in My Final Year?</a></li>
         <li><a href="{{ url_for('gpa_calculator') }}">GPA Calculator</a></li>
         <li><a href="{{ url_for('exam_score_calculator') }}">Exam Score Calculator</a></li>
         <li><a href="{{ url_for('module_grade_calculator') }}">Module Grade Calculator</a></li>

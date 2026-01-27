@@ -1,0 +1,267 @@
+{% extends "base.html" %}
+
+{% block title %}What Exam Score Do I Need to Pass? | Exam Calculator{% endblock %}
+
+{% block meta_description %}Calculate the exact exam mark you need to pass your module. Enter your coursework mark, weightings, and pass threshold for an instant answer.{% endblock %}
+
+{% block meta_keywords %}what exam score do i need to pass, exam mark needed to pass, pass module calculator, exam pass calculator{% endblock %}
+
+{% block og_title %}What Exam Score Do I Need to Pass? | Exam Calculator{% endblock %}
+{% block og_description %}Calculate the exact exam mark you need to pass your module based on coursework and weightings.{% endblock %}
+
+{% block extra_head %}
+<link rel="canonical" href="https://gradecalc.online/tools/what-exam-score-do-i-need-to-pass.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Exam Pass Score Calculator",
+  "description": "Calculate what exam mark you need to pass your module",
+  "applicationCategory": "EducationalApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>What Exam Score Do I Need to Pass?</h1>
+<p>Find out the minimum exam mark you need to pass your module. Enter your coursework mark (if applicable), the exam and coursework weightings, and the pass threshold. The calculator handles exam-only modules too.</p>
+
+<div class="alert alert-info" style="margin: 2rem 0;">
+    <h3>Common Pass Thresholds</h3>
+    <ul style="margin: 0;">
+        <li><strong>Undergraduate:</strong> 40% overall module mark</li>
+        <li><strong>Postgraduate:</strong> 50% overall module mark</li>
+    </ul>
+    <p style="margin-top: 1rem; margin-bottom: 0;">Some modules also require you to pass the exam component separately (e.g. minimum 30% or 40% on the exam itself). Check your module handbook.</p>
+</div>
+
+<div class="calculator-section">
+    <h2>Enter Your Details</h2>
+
+    <div class="form-group">
+        <label for="calcMode">Module Type</label>
+        <select id="calcMode">
+            <option value="mixed">Coursework + Exam</option>
+            <option value="examonly">Exam Only (100% exam)</option>
+        </select>
+    </div>
+
+    <div id="courseworkSection">
+        <div class="form-group">
+            <label for="courseworkMark">Coursework Mark (%)</label>
+            <input type="number" id="courseworkMark" placeholder="e.g. 58" min="0" max="100" step="0.1">
+            <small>Your mark for the coursework component</small>
+        </div>
+
+        <div class="form-group">
+            <label for="courseworkWeight">Coursework Weighting (%)</label>
+            <input type="number" id="courseworkWeight" placeholder="e.g. 40" min="0" max="100" step="0.1" value="40">
+            <small>How much coursework counts towards the module (e.g. 40)</small>
+        </div>
+
+        <div class="form-group">
+            <label for="examWeight">Exam Weighting (%)</label>
+            <input type="number" id="examWeight" placeholder="e.g. 60" min="0" max="100" step="0.1" value="60">
+            <small>How much the exam counts towards the module (e.g. 60)</small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="passThreshold">Pass Threshold (%)</label>
+        <input type="number" id="passThreshold" placeholder="e.g. 40" min="0" max="100" step="0.1" value="40">
+        <small>The minimum overall module mark to pass (typically 40% for undergraduate)</small>
+    </div>
+
+    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+        <button type="button" class="btn btn-primary btn-block" onclick="calculate()">Calculate Exam Score Needed</button>
+        <button type="button" class="btn btn-secondary btn-block" onclick="resetCalc()">Reset</button>
+    </div>
+
+    <div id="results" class="results">
+        <h2>Your Results</h2>
+        <div id="resultsContent"></div>
+    </div>
+</div>
+
+<section class="content-section">
+    <h2>How This Calculator Works</h2>
+    <p>Your overall module mark is calculated as:</p>
+    <p><strong>Module Mark = (Coursework Mark &times; Coursework Weight) + (Exam Mark &times; Exam Weight)</strong></p>
+    <p>To find the exam mark needed to pass, the calculator rearranges this:</p>
+    <p><strong>Required Exam Mark = (Pass Threshold &minus; Coursework Mark &times; Coursework Weight) &divide; Exam Weight</strong></p>
+    <p>For exam-only modules, you simply need to score the pass threshold on the exam itself.</p>
+
+    <h2>Worked Example</h2>
+    <p>Suppose your module is 40% coursework, 60% exam, with a 40% pass mark:</p>
+    <ul>
+        <li>Your coursework mark: 55%</li>
+        <li>Coursework contribution: 55% &times; 0.40 = 22%</li>
+        <li>Remaining needed from exam: 40% &minus; 22% = 18%</li>
+        <li>Required exam mark: 18% &divide; 0.60 = <strong>30.0%</strong></li>
+    </ul>
+
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <h3>What happens if I need more than 100% on the exam?</h3>
+            <p>If the required exam mark exceeds 100%, it is mathematically impossible to pass the module. This can happen if your coursework mark is very low relative to the pass threshold. In this case, contact your academic adviser to discuss options such as retaking coursework or the module.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Do I need to pass the exam separately?</h3>
+            <p>Some modules have a "hurdle" requirement where you must achieve a minimum mark on the exam component itself (e.g. at least 30% or 40% on the exam), separate from the overall module pass mark. Check your module handbook or programme regulations.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What is the pass mark for a postgraduate module?</h3>
+            <p>Most UK postgraduate programmes require a 50% overall module mark to pass, compared to 40% for undergraduate. Some may require higher. Enter 50 (or your specific threshold) in the pass threshold field.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What if I haven't done the coursework yet?</h3>
+            <p>If you haven't completed coursework, you can leave the coursework mark blank and set the module type to "Exam Only", or enter an estimated coursework mark to see what exam result you'd need in combination.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can a strong coursework mark save me?</h3>
+            <p>Yes. A high coursework mark reduces the exam mark needed to pass. For example, with 40% coursework weighting and a coursework mark of 70%, your coursework alone contributes 28% towards the 40% pass threshold, meaning you'd only need about 20% on the exam.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What if I want more than just a pass?</h3>
+            <p>Simply change the pass threshold to your target mark. For example, enter 70 to see what exam mark you'd need for a First-class module result, or 60 for a 2:1-level result.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does this work for multiple exams?</h3>
+            <p>This calculator is designed for a single exam component. If your module has multiple exams, add their weightings together and use the combined weight. For more detailed breakdowns, try our <a href="{{ url_for('coursework_calculator') }}">Coursework Grade Calculator</a>.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What happens if I fail?</h3>
+            <p>If you fail a module, most UK universities allow a retake. Retake marks are often capped at the pass threshold (e.g. 40%). Some universities allow compensation (passing overall despite one failed module) under certain conditions. Check your university's regulations.</p>
+        </div>
+    </div>
+
+    <h2>Related Tools</h2>
+    <ul>
+        <li><a href="{{ url_for('exam_weighting_calculator') }}">Exam Weighting Calculator</a> &mdash; see how your exam affects your overall grade</li>
+        <li><a href="{{ url_for('how_much_exam_worth') }}">How Much Is My Exam Worth?</a> &mdash; quick exam impact calculator</li>
+        <li><a href="{{ url_for('coursework_calculator') }}">Coursework Grade Calculator</a> &mdash; calculate weighted coursework totals</li>
+        <li><a href="{{ url_for('module_grade_calculator') }}">Module Grade Calculator</a> &mdash; full module grade breakdown</li>
+        <li><a href="{{ url_for('exam_score_calculator') }}">Exam Score Calculator</a> &mdash; convert raw marks to percentages</li>
+    </ul>
+
+    <div class="alert alert-warning" style="margin-top: 2rem;">
+        <p style="margin: 0;"><strong>Disclaimer:</strong> This calculator uses the standard weighted formula for module marks. Some modules may have additional requirements such as minimum exam marks or attendance thresholds. Always check your module handbook.</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('calcMode').addEventListener('change', function() {
+    document.getElementById('courseworkSection').style.display = this.value === 'examonly' ? 'none' : 'block';
+});
+
+function calculate() {
+    const mode = document.getElementById('calcMode').value;
+    const passThreshold = parseFloat(document.getElementById('passThreshold').value);
+
+    if (isNaN(passThreshold)) {
+        alert('Please enter a pass threshold.');
+        return;
+    }
+
+    let needed;
+    let cwMark = 0, cwWeight = 0, exWeight = 100;
+
+    if (mode === 'examonly') {
+        needed = passThreshold;
+    } else {
+        cwMark = parseFloat(document.getElementById('courseworkMark').value);
+        cwWeight = parseFloat(document.getElementById('courseworkWeight').value) / 100;
+        exWeight = parseFloat(document.getElementById('examWeight').value) / 100;
+
+        if (isNaN(cwMark) || isNaN(cwWeight) || isNaN(exWeight)) {
+            alert('Please fill in all fields.');
+            return;
+        }
+        if (exWeight === 0) {
+            alert('Exam weighting cannot be 0%. Use the Coursework Grade Calculator instead.');
+            return;
+        }
+
+        needed = (passThreshold - cwMark * cwWeight) / exWeight;
+    }
+
+    let html = '';
+
+    if (needed > 100) {
+        html += `
+            <div class="result-item classification-third">
+                <h3>Required Exam Mark</h3>
+                <div class="result-value">${needed.toFixed(1)}%</div>
+                <p><strong>It is not possible to pass this module</strong> based on your current coursework mark and the weightings provided. You would need more than 100% on the exam.</p>
+                <p>Consider speaking with your academic adviser about your options (e.g. retaking coursework, resitting the module, or compensation rules).</p>
+            </div>
+        `;
+    } else if (needed <= 0) {
+        html += `
+            <div class="result-item classification-first">
+                <h3>Required Exam Mark</h3>
+                <div class="result-value">Already passing!</div>
+                <p>Your coursework mark alone is sufficient to pass this module. Even scoring 0% on the exam, your overall mark would be ${(cwMark * cwWeight * 100).toFixed(1)}%, which exceeds the ${passThreshold}% threshold.</p>
+            </div>
+        `;
+    } else {
+        let classClass = needed >= 70 ? 'classification-22' : needed >= 50 ? '' : 'classification-first';
+        if (needed >= 85) classClass = 'classification-third';
+        html += `
+            <div class="result-item ${classClass}">
+                <h3>Required Exam Mark</h3>
+                <div class="result-value">${needed.toFixed(1)}%</div>
+                <p>You need at least <strong>${needed.toFixed(1)}%</strong> on the exam to achieve an overall module mark of ${passThreshold}%.</p>
+            </div>
+        `;
+    }
+
+    if (mode !== 'examonly') {
+        html += `
+            <div class="result-item">
+                <h3>Coursework Contribution</h3>
+                <div class="result-value">${(cwMark * cwWeight).toFixed(1)}%</div>
+                <p>Your coursework (${cwMark.toFixed(1)}% &times; ${(cwWeight * 100).toFixed(0)}% weighting) contributes ${(cwMark * cwWeight).toFixed(1)}% towards the overall ${passThreshold}% target.</p>
+            </div>
+        `;
+
+        // Quick lookup table
+        html += `
+            <div class="result-item">
+                <h3>Exam Mark Lookup</h3>
+                <table>
+                    <thead><tr><th>If you score on exam...</th><th>Overall module mark</th><th>Result</th></tr></thead>
+                    <tbody>
+        `;
+        [30, 40, 50, 60, 70, 80, 90].forEach(function(e) {
+            const overall = cwMark * cwWeight + e * exWeight;
+            const result = overall >= passThreshold ? 'Pass' : 'Fail';
+            html += `<tr><td>${e}%</td><td>${overall.toFixed(1)}%</td><td><strong>${result}</strong></td></tr>`;
+        });
+        html += '</tbody></table></div>';
+    }
+
+    document.getElementById('resultsContent').innerHTML = html;
+    document.getElementById('results').classList.add('show');
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetCalc() {
+    document.getElementById('calcMode').value = 'mixed';
+    document.getElementById('courseworkSection').style.display = 'block';
+    document.getElementById('courseworkMark').value = '';
+    document.getElementById('courseworkWeight').value = '40';
+    document.getElementById('examWeight').value = '60';
+    document.getElementById('passThreshold').value = '40';
+    document.getElementById('results').classList.remove('show');
+}
+</script>
+{% endblock %}

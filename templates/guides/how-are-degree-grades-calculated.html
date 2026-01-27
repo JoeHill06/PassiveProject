@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}How Are Degree Grades Calculated in the UK?{% endblock %}
+
+{% block meta_description %}Learn how UK degree grades are calculated, including credit weighting, year weighting, and classification boundaries. Clear explanation with worked examples.{% endblock %}
+
+{% block meta_keywords %}how are degree grades calculated, UK degree calculation, degree classification calculation, weighted average degree{% endblock %}
+
+{% block og_title %}How Are Degree Grades Calculated in the UK?{% endblock %}
+{% block og_description %}Learn exactly how UK degree grades are calculated with clear examples and explanations.{% endblock %}
+
+{% block extra_head %}
+<link rel="canonical" href="https://gradecalc.online/guides/how-are-degree-grades-calculated.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Are Degree Grades Calculated in the UK?",
+  "description": "A clear explanation of how UK degree grades are calculated, with worked examples",
+  "author": {
+    "@type": "Organization",
+    "name": "GradeCalc"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>How Are Degree Grades Calculated?</h1>
+<p>UK degree grades are calculated using a credit-weighted average of your module marks, with different years contributing different amounts to your final classification. Here is exactly how it works.</p>
+
+<section class="content-section">
+    <h2>The Basic Formula</h2>
+    <p>Your degree classification is determined by your overall weighted average percentage. The calculation has two steps:</p>
+    <ol>
+        <li><strong>Calculate each year's average:</strong> Sum (module mark &times; module credits) for all modules in a year, then divide by the total credits for that year.</li>
+        <li><strong>Apply year weightings:</strong> Multiply each year's average by its weighting, then add them together.</li>
+    </ol>
+
+    <h2>Worked Example</h2>
+    <p>A student with a 40/60 weighting (Year 2 = 40%, Year 3 = 60%):</p>
+
+    <h3>Year 2 Modules</h3>
+    <table>
+        <thead><tr><th>Module</th><th>Credits</th><th>Mark</th></tr></thead>
+        <tbody>
+            <tr><td>Psychology Research Methods</td><td>30</td><td>62%</td></tr>
+            <tr><td>Cognitive Psychology</td><td>30</td><td>68%</td></tr>
+            <tr><td>Social Psychology</td><td>30</td><td>55%</td></tr>
+            <tr><td>Developmental Psychology</td><td>30</td><td>71%</td></tr>
+        </tbody>
+    </table>
+    <p><strong>Year 2 Average:</strong> (62&times;30 + 68&times;30 + 55&times;30 + 71&times;30) &divide; 120 = <strong>64.0%</strong></p>
+
+    <h3>Year 3 Modules</h3>
+    <table>
+        <thead><tr><th>Module</th><th>Credits</th><th>Mark</th></tr></thead>
+        <tbody>
+            <tr><td>Dissertation</td><td>40</td><td>72%</td></tr>
+            <tr><td>Advanced Research Methods</td><td>20</td><td>65%</td></tr>
+            <tr><td>Clinical Psychology</td><td>30</td><td>68%</td></tr>
+            <tr><td>Neuropsychology</td><td>30</td><td>70%</td></tr>
+        </tbody>
+    </table>
+    <p><strong>Year 3 Average:</strong> (72&times;40 + 65&times;20 + 68&times;30 + 70&times;30) &divide; 120 = <strong>69.3%</strong></p>
+
+    <h3>Final Calculation</h3>
+    <p><strong>Overall = (64.0 &times; 0.40) + (69.3 &times; 0.60) = 25.6 + 41.6 = 67.2%</strong></p>
+    <p>This gives a <strong>2:1 (Upper Second Class Honours)</strong>.</p>
+
+    <div class="alert alert-info">
+        <p style="margin: 0;">Want to calculate your own grade? Use our <a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator</a> to enter your module marks and get instant results.</p>
+    </div>
+
+    <h2>Classification Boundaries</h2>
+    <table>
+        <thead><tr><th>Classification</th><th>Overall Average Required</th></tr></thead>
+        <tbody>
+            <tr><td>First Class Honours (1st)</td><td>70% and above</td></tr>
+            <tr><td>Upper Second Class Honours (2:1)</td><td>60% to 69%</td></tr>
+            <tr><td>Lower Second Class Honours (2:2)</td><td>50% to 59%</td></tr>
+            <tr><td>Third Class Honours (3rd)</td><td>40% to 49%</td></tr>
+            <tr><td>Fail</td><td>Below 40%</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Year Weightings</h2>
+    <p>Different universities weight years differently. Year 1 typically does not count towards classification (you must pass to progress). Common schemes for Year 2 and Year 3:</p>
+    <table>
+        <thead><tr><th>Scheme</th><th>Year 2</th><th>Year 3</th></tr></thead>
+        <tbody>
+            <tr><td>40/60</td><td>40%</td><td>60%</td></tr>
+            <tr><td>33/67</td><td>33.33%</td><td>66.67%</td></tr>
+            <tr><td>25/75</td><td>25%</td><td>75%</td></tr>
+            <tr><td>0/100</td><td>0%</td><td>100%</td></tr>
+        </tbody>
+    </table>
+    <p>Some universities also include Year 1 with a small weighting (e.g. 10/30/60) or use different rules for Scottish four-year degrees. Always check your university's programme specification.</p>
+
+    <h2>Credits Explained</h2>
+    <p>Each module carries a credit value reflecting its size. A standard UK undergraduate year is 120 credits. Modules are typically 10, 15, 20, 30, or 40 credits. Higher-credit modules have more influence on your year average because the calculation is credit-weighted.</p>
+
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <h3>Does Year 1 count towards my degree grade?</h3>
+            <p>At most UK universities, Year 1 does not count towards your final classification. You need to pass Year 1 to progress to Year 2, but only Years 2 and 3 typically count. Some universities use a small Year 1 weighting (e.g. 10%), so check your programme specification.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What are borderline cases?</h3>
+            <p>If your average is close to a classification boundary (e.g. 68-69% for a First), some universities apply special rules. These may consider the proportion of credits at the higher level, your final-year average, or your dissertation mark. Policies vary widely between institutions.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Do all modules count equally?</h3>
+            <p>No. Modules are weighted by their credit value. A 40-credit dissertation has twice the influence of a 20-credit module on your year average. Within a year, higher-credit modules matter more.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How do retakes affect my grade?</h3>
+            <p>If you retake a failed module, most universities cap the retake mark at the pass threshold (typically 40%). This capped mark is used in your average calculation. Some universities have different rules for first-sit and resit marks.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is there rounding?</h3>
+            <p>Most UK universities do not round up to the next classification boundary. An average of 69.9% is typically classified as a 2:1, not a First. Some universities round to one or two decimal places during calculation but apply boundaries strictly.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can I calculate my grade during the year?</h3>
+            <p>Yes. Use our <a href="{{ url_for('degree_calculator') }}">Degree Classification Calculator</a> with the marks you have so far. You can also use our <a href="{{ url_for('what_need_first') }}">What Do I Need for a First?</a> calculator to see what you need on remaining modules.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What about Scottish universities?</h3>
+            <p>Scottish undergraduate degrees are typically four years. The calculation principles are the same (credit-weighted averages with year weightings), but the specific year weightings differ. Common Scottish schemes weight years 3 and 4, or all four years with varying contributions.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Where can I find my university's exact rules?</h3>
+            <p>Check your university's programme specification, student handbook, or academic regulations (usually available on the university website or intranet). Your department or academic adviser can also clarify.</p>
+        </div>
+    </div>
+
+    <h2>Related Tools & Guides</h2>
+    <ul>
+        <li><a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator</a> &mdash; calculate your classification now</li>
+        <li><a href="{{ url_for('what_need_first') }}">What Do I Need to Get a First?</a> &mdash; target calculator</li>
+        <li><a href="{{ url_for('final_year_marks') }}">What Marks Do I Need in My Final Year?</a> &mdash; final year planner</li>
+        <li><a href="{{ url_for('guide_degree_classifications') }}">How Degree Classifications Work</a> &mdash; in-depth classification guide</li>
+        <li><a href="{{ url_for('guide_credits_first') }}">How Many Credits for a First?</a> &mdash; credits and classification explained</li>
+    </ul>
+</section>
+{% endblock %}

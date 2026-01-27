@@ -33,6 +33,34 @@ def revision_timetable():
 def module_grade_calculator():
     return render_template('tools/module-grade-calculator.html')
 
+@app.route('/tools/what-do-i-need-for-a-first.html')
+def what_need_first():
+    return render_template('tools/what-do-i-need-for-a-first.html')
+
+@app.route('/tools/what-do-i-need-for-a-2-1.html')
+def what_need_21():
+    return render_template('tools/what-do-i-need-for-a-2-1.html')
+
+@app.route('/tools/what-marks-do-i-need-in-final-year.html')
+def final_year_marks():
+    return render_template('tools/what-marks-do-i-need-in-final-year.html')
+
+@app.route('/tools/what-exam-score-do-i-need-to-pass.html')
+def exam_pass_calculator():
+    return render_template('tools/what-exam-score-do-i-need-to-pass.html')
+
+@app.route('/tools/coursework-grade-calculator.html')
+def coursework_calculator():
+    return render_template('tools/coursework-grade-calculator.html')
+
+@app.route('/tools/exam-weighting-calculator.html')
+def exam_weighting_calculator():
+    return render_template('tools/exam-weighting-calculator.html')
+
+@app.route('/tools/how-much-is-my-exam-worth.html')
+def how_much_exam_worth():
+    return render_template('tools/how-much-is-my-exam-worth.html')
+
 # Guides
 @app.route('/guides/')
 def guides():
@@ -49,6 +77,18 @@ def guide_get_first():
 @app.route('/guides/exam-grading-explained.html')
 def guide_exam_grading():
     return render_template('guides/exam-grading-explained.html')
+
+@app.route('/guides/how-are-degree-grades-calculated.html')
+def guide_grades_calculated():
+    return render_template('guides/how-are-degree-grades-calculated.html')
+
+@app.route('/guides/how-does-degree-classification-work-uk.html')
+def guide_classification_work():
+    return render_template('guides/how-does-degree-classification-work-uk.html')
+
+@app.route('/guides/how-many-credits-for-a-first-class-degree.html')
+def guide_credits_first():
+    return render_template('guides/how-many-credits-for-a-first-class-degree.html')
 
 # Static Pages
 @app.route('/about.html')

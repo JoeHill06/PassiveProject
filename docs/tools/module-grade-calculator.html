@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find out what mark you need on your final exam to get your target grade. Enter your coursework marks and exam weighting to see exactly what you need to pass or get a First.">
+    <meta name="keywords" content="module grade calculator, course grade calculator, what do I need on my exam, final exam calculator">
+    <title>What Do I Need on My Final Exam? Module Grade Calculator</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="GradeCalc - Free Assessment & Exam Calculators">
+    <meta property="og:description" content="Free assessment and exam calculators, grade planners, and learning tools.">
+    <meta property="og:type" content="website">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734"
+         crossorigin="anonymous"></script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Module Grade Calculator",
+  "description": "Calculate what you need on your final exam",
+  "applicationCategory": "EducationalApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  }
+}
+</script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo">GradeCalc</a>
+            <nav>
+                <ul>
+                    <li><a href="/tools/">Tools</a></li>
+                    <li><a href="/guides/">Guides</a></li>
+                    <li><a href="/about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            
+<h1>What Do I Need on My Final Exam?</h1>
+<p>Not sure what mark you need on your final exam to pass or get the grade you want? Enter your coursework marks below and this calculator will tell you exactly what exam score you need to hit your target (40% to pass, 70% for a First, etc.).</p>
+
+<div class="alert alert-warning" style="margin: 2rem 0;">
+    <h3>Quick Answer</h3>
+    <p><strong>This calculator tells you:</strong></p>
+    <ul style="margin: 0.5rem 0;">
+        <li>What mark you need on your final exam to pass (40%)</li>
+        <li>What mark you need to get a 2:1 (60%)</li>
+        <li>What mark you need to get a First (70%)</li>
+        <li>Whether your target is still achievable</li>
+    </ul>
+    <p style="margin-bottom: 0;"><strong>Enter your coursework marks and exam weighting below.</strong></p>
+</div>
+
+<div class="calculator-section">
+    <h2>Module Assessment Structure</h2>
+
+    <div class="form-group">
+        <label for="examWeight">Exam Weighting (%)</label>
+        <input type="number" id="examWeight" min="0" max="100" step="1" value="60" placeholder="e.g., 60" required>
+        <small>What percentage of the module is the exam worth?</small>
+    </div>
+
+    <div class="form-group">
+        <label for="courseworkWeight">Coursework Weighting (%)</label>
+        <input type="number" id="courseworkWeight" min="0" max="100" step="1" value="40" placeholder="e.g., 40" readonly>
+        <small>Automatically calculated (100% - Exam Weighting)</small>
+    </div>
+
+    <h2>Coursework Components</h2>
+    <p>Enter all coursework you've completed so far:</p>
+
+    <div id="coursework" class="dynamic-inputs">
+        <div class="input-row">
+            <input type="text" placeholder="Component name (optional)" class="component-name">
+            <input type="number" placeholder="Mark (%)" min="0" max="100" step="0.1" class="component-mark" required>
+            <input type="number" placeholder="Weighting (%)" min="0" max="100" step="0.1" class="component-weight" required>
+            <button type="button" class="btn-remove" onclick="removeCoursework(this)">Remove</button>
+        </div>
+    </div>
+    <button type="button" class="btn btn-add" onclick="addCoursework()">+ Add Coursework Component</button>
+
+    <h2>Exam Mark (Optional)</h2>
+    <div class="form-group">
+        <label for="examMark">Your Exam Mark (%)</label>
+        <input type="number" id="examMark" min="0" max="100" step="0.1" placeholder="Leave blank if not taken yet">
+        <small>Enter your exam mark if you've already taken the exam, or leave blank to calculate what you need</small>
+    </div>
+
+    <h2>Target Grade (Optional)</h2>
+    <div class="form-group">
+        <label for="targetGrade">Target Overall Grade (%)</label>
+        <input type="number" id="targetGrade" min="0" max="100" step="1" placeholder="e.g., 70 for a First">
+        <small>Enter your target grade to see what exam mark you need</small>
+    </div>
+
+    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+        <button type="button" class="btn btn-primary btn-block" onclick="calculateModuleGrade()">Calculate Grade</button>
+        <button type="button" class="btn btn-secondary btn-block" onclick="resetModuleCalculator()">Reset</button>
+    </div>
+
+    <div id="results" class="results">
+        <h2>Your Results</h2>
+        <div id="resultsContent"></div>
+    </div>
+</div>
+
+<section class="content-section">
+    <h2>Understanding Module Grade Calculations</h2>
+
+    <h3>Common Assessment Weightings</h3>
+    <p>Different modules use different assessment structures. Common weightings include:</p>
+    <ul>
+        <li><strong>60% Exam / 40% Coursework:</strong> Most common in UK universities</li>
+        <li><strong>70% Exam / 30% Coursework:</strong> Common for science and maths modules</li>
+        <li><strong>50% Exam / 50% Coursework:</strong> Equal weighting</li>
+        <li><strong>100% Coursework:</strong> No exam (dissertations, projects)</li>
+        <li><strong>100% Exam:</strong> No coursework</li>
+    </ul>
+
+    <h3>How Module Grades Are Calculated</h3>
+    <p>Your final module grade is calculated using the formula:</p>
+    <p><strong>Final Grade = (Coursework Mark × Coursework Weight) + (Exam Mark × Exam Weight)</strong></p>
+
+    <p>For example, if you got 75% in coursework (40% weight) and 65% in the exam (60% weight):</p>
+    <p>Final Grade = (75 × 0.4) + (65 × 0.6) = 30 + 39 = 69%</p>
+
+    <h2>Grade Boundaries</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Classification</th>
+                <th>Percentage</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>First Class</td><td>70-100%</td><td>Excellent</td></tr>
+            <tr><td>Upper Second (2:1)</td><td>60-69%</td><td>Good</td></tr>
+            <tr><td>Lower Second (2:2)</td><td>50-59%</td><td>Average</td></tr>
+            <tr><td>Third Class</td><td>40-49%</td><td>Pass</td></tr>
+            <tr><td>Fail</td><td>0-39%</td><td>Below pass threshold</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+        <div class="faq-item">
+            <h3>What exam mark do I need to get a First?</h3>
+            <p>This calculator will tell you exactly what you need! Enter your coursework marks and set your target grade to 70%, and it will calculate the required exam mark.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What if I have multiple coursework components?</h3>
+            <p>Add each coursework component separately with its individual mark and weighting. For example, if Essay 1 is worth 20% and you got 75%, add it as: Mark=75%, Weight=20%.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What if coursework weightings don't add up to the total coursework weight?</h3>
+            <p>Make sure your individual coursework component weightings add up to the total coursework weighting. For example, if coursework is 40% total, your individual components should add up to 40%.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is it possible to still get a First if I did poorly on coursework?</h3>
+            <p>It depends on how the module is weighted. If the exam is worth 60% or more and you get 100% on it, you might still be able to achieve a First even with moderate coursework marks. Use this calculator to find out!</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What if the required exam mark is over 100%?</h3>
+            <p>If the calculator shows you need more than 100% on the exam to reach your target, unfortunately that target grade is no longer achievable. You may need to adjust your target to something more realistic.</p>
+        </div>
+    </div>
+</section>
+
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div>
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/tools/degree-classification-calculator.html">UK Degree Calculator (First, 2:1, 2:2)</a></li>
+                    <li><a href="/tools/what-do-i-need-for-a-first.html">What Do I Need for a First?</a></li>
+                    <li><a href="/tools/what-do-i-need-for-a-2-1.html">What Do I Need for a 2:1?</a></li>
+                    <li><a href="/tools/what-marks-do-i-need-in-final-year.html">Final Year Marks Calculator</a></li>
+                    <li><a href="/tools/coursework-grade-calculator.html">Coursework Grade Calculator</a></li>
+                    <li><a href="/tools/exam-weighting-calculator.html">Exam Weighting Calculator</a></li>
+                    <li><a href="/tools/module-grade-calculator.html">Module Grade Calculator</a></li>
+                    <li><a href="/tools/gpa-calculator.html">GPA Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Guides</h4>
+                <ul>
+                    <li><a href="/guides/how-degree-classifications-work-uk.html">How Degree Classifications Work</a></li>
+                    <li><a href="/guides/how-are-degree-grades-calculated.html">How Are Degree Grades Calculated?</a></li>
+                    <li><a href="/guides/how-does-degree-classification-work-uk.html">UK Degree Classification System</a></li>
+                    <li><a href="/guides/how-many-credits-for-a-first-class-degree.html">Credits for a First Class Degree</a></li>
+                    <li><a href="/guides/how-to-get-a-first.html">How to Get a First</a></li>
+                    <li><a href="/guides/exam-grading-explained.html">Exam Grading Explained</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>About</h4>
+                <ul>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 GradeCalc. All rights reserved. This tool is for educational purposes only and does not represent official academic advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+<script>
+// Update coursework weight when exam weight changes
+document.getElementById('examWeight').addEventListener('input', function() {
+    const examWeight = parseFloat(this.value) || 0;
+    const courseworkWeight = 100 - examWeight;
+    document.getElementById('courseworkWeight').value = Math.max(0, courseworkWeight);
+});
+
+function addCoursework() {
+    const container = document.getElementById('coursework');
+    const newRow = document.createElement('div');
+    newRow.className = 'input-row';
+    newRow.innerHTML = `
+        <input type="text" placeholder="Component name (optional)" class="component-name">
+        <input type="number" placeholder="Mark (%)" min="0" max="100" step="0.1" class="component-mark" required>
+        <input type="number" placeholder="Weighting (%)" min="0" max="100" step="0.1" class="component-weight" required>
+        <button type="button" class="btn-remove" onclick="removeCoursework(this)">Remove</button>
+    `;
+    container.appendChild(newRow);
+}
+
+function removeCoursework(button) {
+    const row = button.parentElement;
+    const container = row.parentElement;
+    if (container.children.length > 1) {
+        row.remove();
+    } else {
+        alert('You must have at least one coursework component.');
+    }
+}
+
+function calculateModuleGrade() {
+    const examWeight = parseFloat(document.getElementById('examWeight').value) / 100;
+    const courseworkWeight = parseFloat(document.getElementById('courseworkWeight').value) / 100;
+    const examMarkInput = document.getElementById('examMark').value;
+    const examMark = examMarkInput ? parseFloat(examMarkInput) : null;
+    const targetGradeInput = document.getElementById('targetGrade').value;
+    const targetGrade = targetGradeInput ? parseFloat(targetGradeInput) : null;
+
+    // Get coursework components
+    const courseworkRows = document.querySelectorAll('#coursework .input-row');
+    const courseworkComponents = [];
+    let totalCourseworkWeight = 0;
+    let weightedCourseworkMark = 0;
+
+    courseworkRows.forEach(row => {
+        const name = row.querySelector('.component-name').value || 'Unnamed Component';
+        const mark = parseFloat(row.querySelector('.component-mark').value);
+        const weight = parseFloat(row.querySelector('.component-weight').value) / 100;
+
+        if (!isNaN(mark) && !isNaN(weight)) {
+            courseworkComponents.push({ name, mark, weight: weight * 100 });
+            totalCourseworkWeight += weight;
+            weightedCourseworkMark += mark * weight;
+        }
+    });
+
+    // Validate coursework weights
+    if (Math.abs(totalCourseworkWeight - courseworkWeight) > 0.01 && courseworkWeight > 0) {
+        const difference = ((totalCourseworkWeight - courseworkWeight) * 100).toFixed(1);
+        alert(`Warning: Your coursework component weightings (${(totalCourseworkWeight * 100).toFixed(1)}%) don't match the total coursework weighting (${(courseworkWeight * 100).toFixed(1)}%). Difference: ${difference}%`);
+    }
+
+    if (courseworkComponents.length === 0) {
+        alert('Please add at least one coursework component.');
+        return;
+    }
+
+    // Calculate coursework average
+    const courseworkAverage = totalCourseworkWeight > 0 ? weightedCourseworkMark / totalCourseworkWeight : 0;
+
+    // Calculate results
+    let html = '';
+
+    // Current coursework grade
+    html += `
+        <div class="result-item">
+            <h3>Coursework Average</h3>
+            <div class="result-value">${courseworkAverage.toFixed(2)}%</div>
+            <p>Total coursework weighting: ${(totalCourseworkWeight * 100).toFixed(1)}%</p>
+        </div>
+    `;
+
+    // If exam mark is provided, calculate final grade
+    if (examMark !== null) {
+        const finalGrade = (weightedCourseworkMark) + (examMark * examWeight);
+
+        let gradeClass, classification;
+        if (finalGrade >= 70) {
+            classification = 'First Class';
+            gradeClass = 'classification-first';
+        } else if (finalGrade >= 60) {
+            classification = 'Upper Second (2:1)';
+            gradeClass = 'classification-21';
+        } else if (finalGrade >= 50) {
+            classification = 'Lower Second (2:2)';
+            gradeClass = 'classification-22';
+        } else if (finalGrade >= 40) {
+            classification = 'Third Class';
+            gradeClass = 'classification-third';
+        } else {
+            classification = 'Fail';
+            gradeClass = 'classification-third';
+        }
+
+        html += `
+            <div class="result-item ${gradeClass}">
+                <h3>Final Module Grade</h3>
+                <div class="result-value">${finalGrade.toFixed(2)}%</div>
+                <p>${classification}</p>
+            </div>
+        `;
+
+        // Breakdown
+        html += `
+            <div class="result-item">
+                <h3>Grade Breakdown</h3>
+                <table>
+                    <tbody>
+                        <tr><td>Coursework Average</td><td>${courseworkAverage.toFixed(2)}%</td></tr>
+                        <tr><td>Coursework Weighting</td><td>${(totalCourseworkWeight * 100).toFixed(1)}%</td></tr>
+                        <tr><td>Coursework Contribution</td><td>${weightedCourseworkMark.toFixed(2)}%</td></tr>
+                        <tr><td>Exam Mark</td><td>${examMark.toFixed(2)}%</td></tr>
+                        <tr><td>Exam Weighting</td><td>${(examWeight * 100).toFixed(1)}%</td></tr>
+                        <tr><td>Exam Contribution</td><td>${(examMark * examWeight).toFixed(2)}%</td></tr>
+                        <tr style="font-weight: bold;"><td>Final Grade</td><td>${finalGrade.toFixed(2)}%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        `;
+    }
+
+    // If target grade is provided (and exam not taken), calculate what's needed
+    if (targetGrade !== null && examMark === null && examWeight > 0) {
+        const requiredExamMark = (targetGrade - weightedCourseworkMark) / examWeight;
+
+        let alertClass, message;
+        if (requiredExamMark > 100) {
+            alertClass = 'alert-warning';
+            message = `Unfortunately, it's no longer possible to achieve ${targetGrade}% overall. Even with 100% on the exam, your maximum possible grade is ${(weightedCourseworkMark + (100 * examWeight)).toFixed(2)}%.`;
+        } else if (requiredExamMark < 0) {
+            alertClass = 'alert-success';
+            message = `Good news! You've already exceeded your target of ${targetGrade}% with your coursework alone. Any mark on the exam will maintain or improve your grade.`;
+        } else {
+            alertClass = requiredExamMark <= 100 && requiredExamMark >= 70 ? 'alert-warning' : requiredExamMark >= 40 ? 'alert-info' : 'alert-success';
+            message = `To achieve ${targetGrade}% overall, you need to score <strong>${requiredExamMark.toFixed(2)}%</strong> on the exam.`;
+        }
+
+        html += `
+            <div class="result-item ${alertClass}">
+                <h3>Required Exam Mark for Target Grade</h3>
+                <p>${message}</p>
+            </div>
+        `;
+
+        // Show what's needed for standard grade boundaries
+        if (examWeight > 0) {
+            html += '<div class="result-item"><h3>What You Need for Each Grade</h3><table>';
+            html += '<thead><tr><th>Classification</th><th>Boundary</th><th>Required Exam Mark</th><th>Achievable?</th></tr></thead><tbody>';
+
+            const boundaries = [
+                { name: 'First Class', threshold: 70 },
+                { name: 'Upper Second (2:1)', threshold: 60 },
+                { name: 'Lower Second (2:2)', threshold: 50 },
+                { name: 'Third Class', threshold: 40 }
+            ];
+
+            boundaries.forEach(boundary => {
+                const needed = (boundary.threshold - weightedCourseworkMark) / examWeight;
+                const achievable = needed <= 100 && needed >= 0;
+                const displayMark = needed > 100 ? 'Not possible' : needed < 0 ? 'Already achieved' : needed.toFixed(2) + '%';
+                const achievableText = achievable ? '✓ Yes' : '✗ No';
+
+                html += `<tr>
+                    <td>${boundary.name}</td>
+                    <td>${boundary.threshold}%</td>
+                    <td>${displayMark}</td>
+                    <td>${achievableText}</td>
+                </tr>`;
+            });
+
+            html += '</tbody></table></div>';
+        }
+    }
+
+    // Coursework breakdown
+    if (courseworkComponents.length > 0) {
+        html += '<div class="result-item"><h3>Coursework Breakdown</h3><table>';
+        html += '<thead><tr><th>Component</th><th>Mark</th><th>Weight</th><th>Contribution</th></tr></thead><tbody>';
+
+        courseworkComponents.forEach(component => {
+            const contribution = component.mark * (component.weight / 100);
+            html += `<tr>
+                <td>${component.name}</td>
+                <td>${component.mark.toFixed(1)}%</td>
+                <td>${component.weight.toFixed(1)}%</td>
+                <td>${contribution.toFixed(2)}%</td>
+            </tr>`;
+        });
+
+        html += '</tbody></table></div>';
+    }
+
+    document.getElementById('resultsContent').innerHTML = html;
+    document.getElementById('results').classList.add('show');
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetModuleCalculator() {
+    document.getElementById('examWeight').value = '60';
+    document.getElementById('courseworkWeight').value = '40';
+    document.getElementById('examMark').value = '';
+    document.getElementById('targetGrade').value = '';
+
+    const container = document.getElementById('coursework');
+    container.innerHTML = `
+        <div class="input-row">
+            <input type="text" placeholder="Component name (optional)" class="component-name">
+            <input type="number" placeholder="Mark (%)" min="0" max="100" step="0.1" class="component-mark" required>
+            <input type="number" placeholder="Weighting (%)" min="0" max="100" step="0.1" class="component-weight" required>
+            <button type="button" class="btn-remove" onclick="removeCoursework(this)">Remove</button>
+        </div>
+    `;
+
+    document.getElementById('results').classList.remove('show');
+}
+</script>
+
+
+    <!-- Google Analytics Placeholder -->
+    <!-- Replace with your GA4 tracking code -->
+    <script>
+        // Google Analytics will go here
+        // window.dataLayer = window.dataLayer || [];
+        // function gtag(){dataLayer.push(arguments);}
+        // gtag('js', new Date());
+        // gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+</html>
