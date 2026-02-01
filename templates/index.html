@@ -2,44 +2,115 @@
 
 {% block title %}Grade Calculators - UK Degree, GPA, Exam Scores | GradeCalc{% endblock %}
 
+{% block meta_description %}Free online grade calculators for UK university students. Calculate your degree classification, GPA, exam scores, module grades, and find out what marks you need.{% endblock %}
+
 {% block content %}
 <div class="hero">
-    <h1>Grade Calculators</h1>
-    <p>Free online calculators for students and learners. Calculate your UK degree classification, GPA, exam scores, or find out what you need on your final exam.</p>
+    <h1>Free Grade Calculators for Students</h1>
+    <p>Calculate your UK degree classification, GPA, exam scores, and module grades. Find out exactly what marks you need to reach your target grade.</p>
 </div>
 
+{% include 'includes/ad-vertical.html' %}
+
 <section>
-    <h2>Popular Tools</h2>
+    <h2>Popular Calculators</h2>
     <div class="card-grid">
         <div class="card">
             <h3>UK Degree Classification Calculator</h3>
-            <p>Calculate your final degree classification based on module marks and credit weightings. Supports all UK university grading schemes.</p>
-            <a href="{{ url_for('degree_calculator') }}">Use Calculator →</a>
+            <p>Calculate your final degree classification based on module marks and credit weightings. Supports all UK university grading schemes including First, 2:1, 2:2, and Third.</p>
+            <a href="{{ url_for('degree_calculator') }}">Use Calculator &rarr;</a>
         </div>
 
         <div class="card">
-            <h3>GPA Calculator</h3>
-            <p>Calculate your Grade Point Average using the 4.0 or 5.0 scale. Perfect for international applications and academic planning.</p>
-            <a href="{{ url_for('gpa_calculator') }}">Use Calculator →</a>
+            <h3>What Do I Need for a First?</h3>
+            <p>Find out exactly what average you need on your remaining modules to achieve a First Class Honours degree (70%+).</p>
+            <a href="{{ url_for('what_need_first') }}">Use Calculator &rarr;</a>
+        </div>
+
+        <div class="card">
+            <h3>What Do I Need for a 2:1?</h3>
+            <p>Calculate the marks required on your remaining assessments to secure an Upper Second Class Honours degree (60%+).</p>
+            <a href="{{ url_for('what_need_21') }}">Use Calculator &rarr;</a>
+        </div>
+
+        <div class="card">
+            <h3>Final Year Marks Calculator</h3>
+            <p>Enter your Year 2 average and see what final year marks you need for each degree classification, based on your university's weighting scheme.</p>
+            <a href="{{ url_for('final_year_marks') }}">Use Calculator &rarr;</a>
         </div>
 
         <div class="card">
             <h3>Exam Score Calculator</h3>
-            <p>Calculate your exam score and determine if you've passed. Enter your marks and get instant results with grade boundaries.</p>
-            <a href="{{ url_for('exam_score_calculator') }}">Use Calculator →</a>
-        </div>
-
-        <div class="card">
-            <h3>Revision Timetable Generator</h3>
-            <p>Create a personalized study plan based on your exam dates and available study time. Optimize your revision schedule.</p>
-            <a href="{{ url_for('revision_timetable') }}">Use Calculator →</a>
+            <p>Calculate your exam percentage and determine if you have passed. Enter your marks and get instant results with UK grade boundaries.</p>
+            <a href="{{ url_for('exam_score_calculator') }}">Use Calculator &rarr;</a>
         </div>
 
         <div class="card">
             <h3>Module Grade Calculator</h3>
-            <p>Calculate your current module grade and find out what you need to achieve your target. Track your progress throughout the term.</p>
-            <a href="{{ url_for('module_grade_calculator') }}">Use Calculator →</a>
+            <p>Calculate your current module grade from coursework and exam components. Track your progress and find out what you need on remaining assessments.</p>
+            <a href="{{ url_for('module_grade_calculator') }}">Use Calculator &rarr;</a>
         </div>
+
+        <div class="card">
+            <h3>Coursework Grade Calculator</h3>
+            <p>Combine multiple coursework components with different weightings to calculate your overall coursework grade.</p>
+            <a href="{{ url_for('coursework_calculator') }}">Use Calculator &rarr;</a>
+        </div>
+
+        <div class="card">
+            <h3>GPA Calculator</h3>
+            <p>Calculate your Grade Point Average on the 4.0 or 5.0 scale. Useful for international applications and academic planning.</p>
+            <a href="{{ url_for('gpa_calculator') }}">Use Calculator &rarr;</a>
+        </div>
+
+        <div class="card">
+            <h3>Revision Timetable Generator</h3>
+            <p>Create a personalised study plan based on your exam dates and available study time. Allocate revision hours across subjects.</p>
+            <a href="{{ url_for('revision_timetable') }}">Use Calculator &rarr;</a>
+        </div>
+    </div>
+    <p style="text-align: center; margin-top: 1rem;"><a href="{{ url_for('tools') }}">View all calculators &rarr;</a></p>
+</section>
+
+<section>
+    <h2>Guides for Students</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>How UK Degree Classifications Work</h3>
+            <p>Understand First, 2:1, 2:2, and Third class degrees. Learn how grade boundaries are set and what each classification means for your career.</p>
+            <a href="{{ url_for('guide_classification_work') }}">Read Guide &rarr;</a>
+        </div>
+
+        <div class="card">
+            <h3>How Are Degree Grades Calculated?</h3>
+            <p>A step-by-step explanation of how UK universities calculate your final degree grade from module marks, credits, and year weightings.</p>
+            <a href="{{ url_for('guide_grades_calculated') }}">Read Guide &rarr;</a>
+        </div>
+
+        <div class="card">
+            <h3>How to Get a First Class Degree</h3>
+            <p>Practical strategies for achieving a First, including study techniques, time management, and assessment preparation advice.</p>
+            <a href="{{ url_for('guide_get_first') }}">Read Guide &rarr;</a>
+        </div>
+    </div>
+    <p style="text-align: center; margin-top: 1rem;"><a href="{{ url_for('guides') }}">View all guides &rarr;</a></p>
+</section>
+
+<section class="content-section">
+    <h2>About GradeCalc</h2>
+    <p>GradeCalc provides free, accurate grade calculators built specifically for UK university students. All calculations run entirely in your browser &mdash; your data is never sent to a server or stored anywhere.</p>
+    <p>Whether you are trying to work out your degree classification, figure out what marks you need on upcoming exams, or understand how the UK grading system works, our tools and guides are here to help.</p>
+
+    <h3>Why Students Use GradeCalc</h3>
+    <ul>
+        <li><strong>Accurate calculations:</strong> Our calculators use the same credit-weighted averaging methods that UK universities use.</li>
+        <li><strong>Private:</strong> All calculations happen in your browser. We never collect or store your grades.</li>
+        <li><strong>Free:</strong> Every tool and guide on GradeCalc is completely free to use, with no sign-up required.</li>
+        <li><strong>Mobile-friendly:</strong> All tools work on phones, tablets, and desktops.</li>
+    </ul>
+
+    <div class="alert alert-warning">
+        <p style="margin: 0;"><strong>Disclaimer:</strong> GradeCalc is for educational purposes only and does not provide official academic advice. Grade boundaries, year weightings, and calculation methods vary between universities. Always check your own institution's regulations.</p>
     </div>
 </section>
 {% endblock %}
