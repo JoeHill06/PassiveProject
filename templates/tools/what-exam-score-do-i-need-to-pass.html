@@ -28,7 +28,13 @@
 {% endblock %}
 
 {% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <a href="{{ url_for('tools') }}">Tools</a> &rsaquo;
+    <span>What Exam Score Do I Need to Pass?</span>
+</nav>
 <h1>What Exam Score Do I Need to Pass?</h1>
+<p class="page-meta">Free tool by GradeCalc &middot; Last updated April 2026 &middot; No sign-up required</p>
 <p>Find out the minimum exam mark you need to pass your module. Enter your coursework mark (if applicable), the exam and coursework weightings, and the pass threshold. The calculator handles exam-only modules too.</p>
 
 <div class="alert alert-info" style="margin: 2rem 0;">

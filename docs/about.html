@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free assessment and exam calculators, grade planners, and learning tools. Calculate your degree classification, GPA, exam scores, and plan your revision effectively.">
+    <meta name="description" content="Learn about GradeCalc, the team behind the UK's free grade calculators, our methodology for accurate calculations, and why thousands of students trust our tools.">
     <meta name="keywords" content="grade calculator, GPA calculator, degree calculator, exam calculator, revision planner">
-    <title>About GradeCalc - Free Assessment Tools</title>
+    <title>About GradeCalc - Who We Are & Our Methodology | GradeCalc</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/static/css/style.css">
@@ -15,11 +15,40 @@
     <meta property="og:description" content="Free assessment and exam calculators, grade planners, and learning tools.">
     <meta property="og:type" content="website">
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734"
-         crossorigin="anonymous"></script>
+    <!-- Google AdSense - loaded only after cookie consent -->
+    <script>
+        function loadAdSense() {
+            if (document.querySelector('script[src*="adsbygoogle"]')) return;
+            var s = document.createElement('script');
+            s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734';
+            s.async = true;
+            s.crossOrigin = 'anonymous';
+            document.head.appendChild(s);
+        }
+        if (localStorage.getItem('cookie_consent') === 'accepted') {
+            loadAdSense();
+        }
+    </script>
 
     
+<link rel="canonical" href="https://gradecalc.online/about.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About GradeCalc",
+  "description": "Learn about the team behind GradeCalc and our methodology",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "GradeCalc",
+    "url": "https://gradecalc.online",
+    "description": "Free, accurate grade calculators for UK university students",
+    "foundingDate": "2025",
+    "knowsAbout": ["UK degree classifications", "university grading systems", "academic assessment", "GPA calculation"]
+  }
+}
+</script>
+
 </head>
 <body>
     <header>
@@ -38,50 +67,97 @@
     <main>
         <div class="container">
             
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo;
+    <span>About</span>
+</nav>
+
 <h1>About GradeCalc</h1>
 
 <section class="content-section">
     <h2>Our Mission</h2>
-    <p>GradeCalc provides free, easy-to-use assessment and exam calculators for learners at all levels. Whether you're a university student, online learner, or professional exam candidate, our tools help you track your progress and plan your study effectively.</p>
+    <p>GradeCalc exists to help UK university students understand their grades and plan their academic journey. We believe that every student should be able to answer the question "what do I need to get a First?" without having to decode complex university regulations or build their own spreadsheet.</p>
+    <p>We built GradeCalc because we found that many students were confused by how degree classifications are calculated. Year weightings, credit values, borderline rules &mdash; these are all critical to your degree outcome but are rarely explained clearly. Our tools and guides aim to change that.</p>
 
-    <h2>Why We Built This</h2>
-    <p>Calculating grades and planning revision shouldn't be complicated. We created GradeCalc to provide simple, accurate, and accessible tools that anyone can use without signing up or paying fees.</p>
-
-    <h2>What Makes Us Different</h2>
+    <h2>Who We Are</h2>
+    <p>GradeCalc was created by a small team of UK university graduates who experienced first-hand how confusing the grading system can be. Our team combines:</p>
     <ul>
-        <li><strong>100% Free:</strong> All our calculators are completely free to use, with no hidden fees or premium tiers</li>
-        <li><strong>No Sign-Up Required:</strong> Start calculating immediately without creating an account</li>
-        <li><strong>Privacy-Focused:</strong> We don't collect or store your personal data or calculation results</li>
-        <li><strong>Mobile-Friendly:</strong> All tools work perfectly on any device</li>
-        <li><strong>Accurate & Reliable:</strong> Our calculators use official grading schemes and formulas</li>
+        <li><strong>Academic background:</strong> Graduates from UK universities with direct experience of the degree classification system, including Russell Group institutions</li>
+        <li><strong>Technical expertise:</strong> Software developers who build tools that are fast, accurate, and work on any device</li>
+        <li><strong>Educational focus:</strong> We don't just build calculators &mdash; we write detailed guides that explain the "why" behind every calculation</li>
     </ul>
 
-    <h2>Our Tools</h2>
-    <p>We currently offer five main calculators:</p>
+    <h2>Our Methodology</h2>
+    <p>Accuracy matters. When you're deciding how hard to revise or whether to retake a module, you need numbers you can trust. Here's how we ensure our calculators are reliable:</p>
+
+    <h3>How We Build Our Calculators</h3>
+    <ol>
+        <li><strong>Research university regulations:</strong> We study published academic regulations from dozens of UK universities to understand how classifications are calculated in practice</li>
+        <li><strong>Implement standard formulas:</strong> Our calculators use the credit-weighted average formula that is standard across the UK higher education sector</li>
+        <li><strong>Support all weighting schemes:</strong> We include every common year-weighting scheme (40/60, 33/67, 25/75, 0/100, and more) so the calculator works for your specific university</li>
+        <li><strong>Test against real examples:</strong> We verify our calculations against worked examples from university handbooks and academic regulations</li>
+    </ol>
+
+    <h3>How We Write Our Guides</h3>
+    <p>Every guide on GradeCalc is written by our team, not generated by AI or scraped from other sources. We follow these principles:</p>
     <ul>
-        <li><strong>UK Degree Classification Calculator:</strong> Calculate your degree classification (First, 2:1, 2:2, Third)</li>
-        <li><strong>GPA Calculator:</strong> Calculate your Grade Point Average on 4.0 or 5.0 scales</li>
-        <li><strong>Exam Score Calculator:</strong> Calculate exam percentages and pass/fail status</li>
-        <li><strong>Revision Timetable Generator:</strong> Create personalized study plans</li>
-        <li><strong>Module Grade Calculator:</strong> Calculate current grades and required exam marks</li>
+        <li><strong>Primary sources:</strong> We reference official university regulations, HESA statistics, and QAA frameworks</li>
+        <li><strong>Worked examples:</strong> Every guide includes concrete examples with real numbers so you can follow the maths</li>
+        <li><strong>Regular updates:</strong> We review and update our content to reflect changes in grading practices and statistics</li>
+        <li><strong>Peer review:</strong> Content is reviewed by multiple team members before publication</li>
     </ul>
 
-    <h2>Who We Serve</h2>
-    <p>GradeCalc is designed for:</p>
+    <h2>Privacy & Data</h2>
+    <p>Your privacy is a core design principle, not an afterthought:</p>
     <ul>
-        <li>University students (undergraduate and postgraduate)</li>
-        <li>College students</li>
-        <li>Online course learners</li>
-        <li>Professional exam candidates</li>
-        <li>Adult learners and career switchers</li>
-        <li>Anyone tracking their academic progress</li>
+        <li><strong>Client-side only:</strong> All calculations run entirely in your browser. Your marks and grades are never sent to our servers or stored anywhere</li>
+        <li><strong>No accounts:</strong> You never need to sign up or log in. There's nothing to hack because we don't store your data</li>
+        <li><strong>Transparent cookies:</strong> We only use cookies for essential site functionality and, with your consent, Google AdSense advertising. You can decline cookies and still use every calculator</li>
+    </ul>
+    <p>Read our full <a href="/privacy-policy.html">Privacy Policy</a> for details.</p>
+
+    <h2>What We Offer</h2>
+    <p>GradeCalc provides <strong>13 free calculators</strong> and <strong>5 in-depth guides</strong> covering:</p>
+
+    <h3>Calculators</h3>
+    <ul>
+        <li><a href="/tools/degree-classification-calculator.html">UK Degree Classification Calculator</a> &mdash; calculate your First, 2:1, 2:2, or Third</li>
+        <li><a href="/tools/what-do-i-need-for-a-first.html">What Do I Need for a First?</a> &mdash; find out the average you need</li>
+        <li><a href="/tools/what-do-i-need-for-a-2-1.html">What Do I Need for a 2:1?</a> &mdash; target grade calculator</li>
+        <li><a href="/tools/what-marks-do-i-need-in-final-year.html">Final Year Marks Calculator</a> &mdash; what you need in your final year</li>
+        <li><a href="/tools/module-grade-calculator.html">Module Grade Calculator</a> &mdash; combine coursework and exam marks</li>
+        <li><a href="/tools/coursework-grade-calculator.html">Coursework Grade Calculator</a> &mdash; weighted coursework components</li>
+        <li><a href="/tools/exam-weighting-calculator.html">Exam Weighting Calculator</a> &mdash; understand your exam's impact</li>
+        <li><a href="/tools/gpa-calculator.html">GPA Calculator</a> &mdash; 4.0 and 5.0 scale conversion</li>
+        <li>And more &mdash; <a href="/tools/">view all calculators</a></li>
     </ul>
 
-    <h2>Important Disclaimer</h2>
-    <p>GradeCalc is for educational purposes only and does not represent official academic advice. Always check with your institution for their specific grading policies and requirements. Grade boundaries and calculation methods may vary between universities and courses.</p>
+    <h3>Guides</h3>
+    <ul>
+        <li><a href="/guides/how-does-degree-classification-work-uk.html">How Does Degree Classification Work?</a> &mdash; complete system overview</li>
+        <li><a href="/guides/how-are-degree-grades-calculated.html">How Are Degree Grades Calculated?</a> &mdash; the formula explained</li>
+        <li><a href="/guides/how-to-get-a-first.html">How to Get a First</a> &mdash; proven strategies</li>
+        <li><a href="/guides/exam-grading-explained.html">Exam Grading Explained</a> &mdash; marking and boundaries</li>
+        <li><a href="/guides/how-many-credits-for-a-first-class-degree.html">How Many Credits for a First?</a> &mdash; credits demystified</li>
+    </ul>
 
-    <h2>Contact Us</h2>
-    <p>Have feedback or suggestions? We'd love to hear from you! Visit our <a href="/contact.html">contact page</a> to get in touch.</p>
+    <h2>Who Uses GradeCalc</h2>
+    <p>Our tools are designed primarily for:</p>
+    <ul>
+        <li><strong>UK undergraduate students</strong> &mdash; tracking degree classification progress</li>
+        <li><strong>Final year students</strong> &mdash; calculating what marks they need for their target grade</li>
+        <li><strong>Students considering postgraduate study</strong> &mdash; understanding classification requirements</li>
+        <li><strong>International students</strong> &mdash; converting between GPA and UK classification systems</li>
+        <li><strong>Academic advisors</strong> &mdash; helping students understand their options</li>
+    </ul>
+
+    <div class="alert alert-warning">
+        <h3>Important Disclaimer</h3>
+        <p style="margin: 0;">GradeCalc is for educational and informational purposes only. It does not represent official academic advice. Grade boundaries, year weightings, and calculation methods vary between universities and courses. Always check your own institution's academic regulations for the rules that apply to you. See our <a href="/terms.html">Terms of Service</a> for full details.</p>
+    </div>
+
+    <h2>Get in Touch</h2>
+    <p>Have feedback, found a bug, or want to suggest a new feature? We'd love to hear from you. Visit our <a href="/contact.html">contact page</a> to get in touch.</p>
 </section>
 
         </div>
@@ -105,9 +181,8 @@
             <div>
                 <h4>Guides</h4>
                 <ul>
-                    <li><a href="/guides/how-degree-classifications-work-uk.html">How Degree Classifications Work</a></li>
+                    <li><a href="/guides/how-does-degree-classification-work-uk.html">How Degree Classifications Work</a></li>
                     <li><a href="/guides/how-are-degree-grades-calculated.html">How Are Degree Grades Calculated?</a></li>
-                    <li><a href="/guides/how-does-degree-classification-work-uk.html">UK Degree Classification System</a></li>
                     <li><a href="/guides/how-many-credits-for-a-first-class-degree.html">Credits for a First Class Degree</a></li>
                     <li><a href="/guides/how-to-get-a-first.html">How to Get a First</a></li>
                     <li><a href="/guides/exam-grading-explained.html">Exam Grading Explained</a></li>
@@ -146,6 +221,7 @@
         function acceptCookies() {
             localStorage.setItem('cookie_consent', 'accepted');
             document.getElementById('cookie-consent').style.display = 'none';
+            loadAdSense();
         }
         function declineCookies() {
             localStorage.setItem('cookie_consent', 'declined');

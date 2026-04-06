@@ -24,7 +24,13 @@
 {% endblock %}
 
 {% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <a href="{{ url_for('tools') }}">Tools</a> &rsaquo;
+    <span>Module Grade Calculator</span>
+</nav>
 <h1>What Do I Need on My Final Exam?</h1>
+<p class="page-meta">Free tool by GradeCalc &middot; Last updated April 2026 &middot; No sign-up required</p>
 <p>Not sure what mark you need on your final exam to pass or get the grade you want? Enter your coursework marks below and this calculator will tell you exactly what exam score you need to hit your target (40% to pass, 70% for a First, etc.).</p>
 
 <div class="alert alert-warning" style="margin: 2rem 0;">

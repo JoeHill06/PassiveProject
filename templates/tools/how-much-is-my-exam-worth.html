@@ -28,7 +28,13 @@
 {% endblock %}
 
 {% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <a href="{{ url_for('tools') }}">Tools</a> &rsaquo;
+    <span>How Much Is My Exam Worth?</span>
+</nav>
 <h1>How Much Is My Exam Worth?</h1>
+<p class="page-meta">Free tool by GradeCalc &middot; Last updated April 2026 &middot; No sign-up required</p>
 <p>Find out how much your exam counts towards your final module grade and see exactly how different exam results would affect your mark. Just enter three numbers and get your answer.</p>
 
 <div class="calculator-section">

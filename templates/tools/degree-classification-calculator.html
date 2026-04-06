@@ -24,7 +24,13 @@
 {% endblock %}
 
 {% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <a href="{{ url_for('tools') }}">Tools</a> &rsaquo;
+    <span>UK Degree Classification Calculator</span>
+</nav>
 <h1>UK Degree Classification Calculator</h1>
+<p class="page-meta">Free tool by GradeCalc &middot; Last updated April 2026 &middot; No sign-up required</p>
 <p>Find out what degree classification you'll get (First, 2:1, 2:2, or Third) by entering your Year 2 and Year 3 module marks below. This free calculator works with all UK university weighting schemes including 40/60, 33/67, and final-year-only.</p>
 
 <div class="alert alert-info" style="margin: 2rem 0;">

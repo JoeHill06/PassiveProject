@@ -24,7 +24,13 @@
 {% endblock %}
 
 {% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <a href="{{ url_for('tools') }}">Tools</a> &rsaquo;
+    <span>Exam Score Calculator</span>
+</nav>
 <h1>Exam Percentage Calculator</h1>
+<p class="page-meta">Free tool by GradeCalc &middot; Last updated April 2026 &middot; No sign-up required</p>
 <p>Enter your exam marks below to find out: (1) Your score as a percentage, (2) Whether you passed, and (3) What grade you got. Works for any exam with multiple choice, written answers, or mixed questions.</p>
 
 <div class="alert alert-info" style="margin: 2rem 0;">

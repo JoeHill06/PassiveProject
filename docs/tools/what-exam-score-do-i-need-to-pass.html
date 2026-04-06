@@ -15,9 +15,20 @@
     <meta property="og:description" content="Calculate the exact exam mark you need to pass your module based on coursework and weightings.">
     <meta property="og:type" content="website">
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734"
-         crossorigin="anonymous"></script>
+    <!-- Google AdSense - loaded only after cookie consent -->
+    <script>
+        function loadAdSense() {
+            if (document.querySelector('script[src*="adsbygoogle"]')) return;
+            var s = document.createElement('script');
+            s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734';
+            s.async = true;
+            s.crossOrigin = 'anonymous';
+            document.head.appendChild(s);
+        }
+        if (localStorage.getItem('cookie_consent') === 'accepted') {
+            loadAdSense();
+        }
+    </script>
 
     
 <link rel="canonical" href="https://gradecalc.online/tools/what-exam-score-do-i-need-to-pass.html">
@@ -54,7 +65,13 @@
     <main>
         <div class="container">
             
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo;
+    <a href="/tools/">Tools</a> &rsaquo;
+    <span>What Exam Score Do I Need to Pass?</span>
+</nav>
 <h1>What Exam Score Do I Need to Pass?</h1>
+<p class="page-meta">Free tool by GradeCalc &middot; Last updated April 2026 &middot; No sign-up required</p>
 <p>Find out the minimum exam mark you need to pass your module. Enter your coursework mark (if applicable), the exam and coursework weightings, and the pass threshold. The calculator handles exam-only modules too.</p>
 
 <div class="alert alert-info" style="margin: 2rem 0;">
@@ -214,9 +231,8 @@
             <div>
                 <h4>Guides</h4>
                 <ul>
-                    <li><a href="/guides/how-degree-classifications-work-uk.html">How Degree Classifications Work</a></li>
+                    <li><a href="/guides/how-does-degree-classification-work-uk.html">How Degree Classifications Work</a></li>
                     <li><a href="/guides/how-are-degree-grades-calculated.html">How Are Degree Grades Calculated?</a></li>
-                    <li><a href="/guides/how-does-degree-classification-work-uk.html">UK Degree Classification System</a></li>
                     <li><a href="/guides/how-many-credits-for-a-first-class-degree.html">Credits for a First Class Degree</a></li>
                     <li><a href="/guides/how-to-get-a-first.html">How to Get a First</a></li>
                     <li><a href="/guides/exam-grading-explained.html">Exam Grading Explained</a></li>
@@ -363,6 +379,7 @@ function resetCalc() {
         function acceptCookies() {
             localStorage.setItem('cookie_consent', 'accepted');
             document.getElementById('cookie-consent').style.display = 'none';
+            loadAdSense();
         }
         function declineCookies() {
             localStorage.setItem('cookie_consent', 'declined');

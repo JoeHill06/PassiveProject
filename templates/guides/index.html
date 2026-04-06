@@ -1,71 +1,106 @@
 {% extends "base.html" %}
 
-{% block title %}Academic Guides - GradeCalc{% endblock %}
+{% block title %}Academic Guides - UK Degree Grades, Exams & Study Tips | GradeCalc{% endblock %}
 
-{% block meta_description %}Free academic guides about degree classifications, exam grading, and study strategies. Learn how grading works and how to achieve your academic goals.{% endblock %}
+{% block meta_description %}Free guides about UK degree classifications, exam grading, study strategies, and how grades are calculated. Written by UK graduates with clear explanations and worked examples.{% endblock %}
+
+{% block meta_keywords %}UK degree guides, degree classification guide, exam grading guide, how to get a first, study tips{% endblock %}
+
+{% block extra_head %}
+<link rel="canonical" href="https://gradecalc.online/guides/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Academic Guides for UK Students",
+  "description": "Free guides about UK degree classifications, exam grading, and study strategies",
+  "url": "https://gradecalc.online/guides/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "GradeCalc",
+    "url": "https://gradecalc.online"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gradecalc.online/"},
+    {"@type": "ListItem", "position": 2, "name": "Guides"}
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
-<h1>Academic Guides</h1>
-<p>Learn about degree classifications, exam grading systems, and effective study strategies.</p>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <span>Guides</span>
+</nav>
+
+<h1>Academic Guides for UK Students</h1>
+<p>Our guides explain how UK degree grading works, with clear language, worked examples, and practical advice. Each guide is written by UK graduates and regularly updated to reflect current practices.</p>
+
+<section class="content-section" style="margin-top: 1rem;">
+    <h2>Understanding the UK Grading System</h2>
+    <p>The UK uses a unique degree classification system (First, 2:1, 2:2, Third) that differs from the GPA system used in many other countries. Your final classification depends on your module marks, credit values, and year weightings &mdash; and the details vary between universities. Our guides break down each part of this system so you know exactly where you stand.</p>
+</section>
+
+<h2>All Guides</h2>
 
 <div class="card-grid">
     <div class="card">
-        <h3>How Degree Classifications Work in the UK</h3>
-        <p>A comprehensive guide to understanding the UK degree classification system, from First Class Honours to Third Class, including how final grades are calculated.</p>
-        <a href="{{ url_for('guide_degree_classifications') }}">Read Guide &rarr;</a>
+        <h3>How Does Degree Classification Work in the UK?</h3>
+        <p>A comprehensive guide to the UK degree classification system: how First, 2:1, 2:2, and Third are determined, with worked calculation examples, borderline rules, and career implications.</p>
+        <a href="{{ url_for('guide_classification_work') }}">Read Guide &rarr;</a>
+    </div>
+
+    <div class="card">
+        <h3>How Are Degree Grades Calculated?</h3>
+        <p>The credit-weighted average formula explained step by step. Includes a full worked example for a Psychology student and covers all common weighting schemes.</p>
+        <a href="{{ url_for('guide_grades_calculated') }}">Read Guide &rarr;</a>
     </div>
 
     <div class="card">
         <h3>How to Get a First Class Degree</h3>
-        <p>Practical strategies and proven techniques for achieving a First Class Honours degree, including study habits, time management, and exam preparation.</p>
+        <p>Practical strategies and proven techniques for achieving a First Class Honours degree, including study habits, time management, and exam preparation advice.</p>
         <a href="{{ url_for('guide_get_first') }}">Read Guide &rarr;</a>
     </div>
 
     <div class="card">
         <h3>Exam Grading Explained</h3>
-        <p>Understand how exam grading works, including mark schemes, grade boundaries, and how to interpret your exam results.</p>
+        <p>Understand how exam grading works: mark schemes, grade boundaries, scaling and moderation, and what different marks actually mean in practice.</p>
         <a href="{{ url_for('guide_exam_grading') }}">Read Guide &rarr;</a>
     </div>
 
     <div class="card">
-        <h3>How Are Degree Grades Calculated?</h3>
-        <p>A clear explanation of the credit-weighted average formula used to calculate UK degree grades, with worked examples and common weighting schemes.</p>
-        <a href="{{ url_for('guide_grades_calculated') }}">Read Guide &rarr;</a>
-    </div>
-
-    <div class="card">
-        <h3>How Does Degree Classification Work in the UK?</h3>
-        <p>Understand the UK degree classification system: First, 2:1, 2:2, and Third. Learn what each class means, borderline policies, and career implications.</p>
-        <a href="{{ url_for('guide_classification_work') }}">Read Guide &rarr;</a>
-    </div>
-
-    <div class="card">
         <h3>How Many Credits for a First Class Degree?</h3>
-        <p>Learn how the UK credit system works, how credits relate to your degree classification, and what you actually need to achieve a First.</p>
+        <p>A First isn't about hitting a magic number of credits. This guide explains how the UK credit system works and how your credit-weighted average determines your classification.</p>
         <a href="{{ url_for('guide_credits_first') }}">Read Guide &rarr;</a>
     </div>
 </div>
 
 <section class="content-section">
-    <h2>Why Read Our Guides?</h2>
+    <h2>How We Write Our Guides</h2>
+    <p>Every guide on GradeCalc is:</p>
     <ul>
-        <li><strong>Clear Explanations:</strong> Complex grading systems explained in simple terms</li>
-        <li><strong>Practical Advice:</strong> Actionable strategies you can implement immediately</li>
-        <li><strong>Evidence-Based:</strong> Tips and techniques based on research and best practices</li>
-        <li><strong>Free Access:</strong> All guides are completely free to read</li>
+        <li><strong>Written by UK graduates</strong> who have direct experience of the degree classification system</li>
+        <li><strong>Based on primary sources</strong> including published university regulations, HESA statistics, and QAA frameworks</li>
+        <li><strong>Includes worked examples</strong> with real numbers so you can follow the calculation step by step</li>
+        <li><strong>Regularly reviewed and updated</strong> to reflect current grading practices and statistics</li>
     </ul>
 
-    <h2>Related Tools</h2>
-    <p>Put what you learn into practice with our free calculators:</p>
+    <h2>Put What You Learn into Practice</h2>
+    <p>Use our free calculators alongside these guides:</p>
     <ul>
-        <li><a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator</a></li>
-        <li><a href="{{ url_for('what_need_first') }}">What Do I Need to Get a First?</a></li>
-        <li><a href="{{ url_for('what_need_21') }}">What Do I Need for a 2:1?</a></li>
-        <li><a href="{{ url_for('final_year_marks') }}">What Marks Do I Need in My Final Year?</a></li>
-        <li><a href="{{ url_for('gpa_calculator') }}">GPA Calculator</a></li>
-        <li><a href="{{ url_for('exam_score_calculator') }}">Exam Score Calculator</a></li>
-        <li><a href="{{ url_for('module_grade_calculator') }}">Module Grade Calculator</a></li>
-        <li><a href="{{ url_for('revision_timetable') }}">Revision Timetable Generator</a></li>
+        <li><a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator</a> &mdash; calculate your classification</li>
+        <li><a href="{{ url_for('what_need_first') }}">What Do I Need to Get a First?</a> &mdash; find out what you need</li>
+        <li><a href="{{ url_for('what_need_21') }}">What Do I Need for a 2:1?</a> &mdash; 2:1 target calculator</li>
+        <li><a href="{{ url_for('final_year_marks') }}">Final Year Marks Calculator</a> &mdash; plan your final year</li>
+        <li><a href="{{ url_for('module_grade_calculator') }}">Module Grade Calculator</a> &mdash; track individual modules</li>
     </ul>
+    <p><a href="{{ url_for('tools') }}">View all 13 calculators &rarr;</a></p>
 </section>
 {% endblock %}

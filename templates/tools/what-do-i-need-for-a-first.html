@@ -28,7 +28,13 @@
 {% endblock %}
 
 {% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <a href="{{ url_for('tools') }}">Tools</a> &rsaquo;
+    <span>What Do I Need for a First?</span>
+</nav>
 <h1>What Do I Need to Get a First?</h1>
+<p class="page-meta">Free tool by GradeCalc &middot; Last updated April 2026 &middot; No sign-up required</p>
 <p>Use this calculator to find out exactly what average you need on your remaining modules to achieve a First Class Honours degree (70%+). Enter your current average, credits completed, and credits remaining to get your answer instantly.</p>
 
 <div class="alert alert-info" style="margin: 2rem 0;">

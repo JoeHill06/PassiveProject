@@ -4,6 +4,35 @@
 
 {% block meta_description %}Free online grade calculators for UK university students. Calculate your degree classification, GPA, exam scores, module grades, and find out what marks you need.{% endblock %}
 
+{% block extra_head %}
+<link rel="canonical" href="https://gradecalc.online/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "GradeCalc",
+  "url": "https://gradecalc.online",
+  "description": "Free grade calculators and academic guides for UK university students",
+  "publisher": {
+    "@type": "Organization",
+    "name": "GradeCalc",
+    "url": "https://gradecalc.online"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "GradeCalc",
+  "url": "https://gradecalc.online",
+  "description": "Free, accurate grade calculators for UK university students",
+  "foundingDate": "2025",
+  "knowsAbout": ["UK degree classifications", "university grading systems", "GPA calculation", "exam grading"]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 <div class="hero">
     <h1>Free Grade Calculators for Students</h1>
@@ -76,8 +105,8 @@
     <h2>Guides for Students</h2>
     <div class="card-grid">
         <div class="card">
-            <h3>How UK Degree Classifications Work</h3>
-            <p>Understand First, 2:1, 2:2, and Third class degrees. Learn how grade boundaries are set and what each classification means for your career.</p>
+            <h3>How Does Degree Classification Work?</h3>
+            <p>Understand First, 2:1, 2:2, and Third class degrees. Learn how grade boundaries are set, see worked calculation examples, and find out what each classification means for your career.</p>
             <a href="{{ url_for('guide_classification_work') }}">Read Guide &rarr;</a>
         </div>
 

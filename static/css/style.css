@@ -180,6 +180,23 @@ main {
     color: var(--text-primary);
 }
 
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    resize: vertical;
+}
+
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
 .form-group input,
 .form-group select {
     width: 100%;
@@ -522,6 +539,72 @@ footer a:hover {
     table td {
         padding: 0.5rem;
     }
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: var(--text-secondary);
+}
+
+/* Page Meta (author, date, read time) */
+.page-meta {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Author Box */
+.author-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--bg-gray);
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+    border: 1px solid var(--border-color);
+}
+
+.author-box .author-avatar {
+    width: 64px;
+    height: 64px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.author-box .author-info h4 {
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.author-box .author-info p {
+    font-size: 0.875rem;
+    margin-bottom: 0;
 }
 
 /* Accessibility */

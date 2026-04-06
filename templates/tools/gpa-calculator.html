@@ -24,7 +24,13 @@
 {% endblock %}
 
 {% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <a href="{{ url_for('tools') }}">Tools</a> &rsaquo;
+    <span>GPA Calculator</span>
+</nav>
 <h1>GPA Calculator</h1>
+<p class="page-meta">Free tool by GradeCalc &middot; Last updated April 2026 &middot; No sign-up required</p>
 <p>Enter your course grades (A, B, C, etc.) and credit hours below to calculate your GPA. Works with both 4.0 scale (most common) and 5.0 scale (where A+ = 5.0). Results are instant.</p>
 
 <div class="alert alert-info" style="margin: 2rem 0;">

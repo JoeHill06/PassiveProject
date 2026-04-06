@@ -28,7 +28,13 @@
 {% endblock %}
 
 {% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <a href="{{ url_for('tools') }}">Tools</a> &rsaquo;
+    <span>What Do I Need for a 2:1?</span>
+</nav>
 <h1>What Grade Do I Need for a 2:1?</h1>
+<p class="page-meta">Free tool by GradeCalc &middot; Last updated April 2026 &middot; No sign-up required</p>
 <p>Use this calculator to find out what average you need on your remaining modules to achieve an Upper Second Class Honours degree (2:1, 60%+). A 2:1 is the minimum requirement for most graduate schemes, postgraduate courses, and professional careers in the UK.</p>
 
 <div class="alert alert-info" style="margin: 2rem 0;">

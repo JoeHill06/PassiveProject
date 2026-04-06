@@ -2,50 +2,86 @@
 
 {% block title %}Contact Us - GradeCalc{% endblock %}
 
+{% block meta_description %}Get in touch with the GradeCalc team. Send us feedback, report bugs, or suggest new features for our free grade calculators.{% endblock %}
+
+{% block extra_head %}
+<link rel="canonical" href="https://gradecalc.online/contact.html">
+{% endblock %}
+
 {% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <span>Contact</span>
+</nav>
+
 <h1>Contact Us</h1>
 
 <section class="content-section">
-    <h2>Get In Touch</h2>
-    <p>We'd love to hear from you! Whether you have feedback, suggestions, or questions, please feel free to reach out.</p>
+    <h2>Send Us a Message</h2>
+    <p>Have feedback, found a bug, or want to suggest a new calculator? Fill in the form below and we'll get back to you within 2&ndash;3 business days.</p>
+
+    <form action="https://formspree.io/f/hello@gradecalc.online" method="POST" class="contact-form">
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="e.g. Alex Smith">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required placeholder="e.g. alex@university.ac.uk">
+            <small>We'll only use this to reply to your message.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject" required>
+                <option value="">Select a topic...</option>
+                <option value="feedback">General Feedback</option>
+                <option value="bug">Bug Report</option>
+                <option value="feature">Feature Request</option>
+                <option value="accuracy">Calculator Accuracy Query</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required placeholder="Tell us what's on your mind..."></textarea>
+        </div>
+
+        <input type="text" name="_gotcha" style="display:none">
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+
+    <h2>Other Ways to Reach Us</h2>
 
     <div class="alert alert-info">
-        <h3>Email Us</h3>
-        <p>For general inquiries, feedback, or support:</p>
-        <p><strong>Email:</strong> <a href="mailto:hello@gradecalc.online">hello@gradecalc.online</a></p>
+        <h3>Email</h3>
+        <p style="margin: 0;">Prefer email? Write to us directly at <a href="mailto:hello@gradecalc.online">hello@gradecalc.online</a></p>
     </div>
 
-    <h2>Feedback & Suggestions</h2>
-    <p>We're always looking to improve GradeCalc. If you have ideas for new features, tools, or improvements, we'd love to hear them!</p>
-
-    <h2>Report an Issue</h2>
-    <p>Found a bug or technical issue? Let us know and we'll work to fix it as soon as possible. Please include:</p>
+    <h2>Report a Bug</h2>
+    <p>If you've found a bug or something isn't working correctly, please include:</p>
     <ul>
-        <li>Description of the issue</li>
         <li>Which calculator or page you were using</li>
-        <li>Your browser and device type</li>
-        <li>Steps to reproduce the problem (if applicable)</li>
+        <li>What you expected to happen vs. what actually happened</li>
+        <li>Your browser (e.g. Chrome, Safari, Firefox) and device (phone, laptop, etc.)</li>
+        <li>The values you entered, if relevant &mdash; this helps us reproduce the issue</li>
     </ul>
 
-    <h2>Partnership Inquiries</h2>
-    <p>For partnership, advertising, or business inquiries, please contact us via email.</p>
-
-    <h2>Response Time</h2>
-    <p>We aim to respond to all inquiries within 2-3 business days. During busy periods, it may take slightly longer.</p>
-
     <h2>Frequently Asked Questions</h2>
-    <p>Before contacting us, you might find the answer to your question in our calculator-specific FAQ sections:</p>
+    <p>Before getting in touch, you might find your answer in our guides and calculator FAQ sections:</p>
     <ul>
-        <li><a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator FAQ</a></li>
-        <li><a href="{{ url_for('gpa_calculator') }}">GPA Calculator FAQ</a></li>
-        <li><a href="{{ url_for('exam_score_calculator') }}">Exam Score Calculator FAQ</a></li>
-        <li><a href="{{ url_for('revision_timetable') }}">Revision Timetable Generator FAQ</a></li>
-        <li><a href="{{ url_for('module_grade_calculator') }}">Module Grade Calculator FAQ</a></li>
+        <li><a href="{{ url_for('guide_classification_work') }}">How Does Degree Classification Work?</a></li>
+        <li><a href="{{ url_for('guide_grades_calculated') }}">How Are Degree Grades Calculated?</a></li>
+        <li><a href="{{ url_for('guide_exam_grading') }}">Exam Grading Explained</a></li>
+        <li><a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator</a> (includes FAQ)</li>
     </ul>
 
     <div class="alert alert-warning">
-        <h3>Important Note</h3>
-        <p>GradeCalc is for educational purposes only and does not provide official academic advice. For specific questions about your grades or academic standing, please contact your educational institution directly.</p>
+        <h3>Academic Advice</h3>
+        <p style="margin: 0;">We cannot provide personalised academic advice. For questions about your specific grades, module choices, or academic standing, please contact your university's student services or academic advisor. Our calculators provide estimates based on standard UK grading methods, but your university's specific rules take precedence.</p>
     </div>
 </section>
 {% endblock %}

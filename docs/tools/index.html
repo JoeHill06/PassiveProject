@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Browse our collection of free assessment and exam calculators. Calculate grades, GPA, exam scores, and plan your revision effectively.">
-    <meta name="keywords" content="grade calculator, GPA calculator, degree calculator, exam calculator, revision planner">
-    <title>Free Assessment & Exam Tools - GradeCalc</title>
+    <meta name="description" content="13 free grade calculators for UK university students. Calculate your degree classification, find out what marks you need, plan your revision, and more. No sign-up required.">
+    <meta name="keywords" content="grade calculators, UK degree calculator, exam calculator, module grade calculator, coursework calculator">
+    <title>Free Grade Calculators for UK Students | GradeCalc</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/static/css/style.css">
@@ -15,12 +15,47 @@
     <meta property="og:description" content="Free assessment and exam calculators, grade planners, and learning tools.">
     <meta property="og:type" content="website">
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734"
-         crossorigin="anonymous"></script>
+    <!-- Google AdSense - loaded only after cookie consent -->
+    <script>
+        function loadAdSense() {
+            if (document.querySelector('script[src*="adsbygoogle"]')) return;
+            var s = document.createElement('script');
+            s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734';
+            s.async = true;
+            s.crossOrigin = 'anonymous';
+            document.head.appendChild(s);
+        }
+        if (localStorage.getItem('cookie_consent') === 'accepted') {
+            loadAdSense();
+        }
+    </script>
 
     
-<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://gradecalc.online/tools/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Free Grade Calculators for UK Students",
+  "description": "13 free grade calculators for UK university students",
+  "url": "https://gradecalc.online/tools/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "GradeCalc",
+    "url": "https://gradecalc.online"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gradecalc.online/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools"}
+  ]
+}
+</script>
 
 </head>
 <body>
@@ -40,9 +75,34 @@
     <main>
         <div class="container">
             
-<h1>Assessment & Exam Tools</h1>
-<p>Choose from our collection of free calculators and planning tools. No sign-up required.</p>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo;
+    <span>Tools</span>
+</nav>
 
+<h1>Free Grade Calculators for UK Students</h1>
+<p>All 13 calculators below are free, require no sign-up, and run entirely in your browser &mdash; your grades are never sent to a server. Choose the calculator that matches what you need to find out.</p>
+
+<section class="content-section" style="margin-top: 1rem;">
+    <h2>Which Calculator Do I Need?</h2>
+    <p>Not sure which tool to use? Here's a quick guide:</p>
+    <table>
+        <thead><tr><th>If you want to know...</th><th>Use this calculator</th></tr></thead>
+        <tbody>
+            <tr><td>Your overall degree classification (First, 2:1, 2:2, Third)</td><td><a href="/tools/degree-classification-calculator.html">UK Degree Classification Calculator</a></td></tr>
+            <tr><td>What marks you need for a First</td><td><a href="/tools/what-do-i-need-for-a-first.html">What Do I Need for a First?</a></td></tr>
+            <tr><td>What marks you need for a 2:1</td><td><a href="/tools/what-do-i-need-for-a-2-1.html">What Do I Need for a 2:1?</a></td></tr>
+            <tr><td>What you need in your final year specifically</td><td><a href="/tools/what-marks-do-i-need-in-final-year.html">Final Year Marks Calculator</a></td></tr>
+            <tr><td>Your current module grade from coursework + exam</td><td><a href="/tools/module-grade-calculator.html">Module Grade Calculator</a></td></tr>
+            <tr><td>What exam mark you need to pass a module</td><td><a href="/tools/what-exam-score-do-i-need-to-pass.html">What Exam Score Do I Need to Pass?</a></td></tr>
+            <tr><td>How much your exam affects your module grade</td><td><a href="/tools/exam-weighting-calculator.html">Exam Weighting Calculator</a></td></tr>
+            <tr><td>Your GPA on a 4.0 or 5.0 scale</td><td><a href="/tools/gpa-calculator.html">GPA Calculator</a></td></tr>
+        </tbody>
+    </table>
+</section>
+
+<h2>Degree Classification Calculators</h2>
+<p>These calculators help you work out your overall degree classification and what marks you need to hit your target.</p>
 <div class="card-grid">
     <div class="card">
         <h3>UK Degree Classification Calculator</h3>
@@ -67,17 +127,31 @@
         <p>Enter your Year 2 average and year weighting to find out the final-year average you need for a First, 2:1, 2:2, or Third.</p>
         <a href="/tools/what-marks-do-i-need-in-final-year.html">Use Calculator &rarr;</a>
     </div>
+</div>
 
+<h2>Module & Coursework Calculators</h2>
+<p>Work out your grade for individual modules and coursework components.</p>
+<div class="card-grid">
     <div class="card">
-        <h3>What Exam Score Do I Need to Pass?</h3>
-        <p>Calculate the minimum exam mark you need to pass your module based on your coursework mark and the exam/coursework weightings.</p>
-        <a href="/tools/what-exam-score-do-i-need-to-pass.html">Use Calculator &rarr;</a>
+        <h3>Module Grade Calculator</h3>
+        <p>Calculate your current module grade based on coursework and exam weightings. Find out exactly what exam mark you need to achieve your target grade.</p>
+        <a href="/tools/module-grade-calculator.html">Use Calculator &rarr;</a>
     </div>
 
     <div class="card">
         <h3>Coursework Grade Calculator</h3>
         <p>Calculate your overall coursework mark from multiple weighted assignments. Enter each component's weight and mark for your weighted total.</p>
         <a href="/tools/coursework-grade-calculator.html">Use Calculator &rarr;</a>
+    </div>
+</div>
+
+<h2>Exam Calculators</h2>
+<p>Understand how exams affect your grades and what scores you need.</p>
+<div class="card-grid">
+    <div class="card">
+        <h3>What Exam Score Do I Need to Pass?</h3>
+        <p>Calculate the minimum exam mark you need to pass your module based on your coursework mark and the exam/coursework weightings.</p>
+        <a href="/tools/what-exam-score-do-i-need-to-pass.html">Use Calculator &rarr;</a>
     </div>
 
     <div class="card">
@@ -93,40 +167,41 @@
     </div>
 
     <div class="card">
-        <h3>GPA Calculator</h3>
-        <p>Calculate your Grade Point Average using either the 4.0 or 5.0 scale. Enter your grades and credit values to get your cumulative GPA. Perfect for university applications and academic planning.</p>
-        <a href="/tools/gpa-calculator.html">Use Calculator &rarr;</a>
-    </div>
-
-    <div class="card">
         <h3>Exam Score Calculator</h3>
         <p>Calculate your exam score as a percentage and determine whether you've passed. Enter the total questions, marks per question, and your achieved marks to get instant results with grade boundaries.</p>
         <a href="/tools/exam-score-calculator.html">Use Calculator &rarr;</a>
     </div>
+</div>
 
+<h2>Planning Tools</h2>
+<p>Plan your study schedule and track your academic progress.</p>
+<div class="card-grid">
     <div class="card">
-        <h3>Revision Timetable Generator</h3>
-        <p>Create a personalized study plan based on your exam dates, subjects, and available study hours. Optimize your revision schedule with priority weighting for different modules.</p>
-        <a href="/tools/revision-timetable-generator.html">Use Calculator &rarr;</a>
+        <h3>GPA Calculator</h3>
+        <p>Calculate your Grade Point Average using either the 4.0 or 5.0 scale. Enter your grades and credit values to get your cumulative GPA. Useful for international applications and academic planning.</p>
+        <a href="/tools/gpa-calculator.html">Use Calculator &rarr;</a>
     </div>
 
     <div class="card">
-        <h3>Module Grade Calculator</h3>
-        <p>Calculate your current module grade based on coursework and exam weightings. Find out exactly what exam mark you need to achieve your target grade.</p>
-        <a href="/tools/module-grade-calculator.html">Use Calculator &rarr;</a>
+        <h3>Revision Timetable Generator</h3>
+        <p>Create a personalised study plan based on your exam dates, subjects, and available study hours. Optimise your revision schedule with priority weighting for different modules.</p>
+        <a href="/tools/revision-timetable-generator.html">Use Calculator &rarr;</a>
     </div>
 </div>
 
 <section class="content-section">
-    <h2>How to Use These Tools</h2>
-    <p>All our calculators are designed to be simple and intuitive:</p>
-    <ol>
-        <li>Select the calculator you need from the list above</li>
-        <li>Enter your marks, grades, or other required information</li>
-        <li>Click calculate to get instant results</li>
-        <li>View detailed breakdowns and explanations</li>
-    </ol>
-    <p>No sign-up or registration required. All calculations are performed in your browser for instant results.</p>
+    <h2>How Our Calculators Work</h2>
+    <p>All GradeCalc tools use the standard credit-weighted average formula used by UK universities. Here's what makes them reliable:</p>
+    <ul>
+        <li><strong>Standard formulas:</strong> We use the same calculation methods described in university academic regulations across the UK</li>
+        <li><strong>All weighting schemes:</strong> Every common year-weighting scheme is supported (40/60, 33/67, 25/75, 0/100, and more)</li>
+        <li><strong>Client-side processing:</strong> Calculations run in your browser &mdash; your marks are never sent to a server or stored</li>
+        <li><strong>Instant results:</strong> No loading, no sign-up, no email required</li>
+    </ul>
+
+    <div class="alert alert-warning">
+        <p style="margin: 0;"><strong>Important:</strong> These calculators are for guidance only. Grade boundaries, year weightings, and calculation methods vary between universities. Always check your institution's academic regulations. See our <a href="/guides/how-does-degree-classification-work-uk.html">guide to degree classifications</a> for more context.</p>
+    </div>
 </section>
 
         </div>
@@ -150,9 +225,8 @@
             <div>
                 <h4>Guides</h4>
                 <ul>
-                    <li><a href="/guides/how-degree-classifications-work-uk.html">How Degree Classifications Work</a></li>
+                    <li><a href="/guides/how-does-degree-classification-work-uk.html">How Degree Classifications Work</a></li>
                     <li><a href="/guides/how-are-degree-grades-calculated.html">How Are Degree Grades Calculated?</a></li>
-                    <li><a href="/guides/how-does-degree-classification-work-uk.html">UK Degree Classification System</a></li>
                     <li><a href="/guides/how-many-credits-for-a-first-class-degree.html">Credits for a First Class Degree</a></li>
                     <li><a href="/guides/how-to-get-a-first.html">How to Get a First</a></li>
                     <li><a href="/guides/exam-grading-explained.html">Exam Grading Explained</a></li>
@@ -191,6 +265,7 @@
         function acceptCookies() {
             localStorage.setItem('cookie_consent', 'accepted');
             document.getElementById('cookie-consent').style.display = 'none';
+            loadAdSense();
         }
         function declineCookies() {
             localStorage.setItem('cookie_consent', 'declined');

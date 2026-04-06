@@ -28,7 +28,13 @@
 {% endblock %}
 
 {% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <a href="{{ url_for('tools') }}">Tools</a> &rsaquo;
+    <span>Final Year Marks Calculator</span>
+</nav>
 <h1>What Marks Do I Need in My Final Year?</h1>
+<p class="page-meta">Free tool by GradeCalc &middot; Last updated April 2026 &middot; No sign-up required</p>
 <p>Enter your Year 2 (or prior years) average and your university's year weighting to find out the exact final-year average you need for a First, 2:1, 2:2, or Third. This calculator accounts for different weighting schemes used across UK universities.</p>
 
 <div class="alert alert-info" style="margin: 2rem 0;">

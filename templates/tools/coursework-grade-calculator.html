@@ -28,7 +28,13 @@
 {% endblock %}
 
 {% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <a href="{{ url_for('tools') }}">Tools</a> &rsaquo;
+    <span>Coursework Grade Calculator</span>
+</nav>
 <h1>Coursework Grade Calculator</h1>
+<p class="page-meta">Free tool by GradeCalc &middot; Last updated April 2026 &middot; No sign-up required</p>
 <p>Calculate your overall coursework mark from multiple assignments, each with different weightings. Add as many components as you need and the calculator will give you the weighted total.</p>
 
 <div class="calculator-section">

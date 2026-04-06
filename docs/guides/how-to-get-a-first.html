@@ -15,11 +15,47 @@
     <meta property="og:description" content="Free assessment and exam calculators, grade planners, and learning tools.">
     <meta property="og:type" content="website">
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734"
-         crossorigin="anonymous"></script>
+    <!-- Google AdSense - loaded only after cookie consent -->
+    <script>
+        function loadAdSense() {
+            if (document.querySelector('script[src*="adsbygoogle"]')) return;
+            var s = document.createElement('script');
+            s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734';
+            s.async = true;
+            s.crossOrigin = 'anonymous';
+            document.head.appendChild(s);
+        }
+        if (localStorage.getItem('cookie_consent') === 'accepted') {
+            loadAdSense();
+        }
+    </script>
 
     
+<link rel="canonical" href="https://gradecalc.online/guides/how-to-get-a-first.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Get a First Class Degree",
+  "description": "Proven strategies for achieving a First Class Honours degree",
+  "datePublished": "2026-01-22",
+  "dateModified": "2026-04-06",
+  "author": {"@type": "Organization", "name": "GradeCalc", "url": "https://gradecalc.online"},
+  "publisher": {"@type": "Organization", "name": "GradeCalc", "url": "https://gradecalc.online"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gradecalc.online/"},
+    {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gradecalc.online/guides/"},
+    {"@type": "ListItem", "position": 3, "name": "How to Get a First Class Degree"}
+  ]
+}
+</script>
+
 </head>
 <body>
     <header>
@@ -38,7 +74,13 @@
     <main>
         <div class="container">
             
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo;
+    <a href="/guides/">Guides</a> &rsaquo;
+    <span>How to Get a First Class Degree</span>
+</nav>
 <h1>How to Get a First Class Degree</h1>
+<p class="page-meta">Written by the GradeCalc team &middot; Last updated 6 April 2026 &middot; 8 min read</p>
 <p>Achieving a First Class Honours (70%+) requires consistent effort, effective study strategies, and smart planning. This guide shares proven techniques to help you reach your goal.</p>
 
 <div style="margin: 2rem 0; text-align: center;">
@@ -278,9 +320,8 @@
             <div>
                 <h4>Guides</h4>
                 <ul>
-                    <li><a href="/guides/how-degree-classifications-work-uk.html">How Degree Classifications Work</a></li>
+                    <li><a href="/guides/how-does-degree-classification-work-uk.html">How Degree Classifications Work</a></li>
                     <li><a href="/guides/how-are-degree-grades-calculated.html">How Are Degree Grades Calculated?</a></li>
-                    <li><a href="/guides/how-does-degree-classification-work-uk.html">UK Degree Classification System</a></li>
                     <li><a href="/guides/how-many-credits-for-a-first-class-degree.html">Credits for a First Class Degree</a></li>
                     <li><a href="/guides/how-to-get-a-first.html">How to Get a First</a></li>
                     <li><a href="/guides/exam-grading-explained.html">Exam Grading Explained</a></li>
@@ -319,6 +360,7 @@
         function acceptCookies() {
             localStorage.setItem('cookie_consent', 'accepted');
             document.getElementById('cookie-consent').style.display = 'none';
+            loadAdSense();
         }
         function declineCookies() {
             localStorage.setItem('cookie_consent', 'declined');

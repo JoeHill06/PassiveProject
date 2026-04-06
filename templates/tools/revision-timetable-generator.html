@@ -24,7 +24,13 @@
 {% endblock %}
 
 {% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <a href="{{ url_for('tools') }}">Tools</a> &rsaquo;
+    <span>Revision Timetable Generator</span>
+</nav>
 <h1>Create a Revision Timetable</h1>
+<p class="page-meta">Free tool by GradeCalc &middot; Last updated April 2026 &middot; No sign-up required</p>
 <p>Create a personalized revision timetable by entering your exam dates and how many hours you can study each day. The timetable automatically allocates more time to high-priority subjects and spreads study across all subjects to prevent cramming.</p>
 
 <div class="alert alert-info" style="margin: 2rem 0;">

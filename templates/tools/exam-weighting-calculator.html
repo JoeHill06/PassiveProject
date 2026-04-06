@@ -28,7 +28,13 @@
 {% endblock %}
 
 {% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <a href="{{ url_for('tools') }}">Tools</a> &rsaquo;
+    <span>Exam Weighting Calculator</span>
+</nav>
 <h1>Exam Weighting Calculator</h1>
+<p class="page-meta">Free tool by GradeCalc &middot; Last updated April 2026 &middot; No sign-up required</p>
 <p>Find out how much your exam is worth and how different exam scores will change your final module grade. Enter your coursework average and the weightings to see the impact of every percentage point.</p>
 
 <div class="calculator-section">
