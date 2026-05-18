@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Understand how exam grading works, including mark schemes, grade boundaries, scaling, and how to interpret your exam results.">
+    <meta name="description" content="A detailed guide to how UK university exams are marked, graded, and moderated. Covers mark schemes, grade boundaries, scaling, what markers look for at each level, and how to interpret your results.">
     <meta name="keywords" content="grade calculator, GPA calculator, degree calculator, exam calculator, revision planner">
-    <title>Exam Grading Explained - Understanding Marks and Boundaries</title>
+    <title>Exam Grading Explained - How UK Universities Mark and Grade Exams</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/static/css/style.css">
@@ -15,20 +15,14 @@
     <meta property="og:description" content="Free assessment and exam calculators, grade planners, and learning tools.">
     <meta property="og:type" content="website">
 
-    <!-- Google AdSense - loaded only after cookie consent -->
+    <!-- Google AdSense: always loads; non-personalised until consent given (GDPR) -->
     <script>
-        function loadAdSense() {
-            if (document.querySelector('script[src*="adsbygoogle"]')) return;
-            var s = document.createElement('script');
-            s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734';
-            s.async = true;
-            s.crossOrigin = 'anonymous';
-            document.head.appendChild(s);
-        }
-        if (localStorage.getItem('cookie_consent') === 'accepted') {
-            loadAdSense();
+        window.adsbygoogle = window.adsbygoogle || [];
+        if (localStorage.getItem('cookie_consent') !== 'accepted') {
+            window.adsbygoogle.requestNonPersonalizedAds = 1;
         }
     </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734" crossorigin="anonymous"></script>
 
     
 <link rel="canonical" href="https://gradecalc.online/guides/exam-grading-explained.html">
@@ -79,9 +73,9 @@
     <a href="/guides/">Guides</a> &rsaquo;
     <span>Exam Grading Explained</span>
 </nav>
-<h1>Exam Grading Explained</h1>
-<p class="page-meta">Written by the GradeCalc team &middot; Last updated 6 April 2026 &middot; 10 min read</p>
-<p>Understanding how exams are graded helps you prepare effectively and interpret your results. This guide explains mark schemes, grade boundaries, and common grading practices.</p>
+<h1>Exam Grading Explained: How UK Universities Mark and Grade Exams</h1>
+<p class="page-meta">Written by the GradeCalc team &middot; Last updated 18 May 2026 &middot; 12 min read</p>
+<p>Understanding how UK university exams are graded and marked helps you prepare more effectively and interpret your results accurately. This guide explains the mechanics of marking, why UK grade boundaries look different from school grades, how moderation works, and what markers are actually looking for at each classification level.</p>
 
 <div style="margin: 2rem 0; text-align: center;">
 <ins class="adsbygoogle"
@@ -96,124 +90,81 @@
 </div>
 
 <section class="content-section">
-    <h2>How Exams Are Marked</h2>
 
-    <h3>Mark Schemes</h3>
-    <p>Examiners use detailed mark schemes that specify:</p>
-    <ul>
-        <li>How many marks each question is worth</li>
-        <li>What answers or concepts earn marks</li>
-        <li>How partial credit is awarded</li>
-        <li>Criteria for different quality levels</li>
-    </ul>
+    <h2>How UK University Exams Are Marked</h2>
 
-    <h3>Types of Marking</h3>
+    <p>UK university exams are typically marked by the academic staff who teach on the module, using a detailed mark scheme prepared before marking begins. The mark scheme specifies how many marks are available for each question, what types of answers earn marks, how partial credit is allocated, and &mdash; in essay-based subjects &mdash; what quality of answer corresponds to different mark ranges. Markers apply this scheme independently, meaning the mark you receive is meant to reflect your answer against a fixed standard rather than your performance relative to other students.</p>
 
-    <h4>Points-Based Marking</h4>
-    <p>Common in sciences and mathematics:</p>
-    <ul>
-        <li>Each correct answer or step earns specific marks</li>
-        <li>Partial credit for showing working</li>
-        <li>Clear right and wrong answers</li>
-    </ul>
+    <p>In practice, marking is more nuanced than simply ticking correct answers. For problem-solving subjects, markers award "method marks" for correct approaches even when the final answer is wrong &mdash; showing your working is not just good habit but a direct route to partial credit that many students leave on the table. For essay-based subjects, the mark scheme describes the characteristics of answers in different bands rather than specifying correct content, and the marker exercises academic judgement about where your answer fits within those descriptors.</p>
 
-    <h4>Criteria-Based Marking</h4>
-    <p>Common in essays and humanities:</p>
-    <ul>
-        <li>Quality of argument and analysis</li>
-        <li>Use of evidence and sources</li>
-        <li>Clarity of writing and structure</li>
-        <li>Critical thinking demonstrated</li>
-    </ul>
+    <h3>Points-Based Marking</h3>
 
-    <h4>Rubric-Based Marking</h4>
-    <p>Combines both approaches:</p>
-    <ul>
-        <li>Specific criteria with mark ranges</li>
-        <li>Descriptors for different performance levels</li>
-        <li>Used for projects, presentations, and complex assessments</li>
-    </ul>
+    <p>In quantitative subjects like mathematics, physics, and economics, marking is structured around specific marks for each step of a solution. A typical approach gives marks for: setting up the problem correctly, applying the appropriate method, executing the calculation accurately, and presenting the answer with appropriate units or interpretation. This means that even if you cannot complete a problem, demonstrating the correct approach and setting up the solution properly can earn a significant portion of the available marks. Students who show no working, even for correct answers, risk losing marks if the marker cannot verify how they reached their conclusion.</p>
 
-    <h2>Grade Boundaries</h2>
+    <h3>Criteria-Based and Rubric Marking</h3>
 
-    <h3>UK University Grade Boundaries</h3>
+    <p>In humanities, social sciences, and law, marking uses band descriptors that describe the quality of understanding, argumentation, and use of evidence that characterises work at each level. A typical set of band descriptors might define first-class work as demonstrating "comprehensive understanding with original insights," 2:1 work as "good understanding with some critical analysis," and 2:2 work as "adequate understanding of key concepts." The marker's task is to locate your answer within those bands and assign a specific mark that reflects where in the band it falls.</p>
+
+    <p>Because this type of marking involves academic judgement, UK universities use double marking and moderation (described below) to ensure consistency. It also means that understanding what "original insights" or "critical analysis" looks like in your specific subject is essential for scoring in the 70%+ range &mdash; see our guide on <a href="/guides/how-to-get-a-first.html">how to get a First</a> for more on this.</p>
+
+    <h2>Why UK Grade Boundaries Look Different from School</h2>
+
+    <p>Many students arriving at university are surprised to find that 70% is considered excellent when at A-level or school, 70% might have been a mediocre result. This is not a quirk or an error: it reflects a deliberate design of the UK university marking system. Exam papers are set so that demonstrating comprehensive, expert-level understanding of the material with original insight earns marks in the 70&ndash;100% band. Solid, accurate, good-quality work earns 60&ndash;69%. Work that meets the basic requirements earns 50&ndash;59%.</p>
+
+    <p>The system is calibrated so that it is genuinely difficult to score in the highest band, even for strong students. This is different from systems where a mark of 90%+ is achievable by anyone who has thoroughly learned the material. In UK university marking, the top 30% of the mark scale is reserved for work that goes beyond what was taught &mdash; showing independent scholarship, analytical depth, or technical mastery that exceeds the standard covered in the course. This is why first-class work is described by markers as work that "could not have been produced just from lecture notes and the required reading."</p>
+
+    <h2>The Moderation Process</h2>
+
+    <p>To ensure consistency and fairness, UK universities use a moderation system that involves multiple layers of review. After a module's initial marking is complete, a sample of scripts &mdash; typically including high, average, and borderline answers &mdash; is reviewed by a second marker from the same department. This second marker checks whether the original marks are consistent with the mark scheme and the departmental marking standards. Significant disagreements between markers are discussed and resolved, often by averaging marks or bringing in a third opinion.</p>
+
+    <p>The process goes further: an external examiner from another university reviews a further sample of marked scripts and the module's mark scheme. External examiners are senior academics appointed specifically to provide an independent check that standards are maintained consistently across UK institutions. They can and do flag concerns if they believe marking has been too generous or too harsh compared to national standards. Their annual report is a matter of record and influences how marking is calibrated in subsequent years.</p>
+
+    <p>For borderline cases &mdash; students whose overall average sits within 1&ndash;2% of a classification boundary &mdash; the moderation board or examination board may apply additional consideration. This can include reviewing whether a specified proportion of credits are in the higher band, whether final-year performance was particularly strong, or whether extenuating circumstances affected results. The specific rules vary by institution and are set out in the academic regulations.</p>
+
+    <h2>Scaling and Statistical Moderation</h2>
+
+    <p>Scaling &mdash; adjusting raw marks to account for variations in paper difficulty &mdash; is less common at university than at A-level, but it does occur in some departments and circumstances. If an exam paper turns out to be significantly harder or easier than intended, or if statistical analysis shows that the mark distribution is substantially different from historical cohorts, marks may be scaled upwards or downwards, or grade boundaries adjusted. The purpose is to ensure that the same standard of performance earns the same mark regardless of which year's paper a student sat.</p>
+
+    <p>When scaling occurs, it is usually applied uniformly across the cohort and does not change the relative ranking of students within that sitting. It is not the same as marking generously; it is an adjustment for an identified systematic effect in the assessment. Not all universities use scaling, and some departments within universities that permit it choose not to apply it in practice.</p>
+
+    <h2>UK Grade Boundaries at a Glance</h2>
+
     <table>
         <thead>
             <tr>
                 <th>Classification</th>
                 <th>Percentage</th>
-                <th>Typical Descriptor</th>
+                <th>What It Demonstrates</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>First Class</td>
-                <td>70-100%</td>
-                <td>Excellent - comprehensive understanding with original insights</td>
+                <td>70&ndash;100%</td>
+                <td>Comprehensive understanding with original insights beyond the syllabus</td>
             </tr>
             <tr>
                 <td>Upper Second (2:1)</td>
-                <td>60-69%</td>
-                <td>Good - solid understanding with some critical analysis</td>
+                <td>60&ndash;69%</td>
+                <td>Good understanding with solid critical analysis and application</td>
             </tr>
             <tr>
                 <td>Lower Second (2:2)</td>
-                <td>50-59%</td>
-                <td>Satisfactory - adequate understanding of key concepts</td>
+                <td>50&ndash;59%</td>
+                <td>Adequate understanding of core material with some gaps</td>
             </tr>
             <tr>
                 <td>Third Class</td>
-                <td>40-49%</td>
-                <td>Pass - basic understanding with significant gaps</td>
+                <td>40&ndash;49%</td>
+                <td>Basic understanding; meets pass threshold with significant gaps</td>
             </tr>
             <tr>
                 <td>Fail</td>
-                <td>0-39%</td>
+                <td>0&ndash;39%</td>
                 <td>Insufficient understanding of core material</td>
             </tr>
         </tbody>
     </table>
-
-    <h3>Why Are UK Boundaries Lower?</h3>
-    <p>You might wonder why 70% is "excellent" in UK universities when in other systems it might be just a C. Here's why:</p>
-    <ul>
-        <li><strong>Expectation levels:</strong> Exams are designed so 70%+ represents truly exceptional work</li>
-        <li><strong>Question difficulty:</strong> Questions go beyond basic recall to test deep understanding</li>
-        <li><strong>Room for excellence:</strong> The top 30% is reserved for outstanding, original work</li>
-        <li><strong>Historical system:</strong> The UK system has used these boundaries for centuries</li>
-    </ul>
-
-    <h2>Scaling and Moderation</h2>
-
-    <h3>What is Scaling?</h3>
-    <p>Sometimes exam marks are scaled (adjusted) to account for:</p>
-    <ul>
-        <li>Unusually difficult or easy exams</li>
-        <li>Variations between different exam papers</li>
-        <li>Maintaining consistency across years</li>
-    </ul>
-
-    <h3>How Scaling Works</h3>
-    <p>If an exam is particularly difficult and most students score lower than expected:</p>
-    <ul>
-        <li>Marks may be scaled up proportionally</li>
-        <li>Grade boundaries may be lowered</li>
-        <li>This ensures fairness across different exam sittings</li>
-    </ul>
-
-    <div class="alert alert-info">
-        <h3>Important Note</h3>
-        <p>Not all universities scale marks. Some maintain fixed boundaries. Always check your institution's policy.</p>
-    </div>
-
-    <h3>Moderation</h3>
-    <p>To ensure consistency:</p>
-    <ul>
-        <li>Sample of papers reviewed by second marker</li>
-        <li>External examiners check standards</li>
-        <li>Borderline cases (e.g., 68-69%) reviewed carefully</li>
-        <li>Statistical analysis to spot anomalies</li>
-    </ul>
 
     <h2>Understanding Your Exam Results</h2>
 
@@ -415,6 +366,8 @@
                     <li><a href="/guides/how-many-credits-for-a-first-class-degree.html">Credits for a First Class Degree</a></li>
                     <li><a href="/guides/how-to-get-a-first.html">How to Get a First</a></li>
                     <li><a href="/guides/exam-grading-explained.html">Exam Grading Explained</a></li>
+                    <li><a href="/guides/what-percentage-of-uk-students-get-a-first.html">First Class Degree Statistics</a></li>
+                    <li><a href="/guides/how-to-write-a-first-class-essay.html">How to Write a First-Class Essay</a></li>
                 </ul>
             </div>
             <div>
@@ -450,7 +403,6 @@
         function acceptCookies() {
             localStorage.setItem('cookie_consent', 'accepted');
             document.getElementById('cookie-consent').style.display = 'none';
-            loadAdSense();
         }
         function declineCookies() {
             localStorage.setItem('cookie_consent', 'declined');

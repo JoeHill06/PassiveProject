@@ -15,20 +15,14 @@
     <meta property="og:description" content="Free assessment and exam calculators, grade planners, and learning tools.">
     <meta property="og:type" content="website">
 
-    <!-- Google AdSense - loaded only after cookie consent -->
+    <!-- Google AdSense: always loads; non-personalised until consent given (GDPR) -->
     <script>
-        function loadAdSense() {
-            if (document.querySelector('script[src*="adsbygoogle"]')) return;
-            var s = document.createElement('script');
-            s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734';
-            s.async = true;
-            s.crossOrigin = 'anonymous';
-            document.head.appendChild(s);
-        }
-        if (localStorage.getItem('cookie_consent') === 'accepted') {
-            loadAdSense();
+        window.adsbygoogle = window.adsbygoogle || [];
+        if (localStorage.getItem('cookie_consent') !== 'accepted') {
+            window.adsbygoogle.requestNonPersonalizedAds = 1;
         }
     </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1852446478186734" crossorigin="anonymous"></script>
 
     
 <script type="application/ld+json">
@@ -245,6 +239,8 @@
                     <li><a href="/guides/how-many-credits-for-a-first-class-degree.html">Credits for a First Class Degree</a></li>
                     <li><a href="/guides/how-to-get-a-first.html">How to Get a First</a></li>
                     <li><a href="/guides/exam-grading-explained.html">Exam Grading Explained</a></li>
+                    <li><a href="/guides/what-percentage-of-uk-students-get-a-first.html">First Class Degree Statistics</a></li>
+                    <li><a href="/guides/how-to-write-a-first-class-essay.html">How to Write a First-Class Essay</a></li>
                 </ul>
             </div>
             <div>
@@ -508,7 +504,6 @@ function resetModuleCalculator() {
         function acceptCookies() {
             localStorage.setItem('cookie_consent', 'accepted');
             document.getElementById('cookie-consent').style.display = 'none';
-            loadAdSense();
         }
         function declineCookies() {
             localStorage.setItem('cookie_consent', 'declined');

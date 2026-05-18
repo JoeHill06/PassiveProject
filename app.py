@@ -90,6 +90,14 @@ def guide_classification_work():
 def guide_credits_first():
     return render_template('guides/how-many-credits-for-a-first-class-degree.html')
 
+@app.route('/guides/what-percentage-of-uk-students-get-a-first.html')
+def guide_first_percentage():
+    return render_template('guides/what-percentage-of-uk-students-get-a-first.html')
+
+@app.route('/guides/how-to-write-a-first-class-essay.html')
+def guide_first_class_essay():
+    return render_template('guides/how-to-write-a-first-class-essay.html')
+
 # Static Pages
 @app.route('/about.html')
 def about():

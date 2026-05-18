@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block title %}What Percentage of UK Students Get a First Class Degree? | GradeCalc{% endblock %}
+
+{% block meta_description %}Data on what percentage of UK graduates receive a First Class degree. Covers recent HESA statistics, subject variation, the grade inflation debate, and what it means for you.{% endblock %}
+
+{% block meta_keywords %}percentage students get first class degree UK, how many students get a first, first class degree statistics, degree grade inflation UK{% endblock %}
+
+{% block extra_head %}
+<link rel="canonical" href="https://gradecalc.online/guides/what-percentage-of-uk-students-get-a-first.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Percentage of UK Students Get a First Class Degree?",
+  "description": "HESA statistics on the proportion of UK graduates receiving a First Class degree, including subject and university variation",
+  "datePublished": "2026-05-18",
+  "dateModified": "2026-05-18",
+  "author": {"@type": "Organization", "name": "GradeCalc", "url": "https://gradecalc.online"},
+  "publisher": {"@type": "Organization", "name": "GradeCalc", "url": "https://gradecalc.online"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gradecalc.online/"},
+    {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://gradecalc.online/guides/"},
+    {"@type": "ListItem", "position": 3, "name": "What Percentage of UK Students Get a First?"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What percentage of UK students get a First Class degree?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Approximately 30-33% of UK graduates receive a First Class degree, based on HESA data for 2022/23. This proportion has roughly doubled since 2011/12, when around 16% of graduates received a First."}
+    },
+    {
+      "@type": "Question",
+      "name": "Is it harder to get a First in some subjects than others?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes, significantly. Subjects like Medicine, Dentistry, and Architecture historically award fewer Firsts than subjects like Law, Business, and some humanities. This is partly due to marking conventions and partly due to the nature of the assessments involved."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do employers still value a First given that more students are getting them?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Most graduate employers still regard a First as a meaningful signal, though many have moved towards contextualised admissions that consider the difficulty of the degree subject and institution. A First from a competitive STEM programme carries different weight than a First in a subject where 40% of students graduate with one."}
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <a href="{{ url_for('guides') }}">Guides</a> &rsaquo;
+    <span>What Percentage of UK Students Get a First?</span>
+</nav>
+
+<h1>What Percentage of UK Students Get a First Class Degree?</h1>
+<p class="page-meta">Written by the GradeCalc team &middot; Last updated 18 May 2026 &middot; 10 min read</p>
+
+<p>Approximately 30&ndash;33% of UK graduates now receive a First Class Honours degree. That figure has roughly doubled since 2011/12, when only around 16% of graduates achieved the highest classification. Understanding how this data breaks down by subject, institution, and year helps you put your own degree ambitions into perspective &mdash; and explains why employers increasingly look beyond the classification itself.</p>
+
+{% include 'includes/ad-vertical.html' %}
+
+<section class="content-section">
+
+    <h2>The Overall Picture: Degree Classification Data</h2>
+
+    <p>The Higher Education Statistics Agency (HESA) publishes annual data on undergraduate degree outcomes across all UK universities. For the 2022/23 academic year, the approximate distribution of degree classifications was:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Classification</th>
+                <th>Approx. % of Graduates</th>
+                <th>Change from 2011/12</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>First Class Honours</td>
+                <td>32&ndash;33%</td>
+                <td>Up from ~16%</td>
+            </tr>
+            <tr>
+                <td>Upper Second (2:1)</td>
+                <td>47&ndash;48%</td>
+                <td>Broadly stable</td>
+            </tr>
+            <tr>
+                <td>Lower Second (2:2)</td>
+                <td>14&ndash;16%</td>
+                <td>Down from ~23%</td>
+            </tr>
+            <tr>
+                <td>Third Class</td>
+                <td>3&ndash;5%</td>
+                <td>Down from ~7%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>The combined proportion of students graduating with a First or 2:1 now exceeds 79% at most UK universities. Roughly four in five graduates leave with what was once considered a "good" degree, a dramatic shift from a generation ago when a 2:1 was genuinely the standard that most students aimed for and not all achieved.</p>
+
+    <h2>How the Proportion of Firsts Has Changed Over Time</h2>
+
+    <p>The rise in Firsts has been steep and sustained. In 2010/11, roughly one in six UK graduates received a First. By 2019/20, that had risen to more than one in four. By 2022/23, it was approximately one in three. The trend held even during the COVID-19 pandemic years, when many universities switched to alternative assessment models &mdash; and the proportion of Firsts spiked sharply in 2020/21 before moderating somewhat as in-person assessments returned.</p>
+
+    <p>This sustained rise has generated significant debate about whether degree standards are changing, whether marking practices have drifted, or whether cohorts of graduates genuinely are better prepared for university than previous generations. The Office for Students (OfS), the English higher education regulator, published reports in 2019 and subsequently calling for universities to explain and justify significant increases in their proportion of top awards, particularly where those increases could not be explained by changes in student entry qualifications.</p>
+
+    <h2>Variation by Subject</h2>
+
+    <p>The likelihood of getting a First varies significantly depending on what you study. Some of this reflects genuine differences in the difficulty of reaching 70%, and some reflects marking culture and convention within different disciplines.</p>
+
+    <p>Subjects where Firsts have historically been less common include Medicine, Dentistry, Veterinary Science, and Architecture. These programmes often use classification boundaries that differ from the standard First/2:1/2:2 system, or they have assessments structured around pass/fail competencies. In a standard three-year undergraduate programme, subjects like Physics, Mathematics, and Computer Science also tend to produce fewer Firsts than the sector average, partly because assessments involve quantitative problem-solving where marks above 90% are genuinely rare.</p>
+
+    <p>At the other end of the spectrum, some humanities, business, and social science subjects have seen very high proportions of Firsts in recent years &mdash; in some cases exceeding 40% of graduates. This reflects a combination of factors including essay-based marking conventions (where a clear, well-argued essay can reliably score 70%+) and changes in marking culture over time.</p>
+
+    <p>The practical implication is that a First from a STEM subject at a selective university often carries more signal than a First from a programme where a large proportion of students graduate with one. Employers who are aware of this variation increasingly ask for degree transcripts or the names of individual modules, not just the headline classification.</p>
+
+    <h2>Variation by University Type</h2>
+
+    <p>There is also variation between institutions, though the picture is more complex than a simple Russell Group versus post-92 divide. Some Russell Group universities have seen among the largest increases in the proportion of Firsts awarded, particularly in humanities and social sciences. Some newer universities in competitive cities have maintained relatively stable classifications over the same period.</p>
+
+    <p>Entry qualifications do play a role. Students who enter with higher A-level grades are, on average, better prepared for degree-level work, and universities with higher entry standards would expect somewhat higher average attainment. However, the Office for Students found that the increase in Firsts at many universities was larger than could be explained by improvements in entry qualifications alone, suggesting that marking practices have also shifted.</p>
+
+    <h2>Why the Numbers Matter (and Why They Don't)</h2>
+
+    <p>If you are working towards a First, the rise in the proportion of graduates achieving one is a double-edged piece of information. On one hand, it suggests that First-class standards, while still demanding, are achievable for a substantial minority of students on most programmes &mdash; not a rarefied elite. On the other hand, it means that a First is less of a differentiator than it was for your parents' generation.</p>
+
+    <p>Employers in competitive graduate sectors (law, finance, consulting, investment banking) often set a 2:1 as a minimum filter, with a First being an advantage rather than a requirement. In these sectors, work experience, internships, and skills demonstrated through extracurricular activities typically carry as much or more weight in competitive applications. A First helps you past an initial filter; it rarely makes the decision on its own.</p>
+
+    <p>For postgraduate study, the picture is different. A First is typically expected for research studentships and PhD funding competition, where you are competing against graduates across the country. A strong 2:1 can sometimes be sufficient for a taught master's degree, but if your ambition is academic research or a highly competitive programme, a First carries genuine weight.</p>
+
+    <h2>What Employers Actually Think</h2>
+
+    <p>Many large graduate employers have publicly discussed their approach to degree classification. A common position is that while a 2:1 remains a minimum threshold for initial application screening, they use a range of other indicators to differentiate between candidates once past that threshold. These include: the specific degree subject, the reputation of the institution, the relevance of modules studied, internship and work experience, and performance in their own assessment centres.</p>
+
+    <p>Some employers have moved away from classification-based filtering entirely, adopting contextualised admissions where a 2:2 from a disadvantaged background or a high-pressure institution can be treated equivalently to a First from a lower-pressure one. This is more common in the public sector and some professional services firms than in finance and law.</p>
+
+    <p>For most students, the practical advice is: aim for the highest classification you can genuinely achieve, but do not treat your degree classification as the sole determinant of your career prospects. Students who graduate with a 2:1 and a clear record of relevant experience often find themselves more competitive than those who achieved a First with limited extracurricular activity.</p>
+
+    <h2>What This Means for Your Own Goals</h2>
+
+    <p>Understanding the distribution of classifications helps you set realistic targets. If you are studying in a subject where 30% of students get Firsts, the standard required is demanding but not exceptional. If you are in a subject where fewer than 15% get Firsts, reaching 70% requires genuinely outstanding work, and you should factor that into how you plan your efforts and what classification is a realistic stretch goal versus a 2:1 which might itself be a strong outcome in context.</p>
+
+    <p>Use our <a href="{{ url_for('what_need_first') }}">What Do I Need for a First?</a> calculator to see what average you need on your remaining modules given your current marks, and our <a href="{{ url_for('degree_calculator') }}">Degree Classification Calculator</a> to model different scenarios.</p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+        <div class="faq-item">
+            <h3>What percentage of UK students get a First Class degree?</h3>
+            <p>Approximately 30&ndash;33% of UK graduates receive a First Class degree, based on HESA data for 2022/23. This proportion has roughly doubled since 2011/12, when around 16% of graduates received a First.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is it harder to get a First in some subjects than others?</h3>
+            <p>Yes, significantly. Medicine, Dentistry, and many STEM subjects historically award fewer Firsts than some humanities, business, and social science subjects. A First in a subject where 35% of students get one carries different weight than a First where only 12% do.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Do employers still value a First given that more students are getting them?</h3>
+            <p>Most graduate employers still regard a First as a positive signal, though many use contextualised admissions that consider the difficulty of the degree subject and institution. A 2:1 from a selective institution in a demanding subject is often viewed as comparable to a First from a programme where Firsts are very common.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Has grade inflation affected the value of a degree?</h3>
+            <p>This is contested. The rise in Firsts partly reflects genuine improvements in student preparation and support, and partly reflects changes in marking culture. The Office for Students has pushed universities to ensure that increases in top grades are genuinely justified. For individual students, the advice remains to aim as high as possible &mdash; a higher classification always helps, even if the advantage is smaller than a generation ago.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What proportion of students get a 2:1 or above?</h3>
+            <p>Roughly 79&ndash;81% of UK graduates receive either a First or a 2:1. This means approximately four in five graduates leave with a "good" honours degree, compared to around 65% a decade ago.</p>
+        </div>
+    </div>
+
+    <h2>Related Tools and Guides</h2>
+    <ul>
+        <li><a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator</a> &mdash; calculate your current classification</li>
+        <li><a href="{{ url_for('what_need_first') }}">What Do I Need for a First?</a> &mdash; see what you need on remaining modules</li>
+        <li><a href="{{ url_for('guide_classification_work') }}">How Does Degree Classification Work?</a> &mdash; the full system explained</li>
+        <li><a href="{{ url_for('guide_get_first') }}">How to Get a First Class Degree</a> &mdash; strategies for reaching 70%</li>
+        <li><a href="{{ url_for('guide_grades_calculated') }}">How Are Degree Grades Calculated?</a> &mdash; the calculation method</li>
+    </ul>
+
+    <div class="alert alert-warning" style="margin-top: 2rem;">
+        <p style="margin: 0;"><strong>Data note:</strong> Statistics in this guide are based on HESA (Higher Education Statistics Agency) data and are subject to year-on-year variation. Individual subject and institution data can differ significantly from sector-wide averages. Always refer to HESA's published data for the most current figures.</p>
+    </div>
+
+</section>
+{% endblock %}

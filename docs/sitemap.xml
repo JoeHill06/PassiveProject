@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://gradecalc.online/</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,7 +12,7 @@
   <!-- Calculator Tools -->
   <url>
     <loc>https://gradecalc.online/tools/</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -104,42 +104,56 @@
   <!-- Guides -->
   <url>
     <loc>https://gradecalc.online/guides/</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://gradecalc.online/guides/how-does-degree-classification-work-uk.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://gradecalc.online/guides/how-to-get-a-first.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://gradecalc.online/guides/exam-grading-explained.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://gradecalc.online/guides/how-are-degree-grades-calculated.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://gradecalc.online/guides/how-many-credits-for-a-first-class-degree.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://gradecalc.online/guides/what-percentage-of-uk-students-get-a-first.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://gradecalc.online/guides/how-to-write-a-first-class-essay.html</loc>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
