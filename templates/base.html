@@ -5,7 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{% block meta_description %}Free assessment and exam calculators, grade planners, and learning tools. Calculate your degree classification, GPA, exam scores, and plan your revision effectively.{% endblock %}">
     <meta name="keywords" content="{% block meta_keywords %}grade calculator, GPA calculator, degree calculator, exam calculator, revision planner{% endblock %}">
+    <meta name="robots" content="{% block robots %}index, follow, max-image-preview:large{% endblock %}">
+    <meta name="author" content="GradeCalc">
     <title>{% block title %}GradeCalc - Free Assessment & Exam Calculators{% endblock %}</title>
+
+    <!-- Canonical URL (defaults to the current page's path; pages may override) -->
+    {% block canonical %}<link rel="canonical" href="https://gradecalc.online{{ request.path }}">{% endblock %}
+
+    <!-- Favicon & theme -->
+    <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicon.svg') }}">
+    <meta name="theme-color" content="#2563eb">
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -14,6 +24,15 @@
     <meta property="og:title" content="{% block og_title %}GradeCalc - Free Assessment & Exam Calculators{% endblock %}">
     <meta property="og:description" content="{% block og_description %}Free assessment and exam calculators, grade planners, and learning tools.{% endblock %}">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gradecalc.online{{ request.path }}">
+    <meta property="og:site_name" content="GradeCalc">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:image" content="https://gradecalc.online{{ url_for('static', filename='favicon.svg') }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ self.og_title() }}">
+    <meta name="twitter:description" content="{{ self.og_description() }}">
 
     <!-- Google AdSense: always loads; non-personalised until consent given (GDPR) -->
     <script>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="GradeCalc">
+  <rect width="64" height="64" rx="12" fill="#2563eb"/>
+  <!-- graduation cap -->
+  <path d="M32 16 L54 26 L32 36 L10 26 Z" fill="#ffffff"/>
+  <path d="M20 31 L20 42 C20 46 44 46 44 42 L44 31 L32 36.5 Z" fill="#ffffff" opacity="0.85"/>
+  <line x1="54" y1="26" x2="54" y2="40" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="54" cy="42" r="3" fill="#ffffff"/>
+</svg>
