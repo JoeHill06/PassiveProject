@@ -430,6 +430,21 @@ table th {
     color: var(--text-primary);
 }
 
+/* Ads */
+.ad-slot {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.ad-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
 /* Footer */
 footer {
     background-color: var(--bg-gray);

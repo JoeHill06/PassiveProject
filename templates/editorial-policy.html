@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Editorial Policy & Calculator Methodology | GradeCalc{% endblock %}
+
+{% block meta_description %}How GradeCalc researches, writes, reviews, and tests its free UK degree calculators and academic guides. See our sources, update process, and correction policy.{% endblock %}
+
+{% block meta_keywords %}GradeCalc editorial policy, calculator methodology, UK degree calculator sources, academic grading methodology{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Editorial Policy and Calculator Methodology",
+  "description": "How GradeCalc researches, writes, reviews, and tests its UK grade calculators and academic guides",
+  "url": "https://gradecalc.online/editorial-policy.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "GradeCalc",
+    "url": "https://gradecalc.online"
+  },
+  "dateModified": "2026-06-20"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ url_for('index') }}">Home</a> &rsaquo;
+    <span>Editorial Policy</span>
+</nav>
+
+<h1>Editorial Policy & Calculator Methodology</h1>
+<p class="page-meta">Published by the GradeCalc team &middot; Last reviewed 20 June 2026</p>
+
+<section class="content-section">
+    <h2>Our Purpose</h2>
+    <p>GradeCalc helps UK university students understand grades before important deadlines, exams, retakes, postgraduate applications, and graduate scheme applications. Our calculators and guides are designed to answer practical questions such as "what mark do I need for a First?", "how is my degree average weighted?", and "how much does this exam affect my module grade?".</p>
+    <p>We publish original explanations, worked examples, and browser-based tools rather than copied articles or generic study advice. Every calculator page is built to solve a specific student problem and explain the assumptions behind the answer.</p>
+
+    <h2>Sources We Use</h2>
+    <p>UK grading rules vary between universities, so we use broad, published sources rather than relying on a single institution. When writing or reviewing content, we check:</p>
+    <ul>
+        <li><strong>University academic regulations:</strong> Published classification rules, assessment handbooks, module credit rules, progression rules, and resit policies from UK universities.</li>
+        <li><strong>Sector bodies:</strong> UK higher education frameworks and quality guidance, including the Quality Assurance Agency framework for higher education qualifications.</li>
+        <li><strong>Official statistics:</strong> Public higher education statistics such as HESA data where we discuss degree outcomes or trends.</li>
+        <li><strong>Common academic practice:</strong> Standard credit-weighted average formulas used across UK undergraduate programmes.</li>
+    </ul>
+    <p>Where a university-specific rule may differ, we say so clearly and ask students to check their own programme specification or academic regulations.</p>
+
+    <h2>Calculator Methodology</h2>
+    <p>Our calculators are based on transparent formulas. We avoid black-box scoring, hidden adjustments, and stored user data. The main calculation methods are:</p>
+    <ul>
+        <li><strong>Credit-weighted averages:</strong> Each mark is multiplied by its credit value, then divided by the total number of credits.</li>
+        <li><strong>Year weighting:</strong> Year averages are multiplied by the weighting selected by the student, such as 40/60, 33/67, 25/75, or final-year-only schemes.</li>
+        <li><strong>Target grade solving:</strong> Tools such as the First and 2:1 calculators rearrange the weighted-average formula to show the required average on remaining credits.</li>
+        <li><strong>Assessment weighting:</strong> Coursework and exam tools combine components by percentage weight and show how different marks affect the final module result.</li>
+    </ul>
+    <p>Calculations run in the visitor's browser. GradeCalc does not receive, store, or process the marks entered into the calculators.</p>
+
+    <h2>Testing & Review</h2>
+    <p>Before a calculator or guide is published, we test it against worked examples and edge cases. This includes zero-credit and missing-value checks, high and low marks, weighting totals, pass thresholds, and common university year-weighting patterns.</p>
+    <p>We review published calculators when adding new features, when university guidance changes, or when users report that a result needs clarification. Guides are reviewed for accuracy, clarity, and usefulness, with the latest review date shown on important pages.</p>
+
+    <h2>Corrections</h2>
+    <p>If you spot an error, unclear wording, or a calculator result that does not match your university's rules, please contact us. Include the calculator or page URL, the values you entered, and the university rule you are comparing it against. We review correction requests and update pages when a change will make the tool clearer or more accurate for students.</p>
+
+    <h2>Limits of Our Guidance</h2>
+    <p>GradeCalc is an educational tool, not official academic advice. Universities can use different rules for borderline classifications, compensation, condonement, resits, professional accreditation, foundation years, placement years, integrated masters degrees, and Scottish four-year degrees. Your university's official regulations always take priority.</p>
+
+    <h2>Related Pages</h2>
+    <ul>
+        <li><a href="{{ url_for('degree_calculator') }}">UK Degree Classification Calculator</a></li>
+        <li><a href="{{ url_for('guide_classification_work') }}">How Degree Classifications Work in the UK</a></li>
+        <li><a href="{{ url_for('guide_grades_calculated') }}">How Are Degree Grades Calculated?</a></li>
+        <li><a href="{{ url_for('about') }}">About GradeCalc</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact GradeCalc</a></li>
+    </ul>
+</section>
+{% endblock %}

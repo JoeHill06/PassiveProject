@@ -1,12 +1,29 @@
 # Google AdSense Setup Guide for GradeCalc
 
+## Current AdSense Review Status
+
+As of 20 June 2026, the local and live site checks show:
+
+- `https://gradecalc.online/ads.txt` returns `200` and contains the correct publisher line:
+  `google.com, pub-1852446478186734, DIRECT, f08c47fec0942fa0`
+- The screenshot status "Not found" is most likely stale from AdSense's last crawl. In AdSense, open **Sites** -> `gradecalc.online` -> **Check for updates** after deploying.
+- The remaining rejection issue is "Low value content". The site now publishes a clearer homepage methodology section, an editorial policy, labelled ad placements, updated sitemap metadata, and no longer serves the thin legacy redirect page.
+
+Before requesting review again:
+
+1. Deploy the regenerated `docs/` folder.
+2. Confirm `https://gradecalc.online/ads.txt` still displays the publisher line above.
+3. In AdSense, use **Check for updates** on the ads.txt status.
+4. Request another site review after AdSense shows the ads.txt file as found or authorized.
+
 ## Step 1: Apply for Google AdSense
 
 ### Requirements:
 - ✅ Custom domain (gradecalc.online)
-- ✅ HTTPS enabled (wait for SSL certificate)
-- ✅ Quality content
+- ✅ HTTPS enabled
+- ✅ Quality content and original tools
 - ✅ Privacy Policy page
+- ✅ Root `ads.txt` file published
 - ⏳ Some traffic (recommended but not always required)
 
 ### How to Apply:
@@ -235,17 +252,15 @@ After approval:
 
 ---
 
-## Current Status: ⏳ Waiting for HTTPS
+## Current Status: Ready to Re-submit After Deploy
 
 **Next steps:**
-1. Wait for SSL certificate (should be ready soon)
-2. Once HTTPS is enabled, apply for AdSense
-3. While waiting for approval, focus on getting traffic
-4. Once approved, uncomment the AdSense code in `base.html`
+1. Deploy the current `docs/` build to GitHub Pages
+2. Click **Check for updates** for `ads.txt` in AdSense
+3. Request review for `gradecalc.online`
+4. While waiting, keep publishing useful calculators/guides and building organic traffic
 
 **Expected Timeline:**
-- SSL certificate: 1-24 hours
-- AdSense application: 1-4 weeks
+- AdSense ads.txt refresh: a few days, sometimes longer on low-traffic sites
+- AdSense site review: 1-4 weeks
 - First $100 payout: 2-6 months (depending on traffic)
-
-Good luck with monetization! 🚀

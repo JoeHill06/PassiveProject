@@ -66,10 +66,6 @@ def how_much_exam_worth():
 def guides():
     return render_template('guides/index.html')
 
-@app.route('/guides/how-degree-classifications-work-uk.html')
-def guide_degree_classifications():
-    return render_template('guides/how-degree-classifications-work-uk.html')
-
 @app.route('/guides/how-to-get-a-first.html')
 def guide_get_first():
     return render_template('guides/how-to-get-a-first.html')
@@ -102,6 +98,10 @@ def guide_first_class_essay():
 @app.route('/about.html')
 def about():
     return render_template('about.html')
+
+@app.route('/editorial-policy.html')
+def editorial_policy():
+    return render_template('editorial-policy.html')
 
 @app.route('/privacy-policy.html')
 def privacy():

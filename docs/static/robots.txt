@@ -2,6 +2,8 @@
 
 User-agent: *
 Allow: /
+Allow: /ads.txt
+Allow: /sitemap.xml
 
 # Sitemap location
 Sitemap: https://gradecalc.online/sitemap.xml
